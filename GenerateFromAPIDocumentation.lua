@@ -265,3 +265,5 @@ for i,v in ipairs(EnumList) do
 	processTables(file, v)
 end
 file:close()
+
+print("Done!")

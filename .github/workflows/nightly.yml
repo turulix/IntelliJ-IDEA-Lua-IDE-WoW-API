@@ -1,24 +1,53 @@
+name: Nightly
 on:
   schedule:
     - cron: '0 0 * * *'
   workflow_dispatch:
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          sudo apt install lua5.1
-          sudo apt-get install lua-sec
-          sudo apt-get install lua-socket
+          sudo apt-get update
+          sudo apt-get install -y lua5.1 lua-sec lua-socket  
           mkdir work_dir
       - uses: actions/checkout@v4
         with:
-          path: work_dir
+          repository: 'Gethe/wow-ui-source'
+          path: work_dir/wow-ui-source
+          ref: 'live'
+
       - uses: actions/checkout@v4
         with:
-          repository: 'https://github.com/Gethe/wow-ui-source.git'
-          path: work_dir
-      - run: |
-          cd work_dir
-          ls
+          path: work_dir/IntelliJ-IDEA-Lua-IDE-WoW-API
+
+      - name: Generate API
+        run: |
+          cd work_dir/IntelliJ-IDEA-Lua-IDE-WoW-API
+          lua GenerateFromWikiDocumentation.lua
+          lua GenerateFromAPIDocumentation.lua
+          cd ../wow-ui-source
+          git log -1 --pretty=%B | cat | sed -r '/^\s*$/d' > ./version.txt
+
+      - name: Get build version
+        id: version
+        uses: andstor/file-reader-action@v1
+        with:
+          path: "./work_dir/wow-ui-source/version.txt"
+
+      - id: sanitize
+        name: Make version tag friendly
+        run: |
+          SanitizedVersion=$(echo "${{ steps.version.outputs.contents }}" | sed 's/ /-/g')
+          echo SanitizedVersion=$SanitizedVersion >> $GITHUB_OUTPUT
+
+      - name: Add & Commit
+        uses: EndBug/add-and-commit@latest
+        with:
+          message: ${{ steps.version.outputs.contents }}
+          default_author: github_actions
+          cwd: work_dir/IntelliJ-IDEA-Lua-IDE-WoW-API
+          tag: "${{ steps.sanitize.outputs.SanitizedVersion }}"
+          tag_push: '--force'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
