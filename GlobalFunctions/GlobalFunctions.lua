@@ -421,8 +421,8 @@ end
 --- Maps a BankButtonID to InventorySlotID.
 --- [https://warcraft.wiki.gg/wiki/API_BankButtonIDToInvSlotID]
 --- @param buttonID number @ bank item/bag ID.
---- @param isBag unknown @ 1 if buttonID is a bag, nil otherwise.  Same result as ContainerIDToInventoryID, except this one only works for bank bags and is more awkward to use.
---- @return unknown @ invSlot
+--- @param isBag number @ ? - if buttonID is a bag, nil otherwise.  Same result as ContainerIDToInventoryID, except this one only works for bank bags and is more awkward to use.
+--- @return number @ invSlot
 function BankButtonIDToInvSlotID(buttonID, isBag)
 end
 
@@ -545,7 +545,7 @@ end
 
 --- Returns true if the unit can be marked with a raid target icon.
 --- [https://warcraft.wiki.gg/wiki/API_CanBeRaidTarget]
---- @param unit string @ UnitId
+--- @param unit string @ UnitToken
 --- @return boolean @ canBeRaidTarget
 function CanBeRaidTarget(unit)
 end
@@ -843,7 +843,7 @@ end
 
 --- #nocombat - This cannot be called while in combat.Restricted since patch 4.0.1; Use /cancelaura Buff Name in macros, or SecureAuraHeaderTemplate if re-implementing buff frames.
 --- [https://warcraft.wiki.gg/wiki/API_CancelUnitBuff]
---- @param unit string @ UnitId - The unit to cancel the buff from, must be under the player's control.
+--- @param unit string @ UnitToken - The unit to cancel the buff from, must be under the player's control.
 --- @param buffIndex number @ index of the buff to cancel, ascending from 1.
 --- @param filter string @ any of combination of HELPFUL|HARMFUL|PLAYER|RAID|CANCELABLE|NOT_CANCELABLE.
 --- @return void
@@ -864,7 +864,7 @@ end
 --- #protected - This can only be called from secure code.The pet action type of SecureActionButtonTemplate can be used to call this function.
 --- [https://warcraft.wiki.gg/wiki/API_CastPetAction]
 --- @param index number @ pet action bar slot index, ascending from 1.
---- @param target string @ ? : UnitId - The unit to cast the action on; defaults to target.
+--- @param target string @ ? : UnitToken - The unit to cast the action on; defaults to target.
 --- @return void
 function CastPetAction(index, target)
 end
@@ -1676,7 +1676,7 @@ end
 --- Performs an emote.
 --- [https://warcraft.wiki.gg/wiki/API_DoEmote]
 --- @param token string @ EmoteToken - The emote to perform.
---- @param unit string @ ? : UnitId - Who the emote will be performed on. Defaults to the current target.
+--- @param unit string @ ? : UnitToken : - Who the emote will be performed on. Defaults to the current target.
 --- @param hold boolean @ ? - Supposedly holds the emote animation until canceled, like for the /read emote.
 --- @return boolean @ restricted
 function DoEmote(token, unit, hold)
@@ -1952,8 +1952,8 @@ end
 --- #nocombat - This cannot be called while in combat.
 --- [https://warcraft.wiki.gg/wiki/API_EditMacro]
 --- @param macroInfo number @ |string - The index or name of the macro to be edited. Index ranges from 1 to 120 for account-wide macros and 121 to 138 for character-specific.
---- @param name string @ The name to assign to the macro. The current UI imposes a 16-character limit. The existing name remains unchanged if this argument is nil.
---- @param icon number @ |string : FileID - The path to the icon texture to assign to the macro. The existing icon remains unchanged if this argument is nil.
+--- @param name string @ ? - The name to assign to the macro. The current UI imposes a 16-character limit. The existing name remains unchanged if this argument is nil.
+--- @param icon number @ |string? : FileID - The path to the icon texture to assign to the macro. The existing icon remains unchanged if this argument is nil.
 --- @param body string @ ? - The macro commands to be executed. If this string is longer than 255 characters, only the first 255 will be saved.
 --- @return number @ macroID
 function EditMacro(macroInfo, name, icon, body)
@@ -3684,10 +3684,10 @@ end
 
 --- Returns the quality of an equipped item.
 --- [https://warcraft.wiki.gg/wiki/API_GetInventoryItemQuality]
---- @param unitId string @ UnitId - The unit whose inventory is to be queried.
+--- @param unit string @ UnitId - The unit whose inventory is to be queried.
 --- @param invSlotId number @ InventorySlotId - The slot ID to be queried, obtained via GetInventorySlotInfo().
 --- @return unknown @ quality
-function GetInventoryItemQuality(unitId, invSlotId)
+function GetInventoryItemQuality(unit, invSlotId)
 end
 
 --- Returns the texture for an equipped item.
@@ -5137,9 +5137,9 @@ end
 --- @param talentID number @ Talent ID.
 --- @param specGroupIndex number @ ? - Index of active specialization group (GetActiveSpecGroup); if nil, the selected/available return values will always be false.
 --- @param isInspect boolean @ ? - If non-nil, returns information based on inspectedUnit.
---- @param inspectUnit unknown
+--- @param inspectedUnit string @ ? - Inspected unitId.
 --- @return number, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown @ talentID, name, icon, selected, available, spellID, unlocked, row, column, known, grantedByAura
-function GetPvpTalentInfoByID(talentID, specGroupIndex, isInspect, inspectUnit)
+function GetPvpTalentInfoByID(talentID, specGroupIndex, isInspect, inspectedUnit)
 end
 
 --- No documentation available.
@@ -5164,7 +5164,6 @@ end
 function GetQuestExpansion()
 end
 
---- Patch 6.0.2 (2014-10-14): Added.[1]
 --- [https://warcraft.wiki.gg/wiki/API_GetQuestFactionGroup]
 --- @param questID number @ Unique QuestID.
 --- @return number @ factionGroup
@@ -5813,7 +5812,7 @@ end
 --- @param specIndex number @ Index of the specialization to query, ascending from 1 to GetNumSpecializations().
 --- @param isInspect boolean @ ? - Whether to query specialization information for the inspected unit. Does not actually seem to work, you need to use GetInspectSpecialization() instead.
 --- @param isPet boolean @ ? - Whether to query specialization information for the player's pet.
---- @param inspectTarget string @ ? - The unit to request data for, when inspecting.
+--- @param inspectTarget string @ ? : UnitToken - The unit to request data for, when inspecting.
 --- @param sex number @ ? - Player's sex as returned by UnitSex()
 --- @return number, string, string, number, string, number @ id, name, description, icon, role, primaryStat
 function GetSpecializationInfo(specIndex, isInspect, isPet, inspectTarget, sex)
@@ -6026,9 +6025,9 @@ end
 --- @param tier number @ Talent tier from 1 to MAX_TALENT_TIERS
 --- @param specGroupIndex number @ Index of active specialization group (GetActiveSpecGroup)
 --- @param isInspect boolean @ ? - If non-nil, returns information based on inspectedUnit.
---- @param inspectedUnit string @ ? - Inspected unitId.
+--- @param inspectUnit string @ ? - Inspected unitId.
 --- @return boolean, number, number @ tierAvailable, selectedTalent, tierUnlockLevel
-function GetTalentTierInfo(tier, specGroupIndex, isInspect, inspectedUnit)
+function GetTalentTierInfo(tier, specGroupIndex, isInspect, inspectUnit)
 end
 
 --- No documentation available.
@@ -8319,9 +8318,9 @@ end
 
 --- #nocombat - This cannot be called while in combat.Restricted since patch 2.2
 --- [https://warcraft.wiki.gg/wiki/API_PickupMacro]
---- @param index_or_name unknown
+--- @param name number @ |string - The position or name (case insensitive) of the macro in the macro window, from left to right and top to bottom. Slots 1-120 are used for general macros, and 121-138 for character-specific macros.
 --- @return void
-function PickupMacro(index_or_name)
+function PickupMacro(name)
 end
 
 --- Places a merchant item onto the cursor. If the cursor already has an item, it will be sold.
@@ -9941,9 +9940,9 @@ end
 
 --- Returns true if the spell awaiting target selection can be cast on the unit.
 --- [https://warcraft.wiki.gg/wiki/API_SpellCanTargetUnit]
---- @param unitId string @ UnitId) - The unit to check.
+--- @param unit string @ UnitToken - The unit to check.
 --- @return boolean @ canTarget
-function SpellCanTargetUnit(unitId)
+function SpellCanTargetUnit(unit)
 end
 
 --- No documentation available.
@@ -9994,9 +9993,9 @@ end
 
 --- #protected - This can only be called from secure code.Use the target action type of SecureActionButtonTemplate.
 --- [https://warcraft.wiki.gg/wiki/API_SpellTargetUnit]
---- @param unitId string @ UnitId - The unit you wish to cast the spell on.
+--- @param unit string @ UnitToken - The unit you wish to cast the spell on.
 --- @return void
-function SpellTargetUnit(unitId)
+function SpellTargetUnit(unit)
 end
 
 --- Needs summary.
@@ -11994,11 +11993,11 @@ end
 
 --- Securely posthooks the specified function. The hook will be called with the same arguments after the original call is performed.
 --- [https://warcraft.wiki.gg/wiki/API_hooksecurefunc]
---- @param table unknown @ Optional Table - Table to hook the functionName key in; if omitted, defaults to the global table (_G).
+--- @param tbl table @ Table to hook the functionName key in; if omitted, defaults to the global table (_G).
 --- @param functionName string @ name of the function being hooked.
 --- @param hookfunc unknown @ function - your hook function.
 --- @return void
-function hooksecurefunc(table, functionName, hookfunc)
+function hooksecurefunc(tbl, functionName, hookfunc)
 end
 
 --- Returns an iterator triple that allows the Lua for loop to iterate over the array portion of a table.
