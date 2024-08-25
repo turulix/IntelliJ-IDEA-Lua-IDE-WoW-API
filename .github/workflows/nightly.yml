@@ -47,7 +47,7 @@ jobs:
           message: ${{ steps.version.outputs.contents }}
           default_author: github_actions
           cwd: work_dir/IntelliJ-IDEA-Lua-IDE-WoW-API
-          tag: "${{ steps.sanitize.outputs.SanitizedVersion }}"
+          tag: "${{ steps.sanitize.outputs.SanitizedVersion }} --force"
           tag_push: '--force'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
