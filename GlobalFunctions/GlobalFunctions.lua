@@ -5209,8 +5209,8 @@ end
 
 --- Returns a bunch of data about a quest reward choice from the quest log.
 --- [https://warcraft.wiki.gg/wiki/API_GetQuestLogChoiceInfo]
---- @param index unknown
---- @param questID unknown
+--- @param index number @ Index of a quest reward choice (between 1 and GetNumQuestLogChoices)
+--- @param questID number @ ?
 --- @return string, number, number, unknown, boolean, number @ itemName, itemTexture, quantity, quality, isUsable, itemID
 function GetQuestLogChoiceInfo(index, questID)
 end
@@ -5241,10 +5241,10 @@ end
 
 --- Returns info for a quest objective in the quest log.
 --- [https://warcraft.wiki.gg/wiki/API_GetQuestLogLeaderBoard]
---- @param i number @ Index of the quest objective to query, ascending from 1 to GetNumQuestLeaderBoards(questIndex).
---- @param questIndex unknown @ Optional Number - Index of the quest log entry to query, ascending from 1 to GetNumQuestLogEntries. If not provided or invalid, defaults to the currently selected quest (via SelectQuestLogEntry)
+--- @param objIndex number @ Index of the quest objective to query, ascending from 1 to GetNumQuestLeaderBoards(questIndex).
+--- @param questIndex number @ ? - Index of the quest log entry to query, ascending from 1 to GetNumQuestLogEntries. If not provided or invalid, defaults to the currently selected quest (via SelectQuestLogEntry)
 --- @return string, string, boolean @ description, objectiveType, isCompleted
-function GetQuestLogLeaderBoard(i, questIndex)
+function GetQuestLogLeaderBoard(objIndex, questIndex)
 end
 
 --- No documentation available.
@@ -5317,7 +5317,7 @@ end
 
 --- Returns the time left in seconds for the current quest.
 --- [https://warcraft.wiki.gg/wiki/API_GetQuestLogTimeLeft]
---- @return unknown @ timeLeft
+--- @return number @ timeLeft
 function GetQuestLogTimeLeft()
 end
 
@@ -5327,7 +5327,7 @@ end
 
 --- Returns information about a quest objective.
 --- [https://warcraft.wiki.gg/wiki/API_GetQuestObjectiveInfo]
---- @param questID number @ Unique identifier of the quest.
+--- @param questID number @ QuestID
 --- @param objectiveIndex number @ Index of the quest objective to query, ascending from 1 to GetNumQuestLeaderBoards(questIndex) or to numObjectives from GetTaskInfo(questID).
 --- @param displayComplete boolean @ Pass 'true' to return as if the objective were complete. You want false generally
 --- @return string, string, boolean, number, number @ text, objectiveType, finished, fulfilled, required
@@ -5356,7 +5356,7 @@ end
 
 --- Returns a quest's objective completion percentage.
 --- [https://warcraft.wiki.gg/wiki/API_GetQuestProgressBarPercent]
---- @param questID number @ Unique identifier of the quest.
+--- @param questID number @ QuestID
 --- @return number @ percent
 function GetQuestProgressBarPercent(questID)
 end
@@ -5497,7 +5497,6 @@ end
 function GetReleaseTimeRemaining()
 end
 
---- Arguments none
 --- [https://warcraft.wiki.gg/wiki/API_GetRepairAllCost]
 --- @return number, boolean @ repairAllCost, canRepair
 function GetRepairAllCost()
@@ -5607,10 +5606,10 @@ end
 function GetRunningMacroButton()
 end
 
---- Retrieves the SavedInstanceChatLink to a specific instance.
+--- Returns a hyperlink for a player's raid save.
 --- [https://warcraft.wiki.gg/wiki/API_GetSavedInstanceChatLink]
---- @param index unknown @ The index of the instance you want to query.
---- @return unknown @ link
+--- @param index number @ The index of the instance you want to query.
+--- @return string @ instanceChatLink
 function GetSavedInstanceChatLink(index)
 end
 
@@ -5638,7 +5637,7 @@ end
 
 --- Returns an ordered list of all available scenario IDs.
 --- [https://warcraft.wiki.gg/wiki/API_GetScenariosChoiceOrder]
---- @param allScenarios table @ If provided, this table will be wiped and populated with return values; otherwise, a new table will be created for the return value.
+--- @param allScenarios table @ ? - If provided, this table will be wiped and populated with return values; otherwise, a new table will be created for the return value.
 --- @return table @ allScenarios
 function GetScenariosChoiceOrder(allScenarios)
 end
@@ -5690,14 +5689,14 @@ end
 --- Returns info for an item attached in the outgoing message.
 --- [https://warcraft.wiki.gg/wiki/API_GetSendMailItem]
 --- @param index number @ The index of the attachment to query, in the range of [1,ATTACHMENTS_MAX_SEND]
---- @return string, number, string, number, number @ name, itemID, texture, count, quality
+--- @return string, number, number, number, unknown @ name, itemID, texture, count, quality
 function GetSendMailItem(index)
 end
 
 --- Returns the item link of an item attached in the outgoing message.
 --- [https://warcraft.wiki.gg/wiki/API_GetSendMailItemLink]
 --- @param attachment number @ The index of the attachment to query, in the range of [1,ATTACHMENTS_MAX_SEND]
---- @return unknown @ itemLink
+--- @return string @ itemLink
 function GetSendMailItemLink(attachment)
 end
 
@@ -5739,7 +5738,7 @@ end
 --- Returns cooldown information for a specified form.
 --- [https://warcraft.wiki.gg/wiki/API_GetShapeshiftFormCooldown]
 --- @param index number @ Index of the desired form
---- @return number, number, boolean @ startTime, duration, isActive
+--- @return number, number, number @ startTime, duration, isActive
 function GetShapeshiftFormCooldown(index)
 end
 
@@ -5776,7 +5775,7 @@ end
 
 --- Returns info for the item currently being socketed.
 --- [https://warcraft.wiki.gg/wiki/API_GetSocketItemInfo]
---- @return string, string, number @ itemName, iconPathName, itemQuality
+--- @return string, number, unknown @ name, icon, quality
 function GetSocketItemInfo()
 end
 
@@ -5788,8 +5787,9 @@ end
 
 --- Returns the type (color) of a socket in the item.
 --- [https://warcraft.wiki.gg/wiki/API_GetSocketTypes]
---- @return void
-function GetSocketTypes()
+--- @param index number @ Index between 1 and GetNumSockets
+--- @return string @ gemColor
+function GetSocketTypes(index)
 end
 
 --- Returns the number of sound entries a sound kit contains.
@@ -5851,7 +5851,7 @@ end
 --- @param specIndex number @ The index of the specialization to query (1, 2, 3, 4) (Druids have four specializations)
 --- @param isInspect boolean @ ? - Reserved. Must be nil
 --- @param isPet boolean @ ? - Reserved. Must be nil
---- @return unknown @ spellID
+--- @return number, number @ masterySpell, masterySpell2
 function GetSpecializationMasterySpells(specIndex, isInspect, isPet)
 end
 
@@ -5866,8 +5866,8 @@ end
 --- Returns the role a specialization is intended to perform.
 --- [https://warcraft.wiki.gg/wiki/API_GetSpecializationRole]
 --- @param specIndex number @ Specialization index, ascending from 1.
---- @param isInspect unknown
---- @param isPet unknown
+--- @param isInspect boolean @ ?
+--- @param isPet boolean @ ?
 --- @return string @ roleToken
 function GetSpecializationRole(specIndex, isInspect, isPet)
 end
@@ -5890,8 +5890,8 @@ end
 --- Returns the spells learned as part of the specified specialization.
 --- [https://warcraft.wiki.gg/wiki/API_GetSpecializationSpells]
 --- @param specIndex number @ index of the specialization to query, integer ascending from 1.
---- @param isInspect boolean @ a truthy value to query information about the inspected unit; player information is returned otherwise.
---- @param isPet boolean @ a truthy value to query information about a pet specialization; player information is returned otherwise.
+--- @param isInspect boolean @ ? - a truthy value to query information about the inspected unit; player information is returned otherwise.
+--- @param isPet boolean @ ? - a truthy value to query information about a pet specialization; player information is returned otherwise.
 --- @return unknown, unknown, unknown, unknown, unknown @ spellID1, level1, spellID2, level2, ...
 function GetSpecializationSpells(specIndex, isInspect, isPet)
 end
@@ -6041,7 +6041,7 @@ end
 
 --- Returns the amount of money in the trade window for the other player.
 --- [https://warcraft.wiki.gg/wiki/API_GetTargetTradeMoney]
---- @return string @ targetTradeMoney
+--- @return number @ amount
 function GetTargetTradeMoney()
 end
 
@@ -6158,11 +6158,11 @@ end
 function GetTradePlayerItemInfo(id)
 end
 
---- Returns the item link for an item in the trade window. chatItemLink = GetTradePlayerItemLink(ID);
+--- Returns the item link for an item in the trade window.
 --- [https://warcraft.wiki.gg/wiki/API_GetTradePlayerItemLink]
---- @param i unknown
---- @return string @ chatItemLink
-function GetTradePlayerItemLink(i)
+--- @param index number @ index value of your character's trade slots. Starts at 1 and proceeds to 7 (MAX_TRADE_ITEMS). 7 may be used for the will-not-be-traded-slot.
+--- @return string @ itemLink
+function GetTradePlayerItemLink(index)
 end
 
 --- Returns item info for the other player in the trade window.
@@ -6172,10 +6172,11 @@ end
 function GetTradeTargetItemInfo(index)
 end
 
---- Returns the item link for an item from the other player in the trade window.
+--- Returns a hyperlink for an item offered for trade by the target.
 --- [https://warcraft.wiki.gg/wiki/API_GetTradeTargetItemLink]
---- @return void
-function GetTradeTargetItemLink()
+--- @param index number
+--- @return string @ itemLink
+function GetTradeTargetItemLink(index)
 end
 
 --- Returns the trainer's greeting text.
@@ -6200,8 +6201,8 @@ end
 
 --- Returns the cost of the specified trainer service.
 --- [https://warcraft.wiki.gg/wiki/API_GetTrainerServiceCost]
---- @param index unknown @ The index number of a specific trainer service.
---- @return unknown, unknown, unknown @ moneyCost, talentCost, professionCost
+--- @param index number @ The index number of a specific trainer service.
+--- @return number, number, number @ serviceCost, talentCost, professionCost
 function GetTrainerServiceCost(index)
 end
 
@@ -6214,16 +6215,16 @@ end
 
 --- Returns the icon texture for a specific trainer service.
 --- [https://warcraft.wiki.gg/wiki/API_GetTrainerServiceIcon]
---- @param id unknown @ Index of the trainer service to retrieve information about. Note that indices are affected by the trainer filter. (See GetTrainerServiceTypeFilter and SetTrainerServiceTypeFilter.)
---- @return unknown @ icon
-function GetTrainerServiceIcon(id)
+--- @param index number @ Index of the trainer service to retrieve information about. Note that indices are affected by the trainer filter. (See GetTrainerServiceTypeFilter and SetTrainerServiceTypeFilter.)
+--- @return number @ icon
+function GetTrainerServiceIcon(index)
 end
 
 --- Returns information about a trainer service.
 --- [https://warcraft.wiki.gg/wiki/API_GetTrainerServiceInfo]
---- @param id unknown @ Index of the trainer service to retrieve information about. Note that indices are affected by the trainer filter. (See GetTrainerServiceTypeFilter and SetTrainerServiceTypeFilter.)
---- @return unknown, unknown, unknown, unknown @ name, rank, category, expanded
-function GetTrainerServiceInfo(id)
+--- @param index number @ Index of the trainer service to retrieve information about. Note that indices are affected by the trainer filter. (See GetTrainerServiceTypeFilter and SetTrainerServiceTypeFilter.)
+--- @return string, string, string, number @ name, rank, category, expanded
+function GetTrainerServiceInfo(index)
 end
 
 --- Returns an item link for a trainer service.
@@ -6253,8 +6254,8 @@ end
 
 --- Returns the name of the required skill and the amount needed in that skill.
 --- [https://warcraft.wiki.gg/wiki/API_GetTrainerServiceSkillReq]
---- @param index unknown
---- @return unknown, unknown, unknown @ skillName, skillLevel, hasReq
+--- @param index number @ the number of the selection in the trainer window
+--- @return string, number, boolean @ skillName, skillLevel, hasReq
 function GetTrainerServiceSkillReq(index)
 end
 
@@ -6491,8 +6492,8 @@ function GetWebTicket()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetWorldElapsedTime]
---- @param timerID unknown @ Use by blizzard as self.timerID by WorldStateChallangeModeFrame
---- @return number, number, number @ unknown, elapsedTime, type
+--- @param timerID number
+--- @return string, number, number @ description, elapsedTime, type
 function GetWorldElapsedTime(timerID)
 end
 
@@ -6522,10 +6523,10 @@ end
 
 --- Assigns an item from the current loot window to a group member, when in Master Looter mode.
 --- [https://warcraft.wiki.gg/wiki/API_GiveMasterLoot]
---- @param li unknown
---- @param ci unknown
+--- @param slot number @ The index of the item you wish to assign. Should be between 1 and GetNumLootItems
+--- @param index number @ The index of the player you wish to receive the item. You can retreive candidate names with GetMasterLootCandidate
 --- @return void
-function GiveMasterLoot(li, ci)
+function GiveMasterLoot(slot, index)
 end
 
 --- No documentation available.
@@ -6538,7 +6539,7 @@ end
 
 --- Deletes a guild rank.
 --- [https://warcraft.wiki.gg/wiki/API_GuildControlDelRank]
---- @param index number @ must be between 1 and the value returned by GuildControlGetNumRanks().
+--- @param index number @ index between 1 and GuildControlGetNumRanks
 --- @return void
 function GuildControlDelRank(index)
 end
@@ -6557,8 +6558,8 @@ end
 
 --- Returns a guild rank name by index.
 --- [https://warcraft.wiki.gg/wiki/API_GuildControlGetRankName]
---- @param index number @ the rank index
---- @return void
+--- @param index number @ index between 1 and GuildControlGetNumRanks
+--- @return string @ rankName
 function GuildControlGetRankName(index)
 end
 
@@ -6592,7 +6593,7 @@ end
 function GuildControlShiftRankUp()
 end
 
---- Prints info for the guild the player belongs to.  Guild:    Guild created ,  players,  accounts
+--- Prints info for the guild the player belongs to.
 --- [https://warcraft.wiki.gg/wiki/API_GuildInfo]
 --- @return void
 function GuildInfo()
@@ -6612,18 +6613,18 @@ end
 
 --- Sets the officer note of a guild member.
 --- [https://warcraft.wiki.gg/wiki/API_GuildRosterSetOfficerNote]
---- @param index unknown @ The position a member is in the guild roster.  This can be found by counting from the top down to the member or by selecting the member and using the GetGuildRosterSelection() function.
---- @param Text unknown @ Text to be set to the officer note of the index.
+--- @param index number @ The position a member is in the guild roster. Between 1 and GetNumGuildMembers, or 0 for no selection.
+--- @param note string @ Text for the officer note.
 --- @return void
-function GuildRosterSetOfficerNote(index, Text)
+function GuildRosterSetOfficerNote(index, note)
 end
 
 --- Sets the public note of a guild member.
 --- [https://warcraft.wiki.gg/wiki/API_GuildRosterSetPublicNote]
---- @param index unknown @ The position a member is in the guild roster.  This can be found by counting from the top down to the member or by selecting the member and using the GetGuildRosterSelection() function.
---- @param Text unknown @ Text to be set to the public note of the index.
+--- @param index number @ The position a member is in the guild roster. Between 1 and GetNumGuildMembers, or 0 for no selection.
+--- @param note string @ Text to be set to the public note of the index.
 --- @return void
-function GuildRosterSetPublicNote(index, Text)
+function GuildRosterSetPublicNote(index, note)
 end
 
 --- No documentation available.
@@ -6751,7 +6752,7 @@ end
 
 --- Returns true if a wand is equipped.
 --- [https://warcraft.wiki.gg/wiki/API_HasWandEquipped]
---- @return void
+--- @return boolean @ wandEquipped
 function HasWandEquipped()
 end
 
@@ -6793,14 +6794,14 @@ end
 
 --- Returns true if the cursor is in repair mode.
 --- [https://warcraft.wiki.gg/wiki/API_InRepairMode]
---- @return unknown @ inRepairMode
+--- @return number @ inRepairMode
 function InRepairMode()
 end
 
 --- Returns true if a message can be deleted, false if it can be returned to sender.
 --- [https://warcraft.wiki.gg/wiki/API_InboxItemCanDelete]
 --- @param index number @ the index of the message (1 is the first message)
---- @return number @ canDelete
+--- @return boolean @ canDelete
 function InboxItemCanDelete(index)
 end
 
@@ -6890,7 +6891,7 @@ end
 --- Returns true if an action is the Auto Attack action.
 --- [https://warcraft.wiki.gg/wiki/API_IsAttackAction]
 --- @param actionSlot number @ The action slot to test.
---- @return number @ isAttack
+--- @return boolean @ isAttack
 function IsAttackAction(actionSlot)
 end
 
@@ -6953,8 +6954,8 @@ end
 
 --- Returns true if an action is a consumable, i.e. it has a count.
 --- [https://warcraft.wiki.gg/wiki/API_IsConsumableAction]
---- @param slotID unknown
---- @return unknown @ isTrue
+--- @param slotID number @ ActionSlot
+--- @return boolean @ isConsumable
 function IsConsumableAction(slotID)
 end
 
@@ -7047,9 +7048,9 @@ end
 function IsFalling(unit)
 end
 
---- This function is only for determining if the loot window is related to fishing.
+--- Returns true if the loot window is related to fishing.
 --- [https://warcraft.wiki.gg/wiki/API_IsFishingLoot]
---- @return void
+--- @return boolean @ isFishingLoot
 function IsFishingLoot()
 end
 
@@ -7074,10 +7075,10 @@ end
 
 --- Returns whether or not the unit with the given GUID is in your group.
 --- [https://warcraft.wiki.gg/wiki/API_IsGUIDInGroup]
---- @param UnitGUID unknown
+--- @param guid string @ WOWGUID
 --- @param groupType number @ ?
---- @return unknown @ inGroup
-function IsGUIDInGroup(UnitGUID, groupType)
+--- @return boolean @ inGroup
+function IsGUIDInGroup(guid, groupType)
 end
 
 --- No documentation available.
@@ -7157,7 +7158,7 @@ end
 
 --- Returns true if the player is in an LFD instance.
 --- [https://warcraft.wiki.gg/wiki/API_IsInLFGDungeon]
---- @return unknown @ isInLFDInstance
+--- @return boolean @ inLFGDungeon
 function IsInLFGDungeon()
 end
 
@@ -7318,7 +7319,7 @@ end
 
 --- Returns true if the player is currently in mouselook mode.
 --- [https://warcraft.wiki.gg/wiki/API_IsMouselooking]
---- @return void
+--- @return boolean @ isMouseLooking
 function IsMouselooking()
 end
 
@@ -7552,10 +7553,10 @@ end
 
 --- Returns whether a given spell is specific to a specialization and/or class.
 --- [https://warcraft.wiki.gg/wiki/API_IsSpellClassOrSpec]
---- @param spellName_or_spellIndex unknown
+--- @param spellIndex number @ spell book slot index, ascending from 1.
 --- @param bookType string @ spell book type, e.g. BOOKTYPE_SPELL (spell) for player's spell book.
 --- @return string, string @ spec, class
-function IsSpellClassOrSpec(spellName_or_spellIndex, bookType)
+function IsSpellClassOrSpec(spellIndex, bookType)
 end
 
 --- Returns whether the player (or pet) knows the given spell.
@@ -7636,7 +7637,7 @@ end
 
 --- Returns true if the training window is used for a profession trainer.
 --- [https://warcraft.wiki.gg/wiki/API_IsTradeskillTrainer]
---- @return unknown @ isTradeskillTrainer
+--- @return boolean @ isTradeskillTrainer
 function IsTradeskillTrainer()
 end
 
@@ -7762,7 +7763,7 @@ end
 
 --- Returns true if there is a page after the current page.
 --- [https://warcraft.wiki.gg/wiki/API_ItemTextHasNextPage]
---- @return number @ hasNext
+--- @return boolean @ hasNext
 function ItemTextHasNextPage()
 end
 
@@ -7814,7 +7815,7 @@ end
 --- @param channelName string @ The name of the channel to join. You can't use the - character in channelName (patch 1.9)
 --- @param password string @ ? - The channel password, nil if none.
 --- @param frameID number @ ? - The chat frame ID number to add the channel to. Use Frame:GetID() to retrieve it for chat frame objects.
---- @param hasVoice number @ ? - (1/nil) Enable voice chat for this channel.
+--- @param hasVoice boolean @ ? - Enable voice chat for this channel.
 --- @return number, string @ type, name
 function JoinPermanentChannel(channelName, password, frameID, hasVoice)
 end
@@ -7844,7 +7845,7 @@ end
 --- @param channelName string @ The name of the channel to join. You can't use the - character in channelName (patch 1.9)
 --- @param password string @ ? - The channel password, nil if none.
 --- @param frameID number @ ? - The chat frame ID number to add the channel to. Use Frame:GetID() to retrieve it for chat frame objects.
---- @param hasVoice number @ nil) Enable voice chat for this channel.
+--- @param hasVoice boolean @ ? - Enable voice chat for this channel.
 --- @return number, string @ type, name
 function JoinTemporaryChannel(channelName, password, frameID, hasVoice)
 end
@@ -7871,7 +7872,7 @@ end
 
 --- Learns the name of a specified pvp talent in a specified tab.
 --- [https://warcraft.wiki.gg/wiki/API_LearnPvpTalent]
---- @param talentID string @ Talent ID
+--- @param talentID number
 --- @param slotIndex number
 --- @return void
 function LearnPvpTalent(talentID, slotIndex)
@@ -7954,7 +7955,7 @@ end
 
 --- Gets or sets whether logging chat to Logs\WoWChatLog.txt is enabled.
 --- [https://warcraft.wiki.gg/wiki/API_LoggingChat]
---- @param newState boolean @ toggles chat logging
+--- @param newState boolean @ ? - toggles chat logging
 --- @return boolean @ isLogging
 function LoggingChat(newState)
 end
@@ -7978,7 +7979,7 @@ end
 
 --- Loots the specified slot; can require confirmation with ConfirmLootSlot.
 --- [https://warcraft.wiki.gg/wiki/API_LootSlot]
---- @param slot number @ the loot slot.
+--- @param slot number @ index between 1 and GetNumLootItems
 --- @return void
 function LootSlot(slot)
 end
@@ -8024,11 +8025,10 @@ end
 function MoveBackwardStart(startTime)
 end
 
---- #hwevent - This requires a hardware event i.e. keyboard/mouse input.
+--- #protected - This can only be called from secure code.#hwevent - This requires a hardware event i.e. keyboard/mouse input.
 --- [https://warcraft.wiki.gg/wiki/API_MoveBackwardStop]
---- @param startTime unknown
 --- @return void
-function MoveBackwardStop(startTime)
+function MoveBackwardStop()
 end
 
 --- #hwevent - This requires a hardware event i.e. keyboard/mouse input.
@@ -8038,11 +8038,10 @@ end
 function MoveForwardStart(startTime)
 end
 
---- #hwevent - This requires a hardware event i.e. keyboard/mouse input.
+--- #protected - This can only be called from secure code.#hwevent - This requires a hardware event i.e. keyboard/mouse input.
 --- [https://warcraft.wiki.gg/wiki/API_MoveForwardStop]
---- @param startTime unknown
 --- @return void
-function MoveForwardStop(startTime)
+function MoveForwardStop()
 end
 
 --- Starts rotating the camera downward.
@@ -8248,9 +8247,9 @@ end
 function PetFollow()
 end
 
---- Determine if player has a pet with an action bar.
+--- Returns true if player has a pet with an action bar.
 --- [https://warcraft.wiki.gg/wiki/API_PetHasActionBar]
---- @return number @ hasActionBar
+--- @return boolean @ hasActionBar
 function PetHasActionBar()
 end
 
@@ -8286,14 +8285,14 @@ end
 
 --- #nocombat - This cannot be called while in combat.Restricted since patch 2.2
 --- [https://warcraft.wiki.gg/wiki/API_PickupAction]
---- @param actionSlot number @ The action slot to pick the action up from.
+--- @param slot number @ The action slot to pick the action up from.
 --- @return void
-function PickupAction(actionSlot)
+function PickupAction(slot)
 end
 
 --- Picks up the bag from the specified slot, placing it in the cursor.
 --- [https://warcraft.wiki.gg/wiki/API_PickupBagFromSlot]
---- @param slot unknown @ InventorySlotID - the slot containing the bag.
+--- @param slot number @ InventorySlotID - the slot containing the bag.
 --- @return void
 function PickupBagFromSlot(slot)
 end
@@ -8389,9 +8388,9 @@ end
 
 --- Places an action onto into the specified action slot.
 --- [https://warcraft.wiki.gg/wiki/API_PlaceAction]
---- @param actionSlot number @ The action slot to place the action into.
+--- @param slot number @ The action slot to place the action into.
 --- @return void
-function PlaceAction(actionSlot)
+function PlaceAction(slot)
 end
 
 --- No documentation available.
@@ -8499,9 +8498,10 @@ end
 
 --- Promotes a unit to group leader.
 --- [https://warcraft.wiki.gg/wiki/API_PromoteToLeader]
---- @param unitId_or_playerName unknown
+--- @param name string
+--- @param exactmatch boolean
 --- @return void
-function PromoteToLeader(unitId_or_playerName)
+function PromoteToLeader(name, exactmatch)
 end
 
 --- No documentation available.
@@ -8557,7 +8557,7 @@ end
 
 --- Returns whether the last-offered quest was automatically accepted.
 --- [https://warcraft.wiki.gg/wiki/API_QuestGetAutoAccept]
---- @return unknown @ isAutoAccepted
+--- @return boolean @ isAutoAccepted
 function QuestGetAutoAccept()
 end
 
@@ -8934,9 +8934,9 @@ end
 
 --- #protected - This can only be called from secure code.Use the macro action type of SecureActionButtonTemplate.
 --- [https://warcraft.wiki.gg/wiki/API_RunMacro]
---- @param macroID_or_macroName unknown
+--- @param name number @ |string - the position or name of the macro. Starting at the top left macro with 1, counting from left to right and top to bottom. The IDs of the first page (all characters) range from 1-36, the second page 37-54.
 --- @return void
-function RunMacro(macroID_or_macroName)
+function RunMacro(name)
 end
 
 --- Executes a string of Lua code.
@@ -9098,13 +9098,16 @@ end
 
 --- Sets the visible state for each action bar.
 --- [https://warcraft.wiki.gg/wiki/API_SetActionBarToggles]
---- @param bottomLeftState number @ if the left-hand bottom action bar is to be shown, 0 or nil otherwise.
---- @param bottomRightState number @ if the right-hand bottom action bar is to be shown, 0 or nil otherwise.
---- @param sideRightState number @ if the first (outer) right side action bar is to be shown, 0 or nil otherwise.
---- @param sideRight2State number @ if the second (inner) right side action bar is to be shown, 0 or nil otherwise.
---- @param alwaysShow number @ if the bars are always shown, 0 or nil otherwise.
+--- @param bar1 boolean @ true if the left-hand bottom action bar is to be shown, false otherwise.
+--- @param bar2 boolean @ true if the right-hand bottom action bar is to be shown, false otherwise.
+--- @param bar3 boolean @ true if the first (outer) right side action bar is to be shown, false otherwise.
+--- @param bar4 boolean @ true if the second (inner) right side action bar is to be shown, false otherwise.
+--- @param bar5 boolean
+--- @param bar6 boolean
+--- @param bar7 boolean
+--- @param alwaysShow string @ true if the bars are always shown, false otherwise.
 --- @return void
-function SetActionBarToggles(bottomLeftState, bottomRightState, sideRightState, sideRight2State, alwaysShow)
+function SetActionBarToggles(bar1, bar2, bar3, bar4, bar5, bar6, bar7, alwaysShow)
 end
 
 --- No documentation available.
@@ -9172,9 +9175,9 @@ end
 --- #nocombat - This cannot be called while in combat.Restricted since patch 2.0; Snippets executed by SecureHandlers may alter [override] bindings in-combat.
 --- [https://warcraft.wiki.gg/wiki/API_SetBindingMacro]
 --- @param key string @ Any binding string accepted by World of Warcraft. For example: ALT-CTRL-F, SHIFT-T, W, BUTTON4.
---- @param macroName_or_macroId unknown
---- @return boolean @ ok
-function SetBindingMacro(key, macroName_or_macroId)
+--- @param name number @ |string - Id or name of the macro you wish to execute.
+--- @return boolean @ success
+function SetBindingMacro(key, name)
 end
 
 --- #nocombat - This cannot be called while in combat.Restricted since patch 2.0; Snippets executed by SecureHandlers may alter [override] bindings in-combat.
@@ -9194,8 +9197,8 @@ end
 
 --- Sets the channel owner.
 --- [https://warcraft.wiki.gg/wiki/API_SetChannelOwner]
---- @param channel unknown @ channel name to be changed
---- @param newowner unknown @ the new owner of the channel
+--- @param channel string @ channel name to be changed
+--- @param newowner string @ the new owner of the channel
 --- @return void
 function SetChannelOwner(channel, newowner)
 end
@@ -9203,7 +9206,7 @@ end
 --- Changes the password of the current channel.
 --- [https://warcraft.wiki.gg/wiki/API_SetChannelPassword]
 --- @param channelName string @ The name of the channel.
---- @param password any @ The password to assign to the channel.
+--- @param password string @ The password to assign to the channel.
 --- @return void
 function SetChannelPassword(channelName, password)
 end
@@ -9379,7 +9382,7 @@ end
 
 --- Sets the guild info text.
 --- [https://warcraft.wiki.gg/wiki/API_SetGuildInfoText]
---- @param text unknown
+--- @param text string @ The text to set as the guild info.
 --- @return void
 function SetGuildInfoText(text)
 end
@@ -9394,7 +9397,7 @@ end
 
 --- Selects a guild member in the roster.
 --- [https://warcraft.wiki.gg/wiki/API_SetGuildRosterSelection]
---- @param index unknown
+--- @param index number @ The index of the current selected guild member in the guild roster or 0 to clear selection.
 --- @return void
 function SetGuildRosterSelection(index)
 end
@@ -9427,7 +9430,7 @@ end
 
 --- Sets the comment in the LFG browser.
 --- [https://warcraft.wiki.gg/wiki/API_SetLFGComment]
---- @param comment unknown
+--- @param comment string @ The comment you want to use in the LFG interface
 --- @return void
 function SetLFGComment(comment)
 end
@@ -9459,10 +9462,10 @@ end
 --- Set the current loot method.
 --- [https://warcraft.wiki.gg/wiki/API_SetLootMethod]
 --- @param method string @ Any one of the following self-explanatory and case insensitive arguments:
---- @param PlayerName unknown
---- @param threshold number @ The loot quality to start using the current loot method with.
+--- @param playerName string @ Any valid player name that is in group or raid, only used if first argument is master
+--- @param threshold unknown @ Enum.ItemQuality🔗 - The loot quality to start using the current loot method with.
 --- @return void
-function SetLootMethod(method, PlayerName, threshold)
+function SetLootMethod(method, playerName, threshold)
 end
 
 --- No documentation available.
@@ -9489,11 +9492,11 @@ end
 
 --- Changes the spell used for dynamic feedback for a macro.
 --- [https://warcraft.wiki.gg/wiki/API_SetMacroSpell]
---- @param index number @ Index of the macro, using the values 1-36 for the first page and 37-54 for the second.
+--- @param name number @ |string - Index of the macro, using the values 1-36 for the first page and 37-54 for the second; or the name of the macro.
 --- @param spell string @ Localized name of a spell to assign.
---- @param target string @ UnitId - The unit to assign (for range indication).
+--- @param target string @ UnitToken - The unit to assign (for range indication).
 --- @return void
-function SetMacroSpell(index, spell, target)
+function SetMacroSpell(name, spell, target)
 end
 
 --- No documentation available.
@@ -9535,28 +9538,28 @@ end
 
 --- #nocombat - This cannot be called while in combat.Restricted since patch 2.0
 --- [https://warcraft.wiki.gg/wiki/API_SetOverrideBinding]
---- @param owner Frame @ The frame this binding belongs to; this can later be used to clear all override bindings belonging to a particular frame.
+--- @param owner Frame @ 🔗 - The frame this binding belongs to; this can later be used to clear all override bindings belonging to a particular frame.
 --- @param isPriority boolean @ true if this is a priority binding, false otherwise. Both types of override bindings take precedence over normal bindings.
 --- @param key string @ Binding to bind the command to. For example, Q, ALT-Q, ALT-CTRL-SHIFT-Q, BUTTON5
---- @param command string @ nil - Any name attribute value of a Bindings.xml-defined binding, or an action command string; nil to remove an override binding. For example:
+--- @param command string @ Any name attribute value of a Bindings.xml-defined binding, or an action command string; nil to remove an override binding. For example:
 --- @return void
 function SetOverrideBinding(owner, isPriority, key, command)
 end
 
 --- #nocombat - This cannot be called while in combat.Restricted since patch 2.0
 --- [https://warcraft.wiki.gg/wiki/API_SetOverrideBindingClick]
---- @param owner Frame @ The frame this binding belongs to; this can later be used to clear all override bindings belonging to a particular frame.
+--- @param owner Frame @ 🔗 - The frame this binding belongs to; this can later be used to clear all override bindings belonging to a particular frame.
 --- @param isPriority boolean @ true if this is a priority binding, false otherwise. Both types of override bindings take precedence over normal bindings.
 --- @param key string @ Binding to bind the command to. For example, Q, ALT-Q, ALT-CTRL-SHIFT-Q, BUTTON5
 --- @param buttonName string @ Name of the button widget this binding should fire a click event for.
---- @param mouseClick string @ Mouse button name argument passed to the OnClick handlers.
+--- @param mouseClick string @ ? - Mouse button name argument passed to the OnClick handlers.
 --- @return void
 function SetOverrideBindingClick(owner, isPriority, key, buttonName, mouseClick)
 end
 
 --- #nocombat - This cannot be called while in combat.Restricted since patch 2.0
 --- [https://warcraft.wiki.gg/wiki/API_SetOverrideBindingItem]
---- @param owner Frame @ The frame this binding belongs to; this can later be used to clear all override bindings belonging to a particular frame.
+--- @param owner Frame @ 🔗 - The frame this binding belongs to; this can later be used to clear all override bindings belonging to a particular frame.
 --- @param isPriority boolean @ true if this is a priority binding, false otherwise. Both types of override bindings take precedence over normal bindings.
 --- @param key string @ Binding to bind the command to. For example, Q, ALT-Q, ALT-CTRL-SHIFT-Q, BUTTON5
 --- @param item string @ Name or item link of the item to use when binding is triggered.
@@ -9566,7 +9569,7 @@ end
 
 --- #nocombat - This cannot be called while in combat.Restricted since patch 2.0
 --- [https://warcraft.wiki.gg/wiki/API_SetOverrideBindingMacro]
---- @param owner Frame @ The frame this binding belongs to; this can later be used to clear all override bindings belonging to a particular frame.
+--- @param owner Frame @ 🔗 - The frame this binding belongs to; this can later be used to clear all override bindings belonging to a particular frame.
 --- @param isPriority boolean @ true if this is a priority binding, false otherwise. Both types of override bindings take precedence over normal bindings.
 --- @param key string @ Binding to bind the command to. For example, Q, ALT-Q, ALT-CTRL-SHIFT-Q, BUTTON5
 --- @param macro string @ Name or index of the macro to run.
@@ -9576,7 +9579,7 @@ end
 
 --- #nocombat - This cannot be called while in combat.Restricted since patch 2.0
 --- [https://warcraft.wiki.gg/wiki/API_SetOverrideBindingSpell]
---- @param owner Frame @ The frame this binding belongs to; this can later be used to clear all override bindings belonging to a particular frame.
+--- @param owner Frame @ 🔗 - The frame this binding belongs to; this can later be used to clear all override bindings belonging to a particular frame.
 --- @param isPriority boolean @ true if this is a priority binding, false otherwise. Both types of override bindings take precedence over normal bindings.
 --- @param key string @ Binding to bind the command to. For example, Q, ALT-Q, ALT-CTRL-SHIFT-Q, BUTTON5
 --- @param spell string @ Name of the spell you want to cast when this binding is triggered.
@@ -9647,8 +9650,8 @@ end
 
 --- #nocombat - This cannot be called while in combat.Restricted since patch 4.0.1
 --- [https://warcraft.wiki.gg/wiki/API_SetRaidSubgroup]
---- @param index unknown
---- @param subgroup unknown
+--- @param index number @ ID of raidmember (1 .. MAX_RAID_MEMBERS)
+--- @param subgroup number @ raid subgroup number (1 .. 8)
 --- @return void
 function SetRaidSubgroup(index, subgroup)
 end
@@ -9671,9 +9674,10 @@ end
 
 --- Sets the selected artifact to an archaeology race.
 --- [https://warcraft.wiki.gg/wiki/API_SetSelectedArtifact]
---- @param raceIndex unknown @ int - Index of the race to select.
+--- @param raceIndex number @ Index of the race to select.
+--- @param index number @ ?
 --- @return void
-function SetSelectedArtifact(raceIndex)
+function SetSelectedArtifact(raceIndex, index)
 end
 
 --- No documentation available.
@@ -9740,10 +9744,10 @@ end
 --- Sets the status of a skill filter in the trainer window.
 --- [https://warcraft.wiki.gg/wiki/API_SetTrainerServiceTypeFilter]
 --- @param type string @ filter to set the status for:
---- @param status number @ to show, 0 to hide items matching the specified filter. (Note that this is likely a bug as GetTrainerServiceTypeFilter returns a boolean now.)
---- @param exclusive unknown @ ? - ?
+--- @param enable boolean @ true to show, false to hide items matching the specified filter.
+--- @param exclusive boolean
 --- @return void
-function SetTrainerServiceTypeFilter(type, status, exclusive)
+function SetTrainerServiceTypeFilter(type, enable, exclusive)
 end
 
 --- #protected - This can only be called from secure code.
@@ -9866,9 +9870,9 @@ end
 
 --- Sorts the guild roster on a certain column.
 --- [https://warcraft.wiki.gg/wiki/API_SortGuildRoster]
---- @param level unknown
+--- @param sortType string @ The column for sorting. Chose from: {name, rank, note, online, zone, level,  class}
 --- @return void
-function SortGuildRoster(level)
+function SortGuildRoster(sortType)
 end
 
 --- No documentation available.
@@ -10091,32 +10095,28 @@ end
 function StoreSecureReference()
 end
 
---- #hwevent - This requires a hardware event i.e. keyboard/mouse input.
+--- #protected - This can only be called from secure code.#hwevent - This requires a hardware event i.e. keyboard/mouse input.
 --- [https://warcraft.wiki.gg/wiki/API_StrafeLeftStart]
---- @param startTime unknown @ Begin strafing left at this time.
 --- @return void
-function StrafeLeftStart(startTime)
+function StrafeLeftStart()
 end
 
---- #hwevent - This requires a hardware event i.e. keyboard/mouse input.
+--- #protected - This can only be called from secure code.#hwevent - This requires a hardware event i.e. keyboard/mouse input.
 --- [https://warcraft.wiki.gg/wiki/API_StrafeLeftStop]
---- @param startTime unknown
 --- @return void
-function StrafeLeftStop(startTime)
+function StrafeLeftStop()
 end
 
---- #hwevent - This requires a hardware event i.e. keyboard/mouse input.
+--- #protected - This can only be called from secure code.#hwevent - This requires a hardware event i.e. keyboard/mouse input.
 --- [https://warcraft.wiki.gg/wiki/API_StrafeRightStart]
---- @param startTime number @ Begin strafing right at this time, per GetTime * 1000.
 --- @return void
-function StrafeRightStart(startTime)
+function StrafeRightStart()
 end
 
---- #hwevent - This requires a hardware event i.e. keyboard/mouse input.
+--- #protected - This can only be called from secure code.#hwevent - This requires a hardware event i.e. keyboard/mouse input.
 --- [https://warcraft.wiki.gg/wiki/API_StrafeRightStop]
---- @param startTime unknown
 --- @return void
-function StrafeRightStop(startTime)
+function StrafeRightStop()
 end
 
 --- Strips text of UI escape sequence markup.
