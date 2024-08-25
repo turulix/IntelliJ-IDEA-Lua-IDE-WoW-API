@@ -32,7 +32,7 @@ jobs:
       - name: Get build version
         id: version
         run: |
-          echo Version="$(cat "./work_dir/wow-ui-source/version.txt")"
+          echo Version="$(cat "./work_dir/wow-ui-source/version.txt")" >> $GITHUB_OUTPUT
 
       - id: sanitize
         name: Make version tag friendly
