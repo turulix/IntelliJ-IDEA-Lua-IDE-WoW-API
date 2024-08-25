@@ -9782,7 +9782,7 @@ end
 
 --- Sizes a frame to take up the entire screen regardless of screen resolution.
 --- [https://warcraft.wiki.gg/wiki/API_SetupFullscreenScale]
---- @param frame unknown @ The frame to manipulate.
+--- @param frame Frame @ 🔗 - The frame to manipulate.
 --- @return void
 function SetupFullscreenScale(frame)
 end
@@ -10170,10 +10170,10 @@ end
 
 --- Takes the attached item from the mailbox message.
 --- [https://warcraft.wiki.gg/wiki/API_TakeInboxItem]
---- @param index unknown
---- @param itemIndex unknown
+--- @param messageIndex number @ the index of the mailbox message you want to take the item attachment from.
+--- @param attachIndex number @ The index of the item to take (1-ATTACHMENTS_MAX_RECEIVE(16))
 --- @return void
-function TakeInboxItem(index, itemIndex)
+function TakeInboxItem(messageIndex, attachIndex)
 end
 
 --- Take the attached money from the mailbox message at index.
@@ -10319,16 +10319,16 @@ end
 
 --- Returns the horizontal position of the destination node of a given route to the destination.
 --- [https://warcraft.wiki.gg/wiki/API_TaxiGetDestX]
---- @param destinationIndex number @ The final destination taxi node.
---- @param routeIndex number @ The index of the route to get the source from.
+--- @param destinationIndex number @ ? - The final destination taxi node.
+--- @param routeIndex number @ ? - The index of the route to get the source from.
 --- @return number @ dX
 function TaxiGetDestX(destinationIndex, routeIndex)
 end
 
 --- Returns the vertical position of the destination node of a given route to the destination.
 --- [https://warcraft.wiki.gg/wiki/API_TaxiGetDestY]
---- @param destinationIndex number @ The final destination taxi node.
---- @param routeIndex number @ The index of the route to get the source from.
+--- @param destinationIndex number @ ? - The final destination taxi node.
+--- @param routeIndex number @ ? - The index of the route to get the source from.
 --- @return number @ dY
 function TaxiGetDestY(destinationIndex, routeIndex)
 end
@@ -10339,16 +10339,16 @@ end
 
 --- Returns the horizontal position of the source node of a given route to the destination.
 --- [https://warcraft.wiki.gg/wiki/API_TaxiGetSrcX]
---- @param destinationIndex number @ The final destination taxi node.
---- @param routeIndex number @ The index of the route to get the source from.
+--- @param destinationIndex number @ ? - The final destination taxi node.
+--- @param routeIndex number @ ? - The index of the route to get the source from.
 --- @return number @ sX
 function TaxiGetSrcX(destinationIndex, routeIndex)
 end
 
 --- Returns the vertical position of the source node of a given route to the destination.
 --- [https://warcraft.wiki.gg/wiki/API_TaxiGetSrcY]
---- @param destinationIndex number @ The final destination taxi node.
---- @param routeIndex number @ The index of the route to get the source from.
+--- @param destinationIndex number @ ? - The final destination taxi node.
+--- @param routeIndex number @ ? - The index of the route to get the source from.
 --- @return number @ sY
 function TaxiGetSrcY(destinationIndex, routeIndex)
 end
@@ -10380,8 +10380,8 @@ end
 
 --- Returns the position of a flight point on the taxi map.
 --- [https://warcraft.wiki.gg/wiki/API_TaxiNodePosition]
---- @param index unknown
---- @return unknown, unknown @ x, y
+--- @param index number @ index of a flight point between 1 and NumTaxiNodes()
+--- @return number, number @ x, y
 function TaxiNodePosition(index)
 end
 
@@ -10405,11 +10405,10 @@ end
 function TogglePetAutocast()
 end
 
---- #hwevent - This requires a hardware event i.e. keyboard/mouse input.
+--- #protected - This can only be called from secure code.#hwevent - This requires a hardware event i.e. keyboard/mouse input.
 --- [https://warcraft.wiki.gg/wiki/API_ToggleRun]
---- @param theTime unknown @ Toggle between running and walking at the specified time, per GetTime * 1000.
 --- @return void
-function ToggleRun(theTime)
+function ToggleRun()
 end
 
 --- Needs summary.
@@ -10445,9 +10444,8 @@ end
 
 --- #hwevent - This requires a hardware event i.e. keyboard/mouse input.
 --- [https://warcraft.wiki.gg/wiki/API_TurnLeftStop]
---- @param stopTime unknown @ Stop turning left at this time, per GetTime * 1000.
 --- @return void
-function TurnLeftStop(stopTime)
+function TurnLeftStop()
 end
 
 --- #protected - This can only be called from secure code.
@@ -10469,11 +10467,10 @@ end
 function TurnRightStart(startTime)
 end
 
---- #hwevent - This requires a hardware event i.e. keyboard/mouse input.
+--- #protected - This can only be called from secure code.#hwevent - This requires a hardware event i.e. keyboard/mouse input.
 --- [https://warcraft.wiki.gg/wiki/API_TurnRightStop]
---- @param startTime unknown
 --- @return void
-function TurnRightStop(startTime)
+function TurnRightStop()
 end
 
 --- #hwevent - This requires a hardware event i.e. keyboard/mouse input.
@@ -10744,9 +10741,9 @@ end
 
 --- Returns true if the unit is currently being resurrected.
 --- [https://warcraft.wiki.gg/wiki/API_UnitHasIncomingResurrection]
---- @param unitID_or_UnitName unknown
+--- @param unit string @ UnitToken - either the unitID (player, target, party3, etc) or unit's name (Bob or Bob-Llane)
 --- @return boolean @ isBeingResurrected
-function UnitHasIncomingResurrection(unitID_or_UnitName)
+function UnitHasIncomingResurrection(unit)
 end
 
 --- Returns whether the unit is currently unable to use the dungeon finder due to leaving a group prematurely.
@@ -11616,17 +11613,17 @@ end
 --- #protected - This can only be called from secure code.Use the action type of the SecureActionButtonTemplate.
 --- [https://warcraft.wiki.gg/wiki/API_UseAction]
 --- @param slot number @ The action action slot to use.
---- @param checkCursor number @ optional) - Can be 0, 1, or nil. Appears to indicate whether the action button was clicked (1) or used via hotkey (0); probably involved in placing skills/items in the action bar after they've been picked up.  I can confirm this.  If you pass 0 for checkCursor, it will use the action regardless of whether another item/skill is on the cursor.  If you pass 1 for checkCursor, it will replace the spell/action on the slot with the new one.
---- @param onSelf number @ optional) - Can be 0, 1, or nil. If present and 1, then the action is performed on the player, not the target.  If true is passed instead of 1, Blizzard produces a Lua error.
+--- @param checkCursor number @ ? - Can be 0, 1, or nil. Appears to indicate whether the action button was clicked (1) or used via hotkey (0); probably involved in placing skills/items in the action bar after they've been picked up.  I can confirm this.  If you pass 0 for checkCursor, it will use the action regardless of whether another item/skill is on the cursor.  If you pass 1 for checkCursor, it will replace the spell/action on the slot with the new one.
+--- @param onSelf number @ ? - Can be 0, 1, or nil. If present and 1, then the action is performed on the player, not the target.  If true is passed instead of 1, Blizzard produces a Lua error.
 --- @return void
 function UseAction(slot, checkCursor, onSelf)
 end
 
---- Use an item in a specific inventory slot.
+--- #hwevent - This requires a hardware event i.e. keyboard/mouse input.
 --- [https://warcraft.wiki.gg/wiki/API_UseInventoryItem]
---- @param slotID unknown @ The inventory slot ID
+--- @param slot number @ The inventory slot ID
 --- @return void
-function UseInventoryItem(slotID)
+function UseInventoryItem(slot)
 end
 
 --- No documentation available.
