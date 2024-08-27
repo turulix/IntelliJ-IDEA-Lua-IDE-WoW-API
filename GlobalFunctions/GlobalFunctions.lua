@@ -4933,8 +4933,8 @@ end
 --- Returns true if a group member is assigned the main tank/assist role.
 --- [https://warcraft.wiki.gg/wiki/API_GetPartyAssignment]
 --- @param assignment string @ The role to search, either MAINTANK or MAINASSIST (not case-sensitive).
---- @param raidmember string @ UnitId
---- @param exactMatch boolean
+--- @param raidmember string @ ? : UnitId
+--- @param exactMatch boolean @ ?
 --- @return boolean @ isAssigned
 function GetPartyAssignment(assignment, raidmember, exactMatch)
 end
