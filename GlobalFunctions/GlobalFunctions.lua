@@ -6840,8 +6840,9 @@ end
 --- Returns true if the specified action is in range.
 --- [https://warcraft.wiki.gg/wiki/API_IsActionInRange]
 --- @param actionSlot number @ The action slot to test.
+--- @param unit string @ ? : UnitId
 --- @return boolean @ inRange
-function IsActionInRange(actionSlot)
+function IsActionInRange(actionSlot, unit)
 end
 
 --- Returns true if the player is inside a (rated) arena.
