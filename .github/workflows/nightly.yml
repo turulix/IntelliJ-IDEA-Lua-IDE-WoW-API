@@ -43,7 +43,7 @@ jobs:
       - name: Add & Commit
         uses: EndBug/add-and-commit@latest
         with:
-          message: ${{ steps.version.outputs.contents }}
+          message: ${{ steps.version.outputs.Version }}
           default_author: github_actions
           cwd: work_dir/IntelliJ-IDEA-Lua-IDE-WoW-API
           tag: "${{ steps.sanitize.outputs.SanitizedVersion }} --force"
