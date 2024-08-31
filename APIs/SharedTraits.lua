@@ -1,6 +1,11 @@
 ---@class C_Traits @SharedTraits
 C_Traits = {}
 
+--- Returns whether the player can make changes to the specified talent config.
+---@param configID number 
+---@return boolean, cstring canEdit, errorMessage
+function C_Traits.CanEditConfig(configID) end
+
 ---@param configID number 
 ---@param nodeID number 
 ---@param nodeEntryID number 
