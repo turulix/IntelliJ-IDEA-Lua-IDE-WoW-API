@@ -3725,7 +3725,9 @@ end
 function GetInviteConfirmationInfo(guid)
 end
 
---- No documentation available.
+--- Needs summary.
+--- [https://warcraft.wiki.gg/wiki/API_GetItemLevelColor]
+--- @return number, number, number @ r, g, b
 function GetItemLevelColor()
 end
 
