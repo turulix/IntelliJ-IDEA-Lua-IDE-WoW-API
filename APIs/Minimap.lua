@@ -6,6 +6,8 @@ function C_Minimap.CanTrackBattlePets() end
 
 function C_Minimap.ClearAllTracking() end
 
+function C_Minimap.ClearMinimapInsetInfo() end
+
 ---@param filterType MinimapTrackingFilter 
 ---@return boolean defaultValue
 function C_Minimap.GetDefaultTrackingValue(filterType) end
@@ -62,6 +64,11 @@ function C_Minimap.SetDrawGroundTextures(draw) end
 
 ---@param ignore boolean 
 function C_Minimap.SetIgnoreRotateMinimap(ignore) end
+
+---@param minAngle number 
+---@param maxAngle number 
+---@param scalar number 
+function C_Minimap.SetMinimapInsetInfo(minAngle, maxAngle, scalar) end
 
 ---@param index luaIndex 
 ---@param on boolean 
