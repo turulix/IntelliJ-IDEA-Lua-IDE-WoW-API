@@ -2194,7 +2194,7 @@ end
 
 --- Returns info for the specified achievement criteria.
 --- [https://warcraft.wiki.gg/wiki/API_GetAchievementCriteriaInfoByID]
---- @param achievementID number
+--- @param achievementID number @ Achievement ID the queried criteria belongs to.
 --- @param criteriaID number @ Unique ID of the criteria to query.
 --- @return void
 function GetAchievementCriteriaInfoByID(achievementID, criteriaID)
