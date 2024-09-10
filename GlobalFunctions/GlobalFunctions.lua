@@ -7231,8 +7231,11 @@ end
 function IsLFGComplete()
 end
 
---- No documentation available.
-function IsLFGDungeonJoinable()
+--- Returns information about the LFG dungeon with the given dungeonID.
+--- [https://warcraft.wiki.gg/wiki/API_IsLFGDungeonJoinable]
+--- @param dungeonID number @ dungeon ID to query.
+--- @return boolean, boolean, boolean, number @ isAvailableForAll, isAvailableForPlayer, hideIfNotJoinable, totalGroupSizeRequired
+function IsLFGDungeonJoinable(dungeonID)
 end
 
 --- Returns true if a modifier key is currently pressed down.
