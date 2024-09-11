@@ -1004,7 +1004,7 @@ ClickBindingType.PetAction = 4
 
 ---@class ClickBindingInfo
 ---@field type ClickBindingType 
----@field actionID number 
+---@field actionID number @ Base spellID for spell, macro index for macro, ClickBindingInteraction for interaction, spellID for PetAction
 ---@field button cstring 
 ---@field modifiers number 
 ClickBindingInfo = {}

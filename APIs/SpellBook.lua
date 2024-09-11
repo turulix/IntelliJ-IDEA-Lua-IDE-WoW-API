@@ -208,8 +208,8 @@ function C_SpellBook.SpellBookItemHasRange(spellBookItemSlotIndex, spellBookItem
 function C_SpellBook.ToggleSpellBookItemAutoCast(spellBookItemSlotIndex, spellBookItemSpellBank) end
 
 ---@class SpellBookItemInfo
----@field actionID number @ Represents a spellID for spells, flyoutID for flyouts, or petActionID for pet actions
----@field spellID number|nil @ May be nil if item is not a spell; may be different from actionID if spell is overriden
+---@field actionID number @ Represents a base spellID for spells, flyoutID for flyouts, or petActionID for pet actions
+---@field spellID number|nil @ May be nil if item is not a spell; Will be the overriding spellID if spell is overriden, otherwise will match actionID
 ---@field itemType SpellBookItemType 
 ---@field name string 
 ---@field subName string @ May be empty if flyout, or if spell's data isn't loaded yet; Listen for SPELL_TEXT_UPDATE event, or use SpellMixin to load asynchronously

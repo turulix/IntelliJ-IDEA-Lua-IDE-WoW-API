@@ -1,7 +1,7 @@
 ---@class C_ClickBindings @ClickBindings
 C_ClickBindings = {}
 
----@param spellID number 
+---@param spellID number @ Base spellID for spell, spellID for PetAction
 ---@return boolean canBeBound
 function C_ClickBindings.CanSpellBeClickBound(spellID) end
 
