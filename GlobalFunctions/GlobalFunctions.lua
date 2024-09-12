@@ -2747,7 +2747,7 @@ end
 
 --- Returns the list of achievement categories.
 --- [https://warcraft.wiki.gg/wiki/API_GetCategoryList]
---- @return table @ idTable
+--- @return number @ idTable
 function GetCategoryList()
 end
 
