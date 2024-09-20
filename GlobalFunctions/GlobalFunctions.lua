@@ -3571,7 +3571,7 @@ end
 --- Returns the text of a message in the mailbox.
 --- [https://warcraft.wiki.gg/wiki/API_GetInboxText]
 --- @param index number @ the index of the message (1 is the first message)
---- @return string, string, string, boolean, boolean @ bodyText, stationaryMiddle, stationaryEdge, isTakeable, isInvoice
+--- @return string, string, string, boolean, boolean, boolean @ bodyText, stationaryMiddle, stationaryEdge, isTakeable, isInvoice, isConsortium
 function GetInboxText(index)
 end
 
