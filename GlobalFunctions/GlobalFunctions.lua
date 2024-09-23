@@ -1154,7 +1154,7 @@ end
 --- Clicks the specified Void Transfer deposit slot.
 --- [https://warcraft.wiki.gg/wiki/API_ClickVoidTransferDepositSlot]
 --- @param slotIndex number @ Index ranging from 1 to VOID_DEPOSIT_MAX. Defaults to 1 if not a valid Index.
---- @param isRightClick boolean @ Whether the button was right-clicked
+--- @param isRightClick boolean @ ? - Whether the button was right-clicked
 --- @return void
 function ClickVoidTransferDepositSlot(slotIndex, isRightClick)
 end
@@ -1162,7 +1162,7 @@ end
 --- Clicks the specified Void Transfer withdrawal slot.
 --- [https://warcraft.wiki.gg/wiki/API_ClickVoidTransferWithdrawalSlot]
 --- @param slotIndex number @ Index ranging from 1 to VOID_WITHDRAW_MAX.
---- @param isRightClick boolean @ Whether the button was right-clicked.
+--- @param isRightClick boolean @ ? - Whether the button was right-clicked.
 --- @return void
 function ClickVoidTransferWithdrawalSlot(slotIndex, isRightClick)
 end
