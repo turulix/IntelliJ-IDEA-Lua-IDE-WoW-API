@@ -20,6 +20,34 @@ Constants.PetConsts = {
     MAX_STABLE_SLOTS = MAX_STABLE_SLOTS,
     NUM_PET_SLOTS_THAT_NEED_LEARNED_SPELL = NUM_PET_SLOTS_THAT_NEED_LEARNED_SPELL,
 }
+
+Constants.PetConsts_PostCata = {
+    NUM_PET_SLOTS_THAT_NEED_LEARNED_SPELL = -1,
+    MAX_SUMMONABLE_HUNTER_PETS = -1,
+    EXTRA_PET_STABLE_SLOT = -1,
+    MAX_STABLE_SLOTS = -1,
+    MAX_SUMMONABLE_PETS = -1,
+    NUM_PET_SLOTS_HUNTER = -1,
+}
+
+Constants.PetConsts_PreWrath = {
+    NUM_PET_SLOTS_THAT_NEED_LEARNED_SPELL = -1,
+    MAX_SUMMONABLE_HUNTER_PETS = -1,
+    EXTRA_PET_STABLE_SLOT = -1,
+    MAX_STABLE_SLOTS = -1,
+    MAX_SUMMONABLE_PETS = -1,
+    NUM_PET_SLOTS_HUNTER = -1,
+}
+
+Constants.PetConsts_Wrath = {
+    NUM_PET_SLOTS_THAT_NEED_LEARNED_SPELL = -1,
+    MAX_SUMMONABLE_HUNTER_PETS = -1,
+    EXTRA_PET_STABLE_SLOT = -1,
+    MAX_STABLE_SLOTS = -1,
+    MAX_SUMMONABLE_PETS = -1,
+    NUM_PET_SLOTS_HUNTER = -1,
+}
+
 local file = io.open("../wow-ui-source/Interface/AddOns/Blizzard_APIDocumentationGenerated/PetConstantsDocumentation.lua", "r")
 -- Replace all (int) with nothing
 local fileContents = file:read("*a"):gsub("%(int%)", "")
