@@ -5,6 +5,12 @@ C_DelvesUI = {}
 ---@return number creatureDisplayInfoID
 function C_DelvesUI.GetCreatureDisplayInfoForCompanion(companionID) end
 
+--- Given the spell ID for an owned curio and its rarity, return a spell link style hyperlink for the curio spell, since they aren't items when learned
+---@param spellID number 
+---@param rarity CurioRarity 
+---@return cstring curioLink
+function C_DelvesUI.GetCurioLink(spellID, rarity) end
+
 ---@param companionID number @ [OPTIONAL]
 ---@param curioType CurioType 
 ---@return number nodeID

@@ -64,9 +64,6 @@ function C_MythicPlus.GetWeeklyChestRewardLevel() end
 ---@return boolean isMythicPlusActive
 function C_MythicPlus.IsMythicPlusActive() end
 
----@return boolean weeklyRewardAvailable
-function C_MythicPlus.IsWeeklyRewardAvailable() end
-
 function C_MythicPlus.RequestCurrentAffixes() end
 
 function C_MythicPlus.RequestMapInfo() end

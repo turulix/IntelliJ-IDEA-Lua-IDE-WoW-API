@@ -155,7 +155,7 @@ function C_QuestLog.GetQuestType(questID) end
 function C_QuestLog.GetQuestWatchType(questID) end
 
 ---@param uiMapID number 
----@return QuestOnMapInfo quests
+---@return QuestPOIMapInfo quests
 function C_QuestLog.GetQuestsOnMap(uiMapID) end
 
 --- Uses the selected quest if no questID is provided
@@ -437,14 +437,6 @@ QuestInfo = {}
 ---@field numFulfilled number 
 ---@field numRequired number 
 QuestObjectiveInfo = {}
-
----@class QuestOnMapInfo
----@field questID number 
----@field x number 
----@field y number 
----@field type number 
----@field isMapIndicatorQuest boolean 
-QuestOnMapInfo = {}
 
 ---@class QuestTagInfo
 ---@field tagName cstring 

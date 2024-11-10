@@ -98,6 +98,7 @@ AccountTransType.Factions = 50
 AccountTransType.BitVectors = 51
 AccountTransType.CombinedQuestLog = 52
 AccountTransType.PlayerDataElements = 53
+AccountTransType.CharacterDataMerge = 54
 
 ---@class BnetAccountFlag
 BnetAccountFlag = {}
@@ -298,6 +299,7 @@ BagFlag.IgnoreReagentBags = 16777216
 BagFlag.LookInAccountBankOnly = 33554432
 BagFlag.HasRefund = 67108864
 BagFlag.SkipValidCountCheck = 134217728
+BagFlag.AllowSoulboundItemInAccountBank = 268435456
 
 ---@class BagSlotFlags
 BagSlotFlags = {}
@@ -1295,6 +1297,13 @@ AccountCurrencyTransferResult.InvalidCurrency = 5
 AccountCurrencyTransferResult.NoValidSourceCharacter = 6
 AccountCurrencyTransferResult.ServerError = 7
 AccountCurrencyTransferResult.CannotUseCurrency = 8
+AccountCurrencyTransferResult.TransactionInProgress = 9
+
+---@class CurrencyFilterType
+CurrencyFilterType = {}
+CurrencyFilterType.None = 0
+CurrencyFilterType.DiscoveredOnly = 1
+CurrencyFilterType.DiscoveredAndAllAccountTransferable = 2
 
 ---@class CurrencyFlags
 CurrencyFlags = {}
@@ -1329,7 +1338,7 @@ CurrencyFlags.CurrencyHasWarmodeBonus = 134217728
 CurrencyFlags.CurrencyIsAllianceOnly = 268435456
 CurrencyFlags.CurrencyIsHordeOnly = 536870912
 CurrencyFlags.CurrencyLimitWarmodeBonusOncePerTooltip = 1073741824
-CurrencyFlags.DeprecatedCurrencyFlag = 2147483648
+CurrencyFlags.CurrencyUsesLedgerBalance = 2147483648
 
 ---@class CurrencyFlagsB
 CurrencyFlagsB = {}
@@ -1726,6 +1735,8 @@ DelvesConsts.DELVES_NORMAL_KEY_CURRENCY_ID = 3028
 DelvesConsts.DELVES_COMPANION_TOOLTIP_WIDGET_SET_ID = 1331
 DelvesConsts.DELVES_COMPANION_TRAIT_SYSTEM_ID = 6
 DelvesConsts.BRANN_COMPANION_INFO_ID = 1
+DelvesConsts.BRANN_MAX_LEVEL = 60
+DelvesConsts.BRANN_XP_FACTION_ID = 1203
 
 ---@class ActionBarOrientation
 ActionBarOrientation = {}
@@ -2914,7 +2925,7 @@ SubcontainerType.Bankgeneric = 2
 SubcontainerType.Bankbag = 3
 SubcontainerType.Mail = 4
 SubcontainerType.Auction = 5
-SubcontainerType.KeyringObsolete = 6
+SubcontainerType.Keyring = 6
 SubcontainerType.GuildBank0 = 7
 SubcontainerType.GuildBank1 = 8
 SubcontainerType.GuildBank2 = 9
@@ -3559,29 +3570,32 @@ PetbattleType.PvP = 1
 PetbattleType.Lfpb = 2
 PetbattleType.Npc = 3
 
+---@class PetConsts
+PetConsts = {}
+PetConsts.PETNUMBER_INVALIDSLOT = -1
+PetConsts.MAX_SUMMONABLE_PETS = 25
+
 ---@class PetConsts_PostCata
 PetConsts_PostCata = {}
 PetConsts_PostCata.NUM_PET_SLOTS_THAT_NEED_LEARNED_SPELL = 5
-PetConsts_PostCata.MAX_SUMMONABLE_PETS = 25
-PetConsts_PostCata.MAX_SUMMONABLE_HUNTER_PETS = 5
+PetConsts_PostCata.MAX_SUMMONABLE_HUNTER_PETS = -1
 PetConsts_PostCata.MAX_STABLE_SLOTS = 200
-PetConsts_PostCata.EXTRA_PET_STABLE_SLOT = 0
-PetConsts_PostCata.STABLED_PETS_FIRST_SLOT_INDEX = 0
-PetConsts_PostCata.NUM_PET_SLOTS_HUNTER = 205
+PetConsts_PostCata.EXTRA_PET_STABLE_SLOT = -1
+PetConsts_PostCata.STABLED_PETS_FIRST_SLOT_INDEX = -1
+PetConsts_PostCata.NUM_PET_SLOTS_HUNTER = -2
 PetConsts_PostCata.NUM_PET_SLOTS_DEATHKNIGHT = 1
 PetConsts_PostCata.NUM_PET_SLOTS_MAGE = 1
 PetConsts_PostCata.NUM_PET_SLOTS_WARLOCK = 0
-PetConsts_PostCata.MAX_NUM_PET_SLOTS = 0
+PetConsts_PostCata.MAX_NUM_PET_SLOTS = -1
 
 ---@class PetConsts_PreWrath
 PetConsts_PreWrath = {}
 PetConsts_PreWrath.NUM_PET_SLOTS_THAT_NEED_LEARNED_SPELL = 1
-PetConsts_PreWrath.MAX_SUMMONABLE_PETS = 25
-PetConsts_PreWrath.MAX_SUMMONABLE_HUNTER_PETS = 5
+PetConsts_PreWrath.MAX_SUMMONABLE_HUNTER_PETS = -1
 PetConsts_PreWrath.MAX_STABLE_SLOTS = 2
 PetConsts_PreWrath.EXTRA_PET_STABLE_SLOT = 0
-PetConsts_PreWrath.STABLED_PETS_FIRST_SLOT_INDEX = 0
-PetConsts_PreWrath.NUM_PET_SLOTS_HUNTER = 205
+PetConsts_PreWrath.STABLED_PETS_FIRST_SLOT_INDEX = -1
+PetConsts_PreWrath.NUM_PET_SLOTS_HUNTER = -2
 PetConsts_PreWrath.NUM_PET_SLOTS_DEATHKNIGHT = 0
 PetConsts_PreWrath.NUM_PET_SLOTS_MAGE = 1
 PetConsts_PreWrath.NUM_PET_SLOTS_WARLOCK = 0
@@ -3590,12 +3604,11 @@ PetConsts_PreWrath.MAX_NUM_PET_SLOTS = 0
 ---@class PetConsts_Wrath
 PetConsts_Wrath = {}
 PetConsts_Wrath.NUM_PET_SLOTS_THAT_NEED_LEARNED_SPELL = 1
-PetConsts_Wrath.MAX_SUMMONABLE_PETS = 25
-PetConsts_Wrath.MAX_SUMMONABLE_HUNTER_PETS = 5
+PetConsts_Wrath.MAX_SUMMONABLE_HUNTER_PETS = -1
 PetConsts_Wrath.MAX_STABLE_SLOTS = 4
 PetConsts_Wrath.EXTRA_PET_STABLE_SLOT = 0
-PetConsts_Wrath.STABLED_PETS_FIRST_SLOT_INDEX = 0
-PetConsts_Wrath.NUM_PET_SLOTS_HUNTER = 205
+PetConsts_Wrath.STABLED_PETS_FIRST_SLOT_INDEX = -1
+PetConsts_Wrath.NUM_PET_SLOTS_HUNTER = -2
 PetConsts_Wrath.NUM_PET_SLOTS_DEATHKNIGHT = 1
 PetConsts_Wrath.NUM_PET_SLOTS_MAGE = 1
 PetConsts_Wrath.NUM_PET_SLOTS_WARLOCK = 0
@@ -3766,8 +3779,8 @@ PowerType.Alternate = 10
 PowerType.Maelstrom = 11
 PowerType.Chi = 12
 PowerType.Insanity = 13
-PowerType.Obsolete = 14
-PowerType.Obsolete2 = 15
+PowerType.BurningEmbers = 14
+PowerType.DemonicFury = 15
 PowerType.ArcaneCharges = 16
 PowerType.Fury = 17
 PowerType.Pain = 18
@@ -3779,6 +3792,9 @@ PowerType.AlternateQuest = 23
 PowerType.AlternateEncounter = 24
 PowerType.AlternateMount = 25
 PowerType.Balance = 26
+PowerType.Happiness = 27
+PowerType.ShadowOrbs = 28
+PowerType.RuneChromatic = 29
 
 ---@class PowerTypeSign
 PowerTypeSign = {}
@@ -4194,6 +4210,22 @@ QuestClassification.BonusObjective = 8
 QuestClassification.Threat = 9
 QuestClassification.WorldQuest = 10
 
+---@class QuestPOIMapInfo
+---@field childDepth number|nil 
+---@field questTagType QuestTagType|nil 
+---@field questID number 
+---@field numObjectives number 
+---@field mapID number 
+---@field x number 
+---@field y number 
+---@field isQuestStart boolean 
+---@field isDaily boolean 
+---@field isCombatAllyQuest boolean 
+---@field isMeta boolean 
+---@field inProgress boolean 
+---@field isMapIndicatorQuest boolean 
+QuestPOIMapInfo = {}
+
 ---@class QuestRewardCurrencyInfo
 ---@field texture fileID 
 ---@field name cstring 
@@ -4344,6 +4376,21 @@ ReportType.PvP = 13
 ReportType.PvPScoreboard = 14
 ReportType.PvPGroupMember = 15
 ReportType.CraftingOrder = 16
+
+---@class ScreenLocationType
+ScreenLocationType = {}
+ScreenLocationType.Center = 0
+ScreenLocationType.Left = 1
+ScreenLocationType.Right = 2
+ScreenLocationType.Top = 3
+ScreenLocationType.Bottom = 4
+ScreenLocationType.TopLeft = 5
+ScreenLocationType.TopRight = 6
+ScreenLocationType.LeftOutside = 7
+ScreenLocationType.RightOutside = 8
+ScreenLocationType.LeftRight = 9
+ScreenLocationType.TopBottom = 10
+ScreenLocationType.LeftRightOutside = 11
 
 ---@class ModelLight
 ---@field omnidirectional boolean 
@@ -5035,6 +5082,7 @@ TraitPointsOperationType.Multiply = 1
 TraitSystemFlag = {}
 TraitSystemFlag.AllowMultipleLoadoutsPerTree = 1
 TraitSystemFlag.ShowSpendConfirmation = 2
+TraitSystemFlag.AllowEditInCombat = 4
 
 ---@class TraitTreeFlag
 TraitTreeFlag = {}
@@ -5049,10 +5097,10 @@ TraitConsts.INSPECT_TRAIT_CONFIG_ID = -1
 TraitConsts.STARTER_BUILD_TRAIT_CONFIG_ID = -2
 TraitConsts.VIEW_TRAIT_CONFIG_ID = -3
 
----@class TransmogIllisionFlags
-TransmogIllisionFlags = {}
-TransmogIllisionFlags.HideUntilCollected = 1
-TransmogIllisionFlags.PlayerConditionGrantsOnLogin = 2
+---@class TransmogIllusionFlags
+TransmogIllusionFlags = {}
+TransmogIllusionFlags.HideUntilCollected = 1
+TransmogIllusionFlags.PlayerConditionGrantsOnLogin = 2
 
 ---@class TransmogSlot
 TransmogSlot = {}

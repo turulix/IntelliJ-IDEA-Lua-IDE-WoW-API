@@ -88,6 +88,12 @@ function C_ChatInfo.IsChannelRegionalForChannelID(channelID) end
 ---@return boolean isCensored
 function C_ChatInfo.IsChatLineCensored(chatLine) end
 
+---@return boolean enabled
+function C_ChatInfo.IsLoggingChat() end
+
+---@return boolean, boolean enabled, advanced
+function C_ChatInfo.IsLoggingCombat() end
+
 ---@param channelType ChatChannelType 
 ---@return boolean isPartyChannelType
 function C_ChatInfo.IsPartyChannelType(channelType) end

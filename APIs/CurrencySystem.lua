@@ -5,6 +5,9 @@ C_CurrencyInfo = {}
 ---@return boolean, AccountCurrencyTransferResult|nil canTransferCurrency, failureReason
 function C_CurrencyInfo.CanTransferCurrency(currencyID) end
 
+---@return boolean doesCurrentFilterRequireAccountCurrencyData
+function C_CurrencyInfo.DoesCurrentFilterRequireAccountCurrencyData() end
+
 ---@param currencyID number 
 ---@return boolean|nil, boolean|nil warModeApplies, limitOncePerTooltip
 function C_CurrencyInfo.DoesWarModeBonusApply(currencyID) end
@@ -59,6 +62,9 @@ function C_CurrencyInfo.GetCurrencyContainerInfo(currencyType, quantity) end
 ---@param type number 
 ---@return cstring description
 function C_CurrencyInfo.GetCurrencyDescription(type) end
+
+---@return CurrencyFilterType filterType
+function C_CurrencyInfo.GetCurrencyFilter() end
 
 ---@param currencyLink cstring 
 ---@return number currencyID
@@ -144,6 +150,13 @@ function C_CurrencyInfo.RequestCurrencyFromAccountCharacter(sourceCharacterGUID,
 ---@param index luaIndex 
 ---@param backpack boolean 
 function C_CurrencyInfo.SetCurrencyBackpack(index, backpack) end
+
+---@param currencyType number 
+---@param backpack boolean 
+function C_CurrencyInfo.SetCurrencyBackpackByID(currencyType, backpack) end
+
+---@param filterType CurrencyFilterType 
+function C_CurrencyInfo.SetCurrencyFilter(filterType) end
 
 ---@param index luaIndex 
 ---@param unused boolean 

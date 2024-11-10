@@ -1,7 +1,3 @@
----@param specID number 
----@return number specCount
-function GetNumSpecializationsForClassID(specID) end
-
 ---@param classID number 
 ---@param index number 
 ---@param gender number @ [OPTIONAL]

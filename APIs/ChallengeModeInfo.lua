@@ -19,8 +19,8 @@ function C_ChallengeMode.GetActiveKeystoneInfo() end
 ---@return cstring, cstring, number name, description, filedataid
 function C_ChallengeMode.GetAffixInfo(affixID) end
 
----@return number, number, number, boolean, number, boolean, number|nil, number|nil, boolean, boolean, number, boolean, ChallengeModeCompletionMemberInfo mapChallengeModeID, level, time, onTime, keystoneUpgradeLevels, practiceRun, oldOverallDungeonScore, newOverallDungeonScore, IsMapRecord, IsAffixRecord, PrimaryAffix, isEligibleForScore, members
-function C_ChallengeMode.GetCompletionInfo() end
+---@return ChallengeCompletionInfo info
+function C_ChallengeMode.GetChallengeCompletionInfo() end
 
 ---@return number, number numDeaths, timeLost
 function C_ChallengeMode.GetDeathCount() end
@@ -87,6 +87,21 @@ function C_ChallengeMode.SlotKeystone() end
 
 ---@return boolean success
 function C_ChallengeMode.StartChallengeMode() end
+
+---@class ChallengeCompletionInfo
+---@field mapChallengeModeID number 
+---@field level number 
+---@field time number 
+---@field onTime boolean 
+---@field keystoneUpgradeLevels number 
+---@field practiceRun boolean 
+---@field oldOverallDungeonScore number|nil 
+---@field newOverallDungeonScore number|nil 
+---@field isMapRecord boolean 
+---@field isAffixRecord boolean 
+---@field isEligibleForScore boolean 
+---@field members ChallengeModeCompletionMemberInfo 
+ChallengeCompletionInfo = {}
 
 ---@class ChallengeModeCompletionMemberInfo
 ---@field memberGUID WOWGUID 

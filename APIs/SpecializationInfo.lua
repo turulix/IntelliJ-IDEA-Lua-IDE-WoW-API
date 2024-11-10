@@ -22,6 +22,10 @@ function C_SpecializationInfo.GetClassIDFromSpecID(specID) end
 ---@return number|nil selectedTalentID
 function C_SpecializationInfo.GetInspectSelectedPvpTalent(inspectedUnit, talentIndex) end
 
+---@param specID number 
+---@return number specCount
+function C_SpecializationInfo.GetNumSpecializationsForClassID(specID) end
+
 ---@return boolean, boolean hasUnspentSlot, hasNewTalent
 function C_SpecializationInfo.GetPvpTalentAlertStatus() end
 

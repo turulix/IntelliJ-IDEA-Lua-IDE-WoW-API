@@ -87,7 +87,7 @@ function C_TransmogCollection.GetCategoryCollectedCount(category) end
 function C_TransmogCollection.GetCategoryForItem(itemModifiedAppearanceID) end
 
 ---@param category TransmogCollectionType 
----@return cstring, boolean, boolean, boolean, boolean name, isWeapon, canHaveIllusions, canMainHand, canOffHand
+---@return cstring, boolean, boolean, boolean, boolean, boolean name, isWeapon, canHaveIllusions, canMainHand, canOffHand, canRanged
 function C_TransmogCollection.GetCategoryInfo(category) end
 
 ---@param category TransmogCollectionType 

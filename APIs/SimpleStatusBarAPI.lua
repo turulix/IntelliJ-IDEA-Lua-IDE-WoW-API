@@ -73,6 +73,7 @@ function SetStatusBarDesaturated(desaturated) end
 function SetStatusBarDesaturation(desaturation) end
 
 ---@param asset TextureAsset 
+---@return boolean success
 function SetStatusBarTexture(asset) end
 
 ---@param value number 

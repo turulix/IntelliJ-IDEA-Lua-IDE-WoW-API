@@ -68,7 +68,6 @@ BNetAccountInfo = {}
 ---@field characterLevel number|nil 
 ---@field richPresence string|nil 
 ---@field playerGuid WOWGUID|nil 
----@field isWowMobile boolean 
 ---@field canSummon boolean 
 ---@field hasFocus boolean 
 ---@field regionID number 

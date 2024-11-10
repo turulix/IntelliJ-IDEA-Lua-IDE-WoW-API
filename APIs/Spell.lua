@@ -2,7 +2,7 @@
 C_Spell = {}
 
 --- Returns true if the spell exists, regardless of whether the player has learned it
----@param spellIdentifier SpellIdentifier @ Spell ID, name, name(subtext), or link
+---@param spellIdentifier SpellIdentifier @ Spell ID, name, name(subtext), or link; Using name will always check for an override on that spell
 ---@return boolean spellExists
 function C_Spell.DoesSpellExist(spellIdentifier) end
 
@@ -55,12 +55,12 @@ function C_Spell.GetSpellCooldown(spellIdentifier) end
 function C_Spell.GetSpellDescription(spellIdentifier) end
 
 --- Meant primarily for getting a spell id from a spell name or link; Returns nothing if spell does not exist
----@param spellIdentifier SpellIdentifier @ Spell ID, name, name(subtext), or link; If passed a spell ID, will return same id as was passed
+---@param spellIdentifier SpellIdentifier @ Spell ID, name, name(subtext), or link; Using name will always check for an override on that spell; If passed a spell ID, will return same id as was passed
 ---@return number spellID
 function C_Spell.GetSpellIDForSpellIdentifier(spellIdentifier) end
 
 --- Returns nil if spell is not found
----@param spellIdentifier SpellIdentifier @ Spell ID, name, name(subtext), or link
+---@param spellIdentifier SpellIdentifier @ Spell ID, name, name(subtext), or link; Using name will always check for an override on that spell
 ---@return SpellInfo spellInfo
 function C_Spell.GetSpellInfo(spellIdentifier) end
 

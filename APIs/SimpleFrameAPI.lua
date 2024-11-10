@@ -43,6 +43,11 @@ function DisableDrawLayer(layer) end
 ---@return boolean clipsChildren
 function DoesClipChildren() end
 
+--- Returns whether hyperlink events (ex. OnHyperlinkEnter, OnHyperlinkLeave, OnHyperlinkClick) are propagated to this frame's parent.
+
+---@return boolean canPropagate
+function DoesHyperlinkPropagateToParent() end
+
 ---@param layer DrawLayer 
 function EnableDrawLayer(layer) end
 
@@ -309,6 +314,10 @@ function SetHighlightLocked(locked) end
 ---@param top uiUnit 
 ---@param bottom uiUnit 
 function SetHitRectInsets(left, right, top, bottom) end
+
+--- Enables or disables propagating hyperlink events (ex. OnHyperlinkEnter, OnHyperlinkLeave, OnHyperlinkClick) to this frame's parent.
+---@param canPropagate boolean 
+function SetHyperlinkPropagateToParent(canPropagate) end
 
 ---@param enabled boolean 
 function SetHyperlinksEnabled(enabled) end

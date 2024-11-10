@@ -160,6 +160,11 @@ CaptureBarWidgetFillDirectionType = {}
 CaptureBarWidgetFillDirectionType.RightToLeft = 0
 CaptureBarWidgetFillDirectionType.LeftToRight = 1
 
+---@class IconAndTextShiftTextType
+IconAndTextShiftTextType = {}
+IconAndTextShiftTextType.None = 0
+IconAndTextShiftTextType.ShiftText = 1
+
 ---@class IconAndTextWidgetState
 IconAndTextWidgetState = {}
 IconAndTextWidgetState.Hidden = 0
@@ -648,6 +653,7 @@ HorizontalCurrenciesWidgetVisualizationInfo = {}
 ---@field tooltip string 
 ---@field dynamicTooltip string 
 ---@field tooltipLoc UIWidgetTooltipLocation 
+---@field shiftTextType IconAndTextShiftTextType 
 ---@field widgetSizeSetting number 
 ---@field textureKit textureKit 
 ---@field frameTextureKit textureKit 

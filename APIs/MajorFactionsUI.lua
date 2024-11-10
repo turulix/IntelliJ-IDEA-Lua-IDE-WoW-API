@@ -2,10 +2,6 @@
 C_MajorFactions = {}
 
 ---@param majorFactionID number 
----@return number covenantID
-function C_MajorFactions.GetCovenantIDForMajorFaction(majorFactionID) end
-
----@param majorFactionID number 
 ---@return number level
 function C_MajorFactions.GetCurrentRenownLevel(majorFactionID) end
 

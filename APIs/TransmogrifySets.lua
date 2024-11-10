@@ -80,6 +80,10 @@ function C_TransmogSets.GetUsableSets() end
 function C_TransmogSets.GetValidBaseSetsCountsForCharacter() end
 
 ---@param transmogSetID number 
+---@return number|nil classID
+function C_TransmogSets.GetValidClassForSet(transmogSetID) end
+
+---@param transmogSetID number 
 ---@return TransmogSetInfo sets
 function C_TransmogSets.GetVariantSets(transmogSetID) end
 

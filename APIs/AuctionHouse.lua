@@ -282,8 +282,6 @@ function C_AuctionHouse.RefreshItemSearchResults(itemKey, minLevelFilter, maxLev
 --- This function should be used in place of an 'allItem' QueryAuctionItems call to query the entire auction house.
 function C_AuctionHouse.ReplicateItems() end
 
-function C_AuctionHouse.RequestFavorites() end
-
 function C_AuctionHouse.RequestMoreBrowseResults() end
 
 ---@param itemID number 

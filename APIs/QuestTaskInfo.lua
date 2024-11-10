@@ -39,8 +39,8 @@ function C_TaskQuest.GetQuestTooltipUIWidgetSet(questID) end
 function C_TaskQuest.GetQuestZoneID(questID) end
 
 ---@param uiMapID number 
----@return TaskPOIData taskPOIs
-function C_TaskQuest.GetQuestsForPlayerByMapID(uiMapID) end
+---@return QuestPOIMapInfo taskPOIs
+function C_TaskQuest.GetQuestsOnMap(uiMapID) end
 
 ---@return number quests
 function C_TaskQuest.GetThreatQuests() end
@@ -51,18 +51,4 @@ function C_TaskQuest.IsActive(questID) end
 
 ---@param questID number 
 function C_TaskQuest.RequestPreloadRewardData(questID) end
-
----@class TaskPOIData
----@field questId number 
----@field x number 
----@field y number 
----@field inProgress boolean 
----@field numObjectives number 
----@field mapID number 
----@field isQuestStart boolean 
----@field isDaily boolean 
----@field isCombatAllyQuest boolean 
----@field isMeta boolean 
----@field childDepth number|nil 
-TaskPOIData = {}
 

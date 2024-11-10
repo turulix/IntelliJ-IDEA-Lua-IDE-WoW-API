@@ -403,7 +403,7 @@ function PartialPlayTime() end
 ---@return boolean result
 function PlayerCanTeleport() end
 
----@return number, number, number mainHandAttackPower, offHandAttackPower, rangedAttackPower
+---@return number, number, number, number, number mainHandAttackPower, offHandAttackPower, rangedAttackPower, baseAttackPower, baseRangedAttackPower
 function PlayerEffectiveAttackPower() end
 
 ---@return number|nil timerunningSeasonID
@@ -488,4 +488,12 @@ function TimeoutResurrect() end
 function ToggleSelfHighlight() end
 
 function ToggleSheath() end
+
+---@class PlayerAttackPowerInfo
+---@field mainHandAttackPower number 
+---@field offHandAttackPower number 
+---@field rangedAttackPower number 
+---@field baseAttackPower number 
+---@field baseRangedAttackPower number 
+PlayerAttackPowerInfo = {}
 

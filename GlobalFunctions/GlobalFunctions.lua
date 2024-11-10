@@ -1030,6 +1030,10 @@ function ClassicExpansionAtLeast(expansionLevel)
 end
 
 --- No documentation available.
+function ClassicExpansionAtMost()
+end
+
+--- No documentation available.
 function ClearAchievementComparisonUnit()
 end
 
@@ -4256,13 +4260,6 @@ end
 function GetMerchantItemID(index)
 end
 
---- Returns info for a merchant item.
---- [https://warcraft.wiki.gg/wiki/API_GetMerchantItemInfo]
---- @param index number @ The index of the item in the merchant's inventory
---- @return string, number, number, number, number, boolean, boolean, boolean, number, number @ name, texture, price, quantity, numAvailable, isPurchasable, isUsable, extendedCost, currencyID, spellID
-function GetMerchantItemInfo(index)
-end
-
 --- Returns the item link for a merchant item.
 --- [https://warcraft.wiki.gg/wiki/API_GetMerchantItemLink]
 --- @param index number @ The index of the item in the merchant's inventory
@@ -4784,13 +4781,6 @@ end
 --- @param isPet boolean @ ? - if true, return information for the player's pet; false by default
 --- @return number @ numSpecializations
 function GetNumSpecializations(isInspect, isPet)
-end
-
---- Returns the number of specializations available to a particular class.
---- [https://warcraft.wiki.gg/wiki/API_GetNumSpecializationsForClassID]
---- @param classID number @ ClassId
---- @return number @ numSpecializations
-function GetNumSpecializationsForClassID(classID)
 end
 
 --- Returns the number of other players in the party or raid subgroup.
@@ -7348,12 +7338,6 @@ end
 --- @param movieId number
 --- @return boolean @ readable
 function IsMovieReadable(movieId)
-end
-
---- Returns whether the game is currently showing a GlueXML screen (i.e. no character is logged in).
---- [https://warcraft.wiki.gg/wiki/API_IsOnGlueScreen]
---- @return boolean @ isOnGlueScreen
-function IsOnGlueScreen()
 end
 
 --- Needs summary.
