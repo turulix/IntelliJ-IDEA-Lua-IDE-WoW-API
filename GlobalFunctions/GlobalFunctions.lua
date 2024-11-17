@@ -1029,8 +1029,11 @@ end
 function ClassicExpansionAtLeast(expansionLevel)
 end
 
---- No documentation available.
-function ClassicExpansionAtMost()
+--- Needs summary.
+--- [https://warcraft.wiki.gg/wiki/API_ClassicExpansionAtMost]
+--- @param expansionLevel number
+--- @return boolean @ isAtMost
+function ClassicExpansionAtMost(expansionLevel)
 end
 
 --- No documentation available.
