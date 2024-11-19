@@ -2959,7 +2959,7 @@ end
 function GetCurrentCombatTextEventInfo()
 end
 
---- Needs summary.
+--- Returns the unique ID associated with the event the UI is currently handling. Requires the scriptProfile CVar to be enabled.
 --- [https://warcraft.wiki.gg/wiki/API_GetCurrentEventID]
 --- @return number @ eventID
 function GetCurrentEventID()
@@ -12008,8 +12008,11 @@ end
 function issecure()
 end
 
---- No documentation available.
-function issecurevalue()
+--- Returns true if the specified value is secure.
+--- [https://warcraft.wiki.gg/wiki/API_issecurevalue]
+--- @param value any @ ?
+--- @return boolean, string @ isSecure, taint
+function issecurevalue(value)
 end
 
 --- Returns true if the specified variable is secure.
