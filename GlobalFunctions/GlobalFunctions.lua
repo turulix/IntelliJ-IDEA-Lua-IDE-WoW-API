@@ -2698,7 +2698,7 @@ end
 
 --- Returns info for the current client build.
 --- [https://warcraft.wiki.gg/wiki/API_GetBuildInfo]
---- @return string, string, string, number, unknown, string @ version, build, date, tocversion, izedVersion, buildType
+--- @return string, string, string, number, unknown, string, unknown @ buildVersion, buildNumber, buildDate, interfaceVersion, izedVersion, buildInfo, currentVersion
 function GetBuildInfo()
 end
 
