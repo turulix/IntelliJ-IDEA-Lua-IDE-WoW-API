@@ -848,7 +848,7 @@ end
 --- [https://warcraft.wiki.gg/wiki/API_CancelUnitBuff]
 --- @param unit string @ UnitToken - The unit to cancel the buff from, must be under the player's control.
 --- @param buffIndex number @ index of the buff to cancel, ascending from 1.
---- @param filter string @ any of combination of HELPFUL|HARMFUL|PLAYER|RAID|CANCELABLE|NOT_CANCELABLE.
+--- @param filter string @ ? - any of combination of HELPFUL|HARMFUL|PLAYER|RAID|CANCELABLE|NOT_CANCELABLE.
 --- @return void
 function CancelUnitBuff(unit, buffIndex, filter)
 end
