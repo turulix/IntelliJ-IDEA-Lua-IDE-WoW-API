@@ -13,7 +13,8 @@ function C_ActionBar.FindFlyoutActionButtons(flyoutID) end
 ---@return luaIndex slots
 function C_ActionBar.FindPetActionButtons(petActionID) end
 
----@param spellID number 
+--- Returns the list of action bar slots that contain a specified spell.
+---@param spellID number @ Expects a base spell, so if a spell is overridden the base ID should be provided.
 ---@return luaIndex slots
 function C_ActionBar.FindSpellActionButtons(spellID) end
 

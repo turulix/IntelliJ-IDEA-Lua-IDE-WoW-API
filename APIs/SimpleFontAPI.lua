@@ -49,6 +49,9 @@ function SetAlpha(alpha) end
 ---@param flags TBFFlags 
 function SetFont(fontFile, height, flags) end
 
+---@param height number 
+function SetFontHeight(height) end
+
 ---@param font SimpleFont 
 function SetFontObject(font) end
 

@@ -137,6 +137,10 @@ function C_Garrison.IsEnvironmentCountered(missionID) end
 ---@return boolean followerOnCompletedMission
 function C_Garrison.IsFollowerOnCompletedMission(followerID) end
 
+---@param garrType number 
+---@return boolean isLandingPageMinimapButtonVisible
+function C_Garrison.IsLandingPageMinimapButtonVisible(garrType) end
+
 ---@param talentID number 
 ---@return boolean, cstring|nil isMet, failureString
 function C_Garrison.IsTalentConditionMet(talentID) end

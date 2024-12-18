@@ -418,6 +418,7 @@ MatchPVPStatColumn = {}
 ---@field minLevel number 
 ---@field maxLevel number 
 ---@field groupsAllowed boolean 
+---@field crossFactionAllowed boolean 
 ---@field timeLeftUntilNextChange number|nil 
 ---@field brawlType BrawlType 
 ---@field mapNames string 

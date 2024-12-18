@@ -32,6 +32,8 @@ function C_BattleNet.GetGameAccountInfoByGUID(guid) end
 ---@return BNetGameAccountInfo|nil gameAccountInfo
 function C_BattleNet.GetGameAccountInfoByID(id) end
 
+function C_BattleNet.InstallHighResTextures() end
+
 ---@class BNetAccountInfo
 ---@field bnetAccountID number 
 ---@field accountName string 

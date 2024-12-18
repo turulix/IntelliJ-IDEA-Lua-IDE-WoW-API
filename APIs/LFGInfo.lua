@@ -1,6 +1,10 @@
 ---@class C_LFGInfo @LFGInfo
 C_LFGInfo = {}
 
+---@param lfgDungeonID number 
+---@return boolean areCrossFactionGroupQueuesAllowed
+function C_LFGInfo.AreCrossFactionGroupQueuesAllowed(lfgDungeonID) end
+
 ---@return boolean, string canUse, failureReason
 function C_LFGInfo.CanPlayerUseGroupFinder() end
 
@@ -20,6 +24,14 @@ function C_LFGInfo.CanPlayerUsePremadeGroup() end
 function C_LFGInfo.CanPlayerUseScenarioFinder() end
 
 function C_LFGInfo.ConfirmLfgExpandSearch() end
+
+---@param lfgDungeonID number 
+---@return boolean doesActivePartyMeetPremadeLaunchCount
+function C_LFGInfo.DoesActivePartyMeetPremadeLaunchCount(lfgDungeonID) end
+
+---@param lfgDungeonID number 
+---@return boolean doesCrossFactionQueueRequireFullPremade
+function C_LFGInfo.DoesCrossFactionQueueRequireFullPremade(lfgDungeonID) end
 
 ---@param category luaIndex 
 ---@return number lfgDungeonIDs
@@ -54,9 +66,6 @@ function C_LFGInfo.IsLFGFollowerDungeon(dungeonID) end
 
 ---@return boolean enabled
 function C_LFGInfo.IsLFREnabled() end
-
----@return boolean enabled
-function C_LFGInfo.IsPremadeGroupEnabled() end
 
 ---@class LFGDungeonInfo
 ---@field name string 

@@ -6,6 +6,14 @@ C_VignetteInfo = {}
 function C_VignetteInfo.FindBestUniqueVignette(vignetteGUIDs) end
 
 ---@param vignetteGUID WOWGUID 
+---@return number|nil healthPct
+function C_VignetteInfo.GetHealthPercent(vignetteGUID) end
+
+---@param vignetteGUID WOWGUID 
+---@return number, number minGroupSize, maxGroupSize
+function C_VignetteInfo.GetRecommendedGroupSize(vignetteGUID) end
+
+---@param vignetteGUID WOWGUID 
 ---@return VignetteInfo|nil vignetteInfo
 function C_VignetteInfo.GetVignetteInfo(vignetteGUID) end
 
@@ -35,5 +43,7 @@ function C_VignetteInfo.GetVignettes() end
 ---@field tooltipWidgetSet number|nil 
 ---@field iconWidgetSet number|nil 
 ---@field addPaddingAboveTooltipWidgets boolean|nil 
+---@field mapPin UIMapPinInfo|nil 
+---@field objectiveType VignetteObjectiveType|nil 
 VignetteInfo = {}
 

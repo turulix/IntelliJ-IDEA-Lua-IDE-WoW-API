@@ -3,9 +3,6 @@
 function CanEjectPassengerFromSeat(virtualSeatIndex) end
 
 ---@return boolean result
-function CanShowSetRoleButton() end
-
----@return boolean result
 function CanSwitchVehicleSeat() end
 
 ---@param gameObjectID number 
@@ -99,9 +96,6 @@ function GetVehicleUIIndicator(vehicleIndicatorID) end
 ---@param indicatorSeatIndex luaIndex 
 ---@return number, number, number virtualSeatIndex, xPos, yPos
 function GetVehicleUIIndicatorSeat(vehicleIndicatorID, indicatorSeatIndex) end
-
----@return boolean result
-function InitiateRolePoll() end
 
 ---@param unit UnitToken @ [OPTIONAL]
 ---@return boolean result
@@ -672,16 +666,6 @@ function UnitSelectionColor(unit, useExtendedColors) end
 ---@param useExtendedColors boolean 
 ---@return number result
 function UnitSelectionType(unit, useExtendedColors) end
-
----@param unit UnitToken 
----@param roleStr cstring @ [OPTIONAL]
----@return boolean result
-function UnitSetRole(unit, roleStr) end
-
----@param unit UnitToken 
----@param role LFGRole @ [OPTIONAL]
----@return boolean result
-function UnitSetRoleEnum(unit, role) end
 
 ---@param unit UnitToken 
 ---@return number|nil sex

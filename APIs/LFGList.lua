@@ -20,6 +20,10 @@ function C_LFGList.ClearSearchTextFields() end
 
 function C_LFGList.CopyActiveEntryInfoToCreationFields() end
 
+---@param createData LfgListingCreateData 
+---@return boolean success
+function C_LFGList.CreateListing(createData) end
+
 ---@param activityID number 
 ---@param itemLevel number 
 ---@param autoAccept boolean 
@@ -97,9 +101,21 @@ function C_LFGList.GetOwnedKeystoneActivityAndGroupAndLevel(getTimewalking) end
 ---@return string playstyleString
 function C_LFGList.GetPlaystyleString(playstyle, activityInfo) end
 
+---@return PremadeGroupFinderStyle style
+function C_LFGList.GetPremadeGroupFinderStyle() end
+
 ---@param searchResultID number 
 ---@return LfgSearchResultData searchResultData
 function C_LFGList.GetSearchResultInfo(searchResultID) end
+
+---@param searchResultID number 
+---@return LfgSearchResultPlayerInfo leaderInfo
+function C_LFGList.GetSearchResultLeaderInfo(searchResultID) end
+
+---@param searchResultID number 
+---@param memberIndex luaIndex 
+---@return LfgSearchResultPlayerInfo playerInfo
+function C_LFGList.GetSearchResultPlayerInfo(searchResultID, memberIndex) end
 
 ---@return number, number totalResultsFound, results
 function C_LFGList.GetSearchResults() end
@@ -111,9 +127,12 @@ function C_LFGList.HasActiveEntryInfo() end
 ---@return boolean hasSearchResultInfo
 function C_LFGList.HasSearchResultInfo(searchResultID) end
 
----@param activityID number @ [OPTIONAL]
+---@param activityCategoryID number @ [OPTIONAL]
 ---@return boolean isAuthenticated
-function C_LFGList.IsPlayerAuthenticatedForLFG(activityID) end
+function C_LFGList.IsPlayerAuthenticatedForLFG(activityCategoryID) end
+
+---@return boolean enabled
+function C_LFGList.IsPremadeGroupFinderEnabled() end
 
 ---@param options AdvancedFilterOptions 
 function C_LFGList.SaveAdvancedFilter(options) end
@@ -124,7 +143,8 @@ function C_LFGList.SaveAdvancedFilter(options) end
 ---@param languageFilter WowLocale @ [OPTIONAL]
 ---@param searchCrossFactionListings boolean @ [OPTIONAL]
 ---@param advancedFilter AdvancedFilterOptions @ [OPTIONAL]
-function C_LFGList.Search(categoryID, filter, preferredFilters, languageFilter, searchCrossFactionListings, advancedFilter) end
+---@param activityIDsFilter number @ Activity IDs to filter by. [OPTIONAL]
+function C_LFGList.Search(categoryID, filter, preferredFilters, languageFilter, searchCrossFactionListings, advancedFilter, activityIDsFilter) end
 
 ---@param activityID number 
 ---@param groupID number 
@@ -139,6 +159,10 @@ function C_LFGList.SetSearchToQuestID(questID) end
 
 ---@param scenarioID number 
 function C_LFGList.SetSearchToScenarioID(scenarioID) end
+
+---@param createData LfgListingCreateData 
+---@return boolean success
+function C_LFGList.UpdateListing(createData) end
 
 ---@param dungeonScore number 
 ---@return boolean passes
@@ -165,7 +189,7 @@ LFGListDisplayType.Comment = 5
 ---@field needsMyClass boolean 
 ---@field hasTank boolean 
 ---@field hasHealer boolean 
----@field activities number 
+---@field activities number @ Activity group IDs to filter by.
 ---@field minimumRating number 
 ---@field difficultyNormal boolean 
 ---@field difficultyHeroic boolean 
@@ -190,6 +214,8 @@ BestDungeonScoreMapInfo = {}
 ---@field ilvlSuggestion number 
 ---@field filters number 
 ---@field minLevel number 
+---@field minLevelSuggestion number 
+---@field maxLevelSuggestion number 
 ---@field maxNumPlayers number 
 ---@field displayType LFGListDisplayType 
 ---@field orderIndex number 
@@ -203,6 +229,9 @@ BestDungeonScoreMapInfo = {}
 ---@field allowCrossFaction boolean 
 ---@field isHeroicActivity boolean 
 ---@field isNormalActivity boolean 
+---@field mapID number 
+---@field difficultyID number 
+---@field redirectedDifficultyID number 
 ---@field useDungeonRoleExpectations boolean 
 GroupFinderActivityInfo = {}
 
@@ -227,7 +256,7 @@ LfgApplicantData = {}
 LfgCategoryData = {}
 
 ---@class LfgEntryData
----@field activityID number 
+---@field activityIDs number 
 ---@field requiredItemLevel number 
 ---@field requiredHonorLevel number 
 ---@field name kstringLfgListApplicant 
@@ -241,11 +270,25 @@ LfgCategoryData = {}
 ---@field requiredPvpRating number|nil 
 ---@field playstyle LFGEntryPlaystyle|nil 
 ---@field isCrossFactionListing boolean 
+---@field newPlayerFriendly boolean 
 LfgEntryData = {}
+
+---@class LfgListingCreateData
+---@field activityIDs number 
+---@field questID number|nil 
+---@field isAutoAccept boolean 
+---@field isCrossFactionListing boolean 
+---@field isPrivateGroup boolean 
+---@field newPlayerFriendly boolean 
+---@field playstyle LFGEntryPlaystyle 
+---@field requiredDungeonScore number 
+---@field requiredItemLevel number 
+---@field requiredPvpRating number 
+LfgListingCreateData = {}
 
 ---@class LfgSearchResultData
 ---@field searchResultID number 
----@field activityID number 
+---@field activityIDs number 
 ---@field leaderName string|nil 
 ---@field name kstringLfgListSearch 
 ---@field comment kstringLfgListSearch 
@@ -263,16 +306,29 @@ LfgEntryData = {}
 ---@field age time_t 
 ---@field questID number|nil 
 ---@field leaderOverallDungeonScore number|nil 
----@field leaderDungeonScoreInfo BestDungeonScoreMapInfo|nil 
+---@field leaderDungeonScoreInfo BestDungeonScoreMapInfo 
 ---@field leaderBestDungeonScoreInfo BestDungeonScoreMapInfo|nil 
----@field leaderPvpRatingInfo PvpRatingInfo|nil 
+---@field leaderPvpRatingInfo PvpRatingInfo 
 ---@field requiredDungeonScore number|nil 
 ---@field requiredPvpRating number|nil 
 ---@field playstyle LFGEntryPlaystyle|nil 
 ---@field crossFactionListing boolean|nil 
 ---@field leaderFactionGroup number 
+---@field newPlayerFriendly boolean|nil 
 ---@field partyGUID WOWGUID 
 LfgSearchResultData = {}
+
+---@class LfgSearchResultPlayerInfo
+---@field name string|nil 
+---@field level number|nil 
+---@field areaName cstring|nil 
+---@field className cstring 
+---@field classFilename cstring 
+---@field specName cstring|nil 
+---@field assignedRole cstring 
+---@field lfgRoles LFGRoles 
+---@field isLeader boolean 
+LfgSearchResultPlayerInfo = {}
 
 ---@class PvpRatingInfo
 ---@field bracket number 

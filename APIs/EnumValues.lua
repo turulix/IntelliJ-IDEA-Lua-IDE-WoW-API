@@ -85,20 +85,25 @@ AccountTransType.ProxyGenerateBpayID = 37
 AccountTransType.AccountNotifications = 38
 AccountTransType.PerkItemHold = 39
 AccountTransType.PerkPendingRewards = 40
-AccountTransType.PerkRecentPurchases = 41
-AccountTransType.PerkPastRewards = 42
-AccountTransType.PerkTransaction = 43
-AccountTransType.OutstandingRpc = 44
-AccountTransType.LoadWowlabs = 45
-AccountTransType.UpgradeAccount = 46
-AccountTransType.GetOrderStatusByPurchaseID = 47
-AccountTransType.Items = 48
-AccountTransType.BankTab = 49
-AccountTransType.Factions = 50
-AccountTransType.BitVectors = 51
-AccountTransType.CombinedQuestLog = 52
-AccountTransType.PlayerDataElements = 53
-AccountTransType.CharacterDataMerge = 54
+AccountTransType.PerkPastRewards = 41
+AccountTransType.PerkTransaction = 42
+AccountTransType.OutstandingRpc = 43
+AccountTransType.LoadWowlabs = 44
+AccountTransType.UpgradeAccount = 45
+AccountTransType.GetOrderStatusByPurchaseID = 46
+AccountTransType.Items = 47
+AccountTransType.BankTab = 48
+AccountTransType.Factions = 49
+AccountTransType.BitVectors = 50
+AccountTransType.CombinedQuestLog = 51
+AccountTransType.PlayerDataElements = 52
+AccountTransType.CharacterDataMerge = 53
+AccountTransType.AccountStore = 54
+AccountTransType.WarbandGroups = 55
+AccountTransType.Mapping = 56
+AccountTransType.CharacterItems = 57
+AccountTransType.CurrencyTransferLog = 58
+AccountTransType.LgVendorPurchase = 59
 
 ---@class BnetAccountFlag
 BnetAccountFlag = {}
@@ -525,6 +530,7 @@ BattlepetDbFlags.FanfareNeeded = 128
 BattlepetDbFlags.DisplayOverridden = 256
 BattlepetDbFlags.AcquiredViaLicense = 512
 BattlepetDbFlags.TradingPost = 1024
+BattlepetDbFlags.AccountStore = 2048
 BattlepetDbFlags.LockMask = 12
 
 ---@class BattlepetDeletedReason
@@ -536,6 +542,7 @@ BattlepetDeletedReason.Gm = 3
 BattlepetDeletedReason.CageError = 4
 BattlepetDeletedReason.DelJournal = 5
 BattlepetDeletedReason.TradingPost = 6
+BattlepetDeletedReason.AccountStore = 7
 
 ---@class BattlepetSlotLockCheat
 BattlepetSlotLockCheat = {}
@@ -901,6 +908,14 @@ WarbandSceneAnimationStandState.Sleep = 5
 WarbandSceneSlotType = {}
 WarbandSceneSlotType.Character = 0
 WarbandSceneSlotType.Pet = 1
+
+---@class ChannelPlayerFlags
+ChannelPlayerFlags = {}
+ChannelPlayerFlags.ChannelPlayerNone = 0
+ChannelPlayerFlags.ChannelPlayerOwner = 1
+ChannelPlayerFlags.ChannelPlayerModerator = 2
+ChannelPlayerFlags.ChannelPlayerTextAllow = 4
+ChannelPlayerFlags.ChannelPlayerHidden = 8
 
 ---@class ChatChannelRuleset
 ChatChannelRuleset = {}
@@ -1553,48 +1568,50 @@ Cursormode.VehicleCursor = 36
 Cursormode.MapPinCursor = 37
 Cursormode.PingCursor = 38
 Cursormode.EnchantCursor = 39
-Cursormode.UIMoveCursor = 40
-Cursormode.UIResizeCursor = 41
-Cursormode.PointErrorCursor = 42
-Cursormode.CastErrorCursor = 43
-Cursormode.BuyErrorCursor = 44
-Cursormode.AttackErrorCursor = 45
-Cursormode.InteractErrorCursor = 46
-Cursormode.SpeakErrorCursor = 47
-Cursormode.InspectErrorCursor = 48
-Cursormode.PickupErrorCursor = 49
-Cursormode.TaxiErrorCursor = 50
-Cursormode.TrainerErrorCursor = 51
-Cursormode.MineErrorCursor = 52
-Cursormode.SkinErrorCursor = 53
-Cursormode.GatherErrorCursor = 54
-Cursormode.LockErrorCursor = 55
-Cursormode.MailErrorCursor = 56
-Cursormode.LootAllErrorCursor = 57
-Cursormode.RepairErrorCursor = 58
-Cursormode.RepairnpcErrorCursor = 59
-Cursormode.ItemErrorCursor = 60
-Cursormode.SkinHordeErrorCursor = 61
-Cursormode.SkinAllianceErrorCursor = 62
-Cursormode.InnkeeperErrorCursor = 63
-Cursormode.CampaignQuestErrorCursor = 64
-Cursormode.CampaignQuestTurninErrorCursor = 65
-Cursormode.QuestErrorCursor = 66
-Cursormode.QuestRepeatableErrorCursor = 67
-Cursormode.QuestTurninErrorCursor = 68
-Cursormode.QuestLegendaryErrorCursor = 69
-Cursormode.QuestLegendaryTurninErrorCursor = 70
-Cursormode.QuestImportantErrorCursor = 71
-Cursormode.QuestImportantTurninErrorCursor = 72
-Cursormode.QuestMetaErrorCursor = 73
-Cursormode.QuestMetaTurninErrorCursor = 74
-Cursormode.QuestRecurringErrorCursor = 75
-Cursormode.QuestRecurringTurninErrorCursor = 76
-Cursormode.VehicleErrorCursor = 77
-Cursormode.MapPinErrorCursor = 78
-Cursormode.PingErrorCursor = 79
-Cursormode.EnchantErrorCursor = 80
-Cursormode.CustomCursor = 81
+Cursormode.StablemasterCursor = 40
+Cursormode.UIMoveCursor = 41
+Cursormode.UIResizeCursor = 42
+Cursormode.PointErrorCursor = 43
+Cursormode.CastErrorCursor = 44
+Cursormode.BuyErrorCursor = 45
+Cursormode.AttackErrorCursor = 46
+Cursormode.InteractErrorCursor = 47
+Cursormode.SpeakErrorCursor = 48
+Cursormode.InspectErrorCursor = 49
+Cursormode.PickupErrorCursor = 50
+Cursormode.TaxiErrorCursor = 51
+Cursormode.TrainerErrorCursor = 52
+Cursormode.MineErrorCursor = 53
+Cursormode.SkinErrorCursor = 54
+Cursormode.GatherErrorCursor = 55
+Cursormode.LockErrorCursor = 56
+Cursormode.MailErrorCursor = 57
+Cursormode.LootAllErrorCursor = 58
+Cursormode.RepairErrorCursor = 59
+Cursormode.RepairnpcErrorCursor = 60
+Cursormode.ItemErrorCursor = 61
+Cursormode.SkinHordeErrorCursor = 62
+Cursormode.SkinAllianceErrorCursor = 63
+Cursormode.InnkeeperErrorCursor = 64
+Cursormode.CampaignQuestErrorCursor = 65
+Cursormode.CampaignQuestTurninErrorCursor = 66
+Cursormode.QuestErrorCursor = 67
+Cursormode.QuestRepeatableErrorCursor = 68
+Cursormode.QuestTurninErrorCursor = 69
+Cursormode.QuestLegendaryErrorCursor = 70
+Cursormode.QuestLegendaryTurninErrorCursor = 71
+Cursormode.QuestImportantErrorCursor = 72
+Cursormode.QuestImportantTurninErrorCursor = 73
+Cursormode.QuestMetaErrorCursor = 74
+Cursormode.QuestMetaTurninErrorCursor = 75
+Cursormode.QuestRecurringErrorCursor = 76
+Cursormode.QuestRecurringTurninErrorCursor = 77
+Cursormode.VehicleErrorCursor = 78
+Cursormode.MapPinErrorCursor = 79
+Cursormode.PingErrorCursor = 80
+Cursormode.EnchantErrorCursor = 81
+Cursormode.StablemasterErrorCursor = 82
+Cursormode.CustomCursor = 83
 
 ---@class UICursorType
 UICursorType = {}
@@ -2130,6 +2147,7 @@ EventRealmQueues.None = 0
 EventRealmQueues.PlunderstormSolo = 1
 EventRealmQueues.PlunderstormDuo = 2
 EventRealmQueues.PlunderstormTrio = 4
+EventRealmQueues.PlunderstormTraining = 8
 
 ---@class GameEnvironment
 GameEnvironment = {}
@@ -2149,6 +2167,13 @@ GamePadPowerLevel.Unknown = 5
 GameRuleFlags = {}
 GameRuleFlags.None = 0
 GameRuleFlags.AllowClient = 1
+GameRuleFlags.RequiresDefault = 2
+
+---@class GameRuleType
+GameRuleType = {}
+GameRuleType.Int = 0
+GameRuleType.Float = 1
+GameRuleType.Bool = 2
 
 ---@class ContributionState
 ContributionState = {}
@@ -2735,6 +2760,9 @@ ItemGemColor.Cypher = 8388608
 ItemGemColor.Tinker = 16777216
 ItemGemColor.Primordial = 33554432
 ItemGemColor.Fragrance = 67108864
+ItemGemColor.SingingThunder = 134217728
+ItemGemColor.SingingSea = 268435456
+ItemGemColor.SingingWind = 536870912
 
 ---@class ItemMiscellaneousSubclass
 ItemMiscellaneousSubclass = {}
@@ -2825,6 +2853,9 @@ ItemSocketType.Cypher = 23
 ItemSocketType.Tinker = 24
 ItemSocketType.Primordial = 25
 ItemSocketType.Fragrance = 26
+ItemSocketType.SingingThunder = 27
+ItemSocketType.SingingSea = 28
+ItemSocketType.SingingWind = 29
 
 ---@class ItemSubclassDisplay
 ItemSubclassDisplay = {}
@@ -3122,14 +3153,26 @@ LFGRole.Tank = 0
 LFGRole.Healer = 1
 LFGRole.Damage = 2
 
----@class GroupFinderConstants
-GroupFinderConstants = {}
-GroupFinderConstants.MAX_GROUP_FINDER_ACTIVITIES = 41
+---@class PremadeGroupFinderStyle
+PremadeGroupFinderStyle = {}
+PremadeGroupFinderStyle.Disabled = 0
+PremadeGroupFinderStyle.Mainline = 1
+PremadeGroupFinderStyle.Vanilla = 2
+
+---@class LFGConstsExposed
+LFGConstsExposed = {}
+LFGConstsExposed.GROUP_FINDER_MAX_ACTIVITY_CAPACITY = 16
 
 ---@class LFG_ROLEConstants
 LFG_ROLEConstants = {}
 LFG_ROLEConstants.LFG_ROLE_NO_ROLE = -1
 LFG_ROLEConstants.LFG_ROLE_ANY = 3
+
+---@class LFGRoles
+---@field tank boolean 
+---@field healer boolean 
+---@field dps boolean 
+LFGRoles = {}
 
 ---@class RuneforgePowerFilter
 RuneforgePowerFilter = {}
@@ -3570,10 +3613,92 @@ PetbattleType.PvP = 1
 PetbattleType.Lfpb = 2
 PetbattleType.Npc = 3
 
+---@class PetActionFeedback
+PetActionFeedback = {}
+PetActionFeedback.Success = 0
+PetActionFeedback.Dead = 1
+PetActionFeedback.InvalidTarget = 2
+PetActionFeedback.FriendlyTarget = 3
+PetActionFeedback.NoPath = 4
+
+---@class PetActionbuttonType
+PetActionbuttonType = {}
+PetActionbuttonType.None = 0
+PetActionbuttonType.Spell = 1
+PetActionbuttonType.Slot1Obsolete = 2
+PetActionbuttonType.Slot2Obsolete = 3
+PetActionbuttonType.Slot3Obsolete = 4
+PetActionbuttonType.Slot4Obsolete = 5
+PetActionbuttonType.Mode = 6
+PetActionbuttonType.Orders = 7
+PetActionbuttonType.Slot1 = 8
+PetActionbuttonType.Slot2 = 9
+PetActionbuttonType.Slot3 = 10
+PetActionbuttonType.Slot4 = 11
+PetActionbuttonType.Slot5 = 12
+PetActionbuttonType.Slot6 = 13
+PetActionbuttonType.Slot7 = 14
+PetActionbuttonType.Slot8 = 15
+PetActionbuttonType.Slot9 = 16
+PetActionbuttonType.Slot10 = 17
+PetActionbuttonType.Max = 18
+PetActionbuttonType.VehicleAction = 19
+
+---@class PetMode
+PetMode = {}
+PetMode.Passive = 0
+PetMode.Defensive = 1
+PetMode.Aggressive = 2
+PetMode.Assist = 3
+
+---@class PetOrders
+PetOrders = {}
+PetOrders.Wait = 0
+PetOrders.Follow = 1
+PetOrders.Attack = 2
+PetOrders.Dismiss = 3
+PetOrders.MoveTo = 4
+
+---@class PetOverride
+PetOverride = {}
+PetOverride.None = 0
+PetOverride.AICombatControl = 1
+PetOverride.AICombatPassive = 2
+PetOverride.OwnerMounted = 4
+
+---@class Pettameresult
+Pettameresult = {}
+Pettameresult.Ok = 0
+Pettameresult.Invalidcreature = 1
+Pettameresult.Toomany = 2
+Pettameresult.Creaturealreadyowned = 3
+Pettameresult.Nottameable = 4
+Pettameresult.Anothersummonactive = 5
+Pettameresult.Unitscanttame = 6
+Pettameresult.Nopetavailable = 7
+Pettameresult.Internalerror = 8
+Pettameresult.Toohighlevel = 9
+Pettameresult.Dead = 10
+Pettameresult.Notdead = 11
+Pettameresult.Cantcontrolexotic = 12
+Pettameresult.Invalidslot = 13
+Pettameresult.EliteToohighlevel = 14
+Pettameresult.Numresults = 15
+
+---@class UnitMirrorPetFlags
+UnitMirrorPetFlags = {}
+UnitMirrorPetFlags.Renameable = 1
+UnitMirrorPetFlags.Dismissable = 2
+UnitMirrorPetFlags.RecentlyTamed = 4
+UnitMirrorPetFlags.Stampede = 8
+UnitMirrorPetFlags.ExtraPet = 16
+
 ---@class PetConsts
 PetConsts = {}
 PetConsts.PETNUMBER_INVALIDSLOT = -1
 PetConsts.MAX_SUMMONABLE_PETS = 25
+PetConsts.PETNUMBER_INVALIDPET = 0
+PetConsts.PETNUMBER_PENDINGPET = -1
 
 ---@class PetConsts_PostCata
 PetConsts_PostCata = {}
@@ -4351,6 +4476,7 @@ ReportMinorCategory.GuildName = 4096
 ReportMinorCategory.Description = 8192
 ReportMinorCategory.Name = 16384
 ReportMinorCategory.HarmfulToMinors = 32768
+ReportMinorCategory.Disruption = 65536
 
 ---@class ReportSubComplaintTypes
 ReportSubComplaintTypes = {}
@@ -4391,6 +4517,15 @@ ScreenLocationType.RightOutside = 8
 ScreenLocationType.LeftRight = 9
 ScreenLocationType.TopBottom = 10
 ScreenLocationType.LeftRightOutside = 11
+
+---@class SeasonID
+SeasonID = {}
+SeasonID.NoSeason = 0
+SeasonID.SeasonOfMastery = 1
+SeasonID.SeasonOfDiscovery = 2
+SeasonID.Hardcore = 3
+SeasonID.Fresh = 11
+SeasonID.FreshHardcore = 12
 
 ---@class ModelLight
 ---@field omnidirectional boolean 
@@ -4589,6 +4724,7 @@ TooltipDataItemBinding.BindOnPickup = 6
 TooltipDataItemBinding.BindOnEquip = 7
 TooltipDataItemBinding.BindOnUse = 8
 TooltipDataItemBinding.AccountUntilEquipped = 9
+TooltipDataItemBinding.BindToAccountUntilEquipped = 10
 
 ---@class TooltipDataLineType
 TooltipDataLineType = {}
@@ -5201,6 +5337,25 @@ TransmogUseErrorType.Race = 8
 TransmogUseErrorType.Faction = 9
 TransmogUseErrorType.ItemProficiency = 10
 
+---@class UIActionType
+UIActionType = {}
+UIActionType.DefaultAction = 0
+UIActionType.UpdateMapSystem = 1
+
+---@class UIButtonInfo
+---@field normal textureAtlas 
+---@field pressed textureAtlas 
+---@field highlight textureAtlas 
+---@field icon textureAtlas 
+---@field useNormalAsHiglight boolean 
+UIButtonInfo = {}
+
+---@class UIMapPinInfo
+---@field button UIButtonInfo 
+---@field buttonSelected UIButtonInfo 
+---@field underlay textureAtlas 
+UIMapPinInfo = {}
+
 ---@class ItemTryOnReason
 ItemTryOnReason = {}
 ItemTryOnReason.Success = 0
@@ -5253,6 +5408,12 @@ UIWidgetLayoutDirection.Vertical = 1
 UIWidgetLayoutDirection.Horizontal = 2
 UIWidgetLayoutDirection.Overlap = 3
 UIWidgetLayoutDirection.HorizontalForceNewRow = 4
+
+---@class UIWidgetModelSceneLayer
+UIWidgetModelSceneLayer = {}
+UIWidgetModelSceneLayer.None = 0
+UIWidgetModelSceneLayer.Front = 1
+UIWidgetModelSceneLayer.Back = 2
 
 ---@class UIWidgetScale
 UIWidgetScale = {}
@@ -5399,6 +5560,12 @@ ValidateNameResult.RussianConsecutiveSilentCharacters = 14
 ValidateNameResult.RussianSilentCharacterAtBeginningOrEnd = 15
 ValidateNameResult.DeclensionDoesntMatchBaseName = 16
 ValidateNameResult.SpacesDisallowed = 17
+
+---@class VignetteObjectiveType
+VignetteObjectiveType = {}
+VignetteObjectiveType.None = 0
+VignetteObjectiveType.Defeat = 1
+VignetteObjectiveType.DefeatShowRemainingHealth = 2
 
 ---@class VignetteType
 VignetteType = {}

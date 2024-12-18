@@ -10,6 +10,7 @@ function GetFonts() end
 ---@field height number 
 ---@field outline cstring 
 ---@field shadow FontScriptShadowInfo|nil 
+---@field fontObject SimpleFont 
 FontScriptInfo = {}
 
 ---@class FontScriptShadowInfo

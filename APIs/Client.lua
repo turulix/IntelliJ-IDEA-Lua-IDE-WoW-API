@@ -10,6 +10,9 @@ function GetFileIDFromPath(filePath) end
 ---@return number framerate
 function GetFramerate() end
 
+---@return boolean|nil isCpuBound
+function IsCpuBound() end
+
 ---@param description cstring 
 function ReportBug(description) end
 

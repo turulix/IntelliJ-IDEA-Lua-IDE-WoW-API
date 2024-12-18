@@ -2,7 +2,7 @@
 C_QuestInfoSystem = {}
 
 ---@param questID number @ [OPTIONAL]
----@return QuestClassification|nil classification
+---@return QuestClassification classification
 function C_QuestInfoSystem.GetQuestClassification(questID) end
 
 ---@param questID number @ [OPTIONAL]

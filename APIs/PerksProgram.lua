@@ -130,6 +130,8 @@ PerksVendorCategoryInfo = {}
 ---@field isPurchasePending boolean 
 ---@field doesNotExpire boolean 
 ---@field price number 
+---@field originalPrice number|nil 
+---@field showSaleBanner boolean 
 ---@field perksVendorItemID number 
 ---@field itemID number 
 ---@field iconTexture string 

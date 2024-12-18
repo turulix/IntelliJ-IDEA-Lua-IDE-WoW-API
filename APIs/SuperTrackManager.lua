@@ -10,8 +10,15 @@ function C_SuperTrack.ClearSuperTrackedMapPin() end
 ---@return SuperTrackingType|nil type
 function C_SuperTrack.GetHighestPrioritySuperTrackingType() end
 
+---@param uiMapID number 
+---@return number, number, string x, y, waypointDescription
+function C_SuperTrack.GetNextWaypointForMap(uiMapID) end
+
 ---@return ContentTrackingType, number trackableType, trackableID
 function C_SuperTrack.GetSuperTrackedContent() end
+
+---@return string, string name, description
+function C_SuperTrack.GetSuperTrackedItemName() end
 
 ---@return SuperTrackingMapPinType, number type, typeID
 function C_SuperTrack.GetSuperTrackedMapPin() end

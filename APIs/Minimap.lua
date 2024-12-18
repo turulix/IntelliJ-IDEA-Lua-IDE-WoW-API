@@ -47,6 +47,10 @@ function C_Minimap.GetViewRadius() end
 ---@return boolean isFiltered
 function C_Minimap.IsFilteredOut(filterType) end
 
+---@param questID number 
+---@return boolean isInside
+function C_Minimap.IsInsideQuestBlob(questID) end
+
 ---@return boolean isIgnored
 function C_Minimap.IsRotateMinimapIgnored() end
 

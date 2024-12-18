@@ -56,5 +56,6 @@ QuestLineFloorLocation.Same = 2
 ---@field inProgress boolean 
 ---@field isQuestStart boolean 
 ---@field floorLocation QuestLineFloorLocation 
+---@field startMapID number 
 QuestLineInfo = {}
 

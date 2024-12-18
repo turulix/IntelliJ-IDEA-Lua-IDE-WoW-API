@@ -279,12 +279,6 @@ UIWidgetFontType.Normal = 0
 UIWidgetFontType.Shadow = 1
 UIWidgetFontType.Outline = 2
 
----@class UIWidgetModelSceneLayer
-UIWidgetModelSceneLayer = {}
-UIWidgetModelSceneLayer.None = 0
-UIWidgetModelSceneLayer.Front = 1
-UIWidgetModelSceneLayer.Back = 2
-
 ---@class UIWidgetMotionType
 UIWidgetMotionType = {}
 UIWidgetMotionType.Instant = 0

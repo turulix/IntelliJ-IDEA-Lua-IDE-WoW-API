@@ -208,10 +208,6 @@ function C_QuestLog.IsFailed(questID) end
 function C_QuestLog.IsImportantQuest(questID) end
 
 ---@param questID number 
----@return boolean isLegendaryQuest
-function C_QuestLog.IsLegendaryQuest(questID) end
-
----@param questID number 
 ---@return boolean isMeta
 function C_QuestLog.IsMetaQuest(questID) end
 
@@ -259,10 +255,6 @@ function C_QuestLog.IsQuestFromContentPush(questID) end
 ---@param questID number 
 ---@return boolean isInvasion
 function C_QuestLog.IsQuestInvasion(questID) end
-
----@param questID number 
----@return boolean isRepeatableType
-function C_QuestLog.IsQuestRepeatableType(questID) end
 
 ---@param questID number 
 ---@return boolean isReplayable
