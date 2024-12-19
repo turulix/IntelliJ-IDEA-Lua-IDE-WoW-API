@@ -11988,7 +11988,7 @@ end
 
 --- Securely posthooks the specified function. The hook will be called with the same arguments after the original call is performed.
 --- [https://warcraft.wiki.gg/wiki/API_hooksecurefunc]
---- @param tbl table @ Table to hook the functionName key in; if omitted, defaults to the global table (_G).
+--- @param tbl table @ ? - Table to hook the functionName key in; if omitted, defaults to the global table (_G).
 --- @param functionName string @ name of the function being hooked.
 --- @param hookfunc unknown @ function - your hook function.
 --- @return void
