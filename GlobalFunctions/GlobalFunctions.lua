@@ -156,6 +156,12 @@ end
 function AreAccountAchievementsHidden()
 end
 
+--- If true, UnitGetAvailableRoles results should be treated as suggested role, not hard limits on what role the current player can display as.
+--- [https://warcraft.wiki.gg/wiki/API_AreClassRolesSoftSuggestions]
+--- @return boolean @ result
+function AreClassRolesSoftSuggestions()
+end
+
 --- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_AreDangerousScriptsAllowed]
 --- @return boolean @ allowed
@@ -6847,10 +6853,6 @@ function IsActiveBattlefieldArena()
 end
 
 --- No documentation available.
-function IsActiveQuestLegendary()
-end
-
---- No documentation available.
 function IsActiveQuestTrivial()
 end
 
@@ -6963,6 +6965,10 @@ end
 --- [https://warcraft.wiki.gg/wiki/API_IsControlKeyDown]
 --- @return void
 function IsControlKeyDown()
+end
+
+--- No documentation available.
+function IsCpuBound()
 end
 
 --- Returns true if the specified action is currently being used.
@@ -8682,6 +8688,10 @@ end
 
 --- No documentation available.
 function RemovePvpTalent()
+end
+
+--- No documentation available.
+function RemoveRaidTargets()
 end
 
 --- No documentation available.
