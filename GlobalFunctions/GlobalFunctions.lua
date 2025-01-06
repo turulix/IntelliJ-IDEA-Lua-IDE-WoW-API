@@ -2347,7 +2347,8 @@ end
 function GetActiveSpecGroup(isInspect)
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetActiveTitle]
+--- @return void
 function GetActiveTitle()
 end
 
@@ -8634,8 +8635,11 @@ end
 function RandomRoll(low, high)
 end
 
---- No documentation available.
-function ReagentBankButtonIDToInvSlotID()
+--- Maps a ReagentBankButtonID to InventorySlotID.
+--- [https://warcraft.wiki.gg/wiki/API_ReagentBankButtonIDToInvSlotID]
+--- @param buttonID number @ reagent bank ID.
+--- @return number @ invSlot
+function ReagentBankButtonIDToInvSlotID(buttonID)
 end
 
 --- No documentation available.
@@ -9703,8 +9707,11 @@ end
 function SetSendMailMoney()
 end
 
---- No documentation available.
-function SetSendMailShowing()
+--- Sets whether or not the send mail UI is shown.
+--- [https://warcraft.wiki.gg/wiki/API_SetSendMailShowing]
+--- @param shown boolean
+--- @return void
+function SetSendMailShowing(shown)
 end
 
 --- Selects a specialization.
