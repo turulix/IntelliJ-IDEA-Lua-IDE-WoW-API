@@ -2347,8 +2347,7 @@ end
 function GetActiveSpecGroup(isInspect)
 end
 
---- [https://warcraft.wiki.gg/wiki/API_GetActiveTitle]
---- @return void
+--- No documentation available.
 function GetActiveTitle()
 end
 
