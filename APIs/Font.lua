@@ -1,9 +1,21 @@
+---@param name cstring 
+---@param members CreateFontFamilyMemberInfo 
+---@return SimpleFont fontFamily
+function CreateFontFamily(name, members) end
+
 ---@param fontObject SimpleFont 
 ---@return FontScriptInfo|nil info
 function GetFontInfo(fontObject) end
 
 ---@return cstring fontNames
 function GetFonts() end
+
+---@class CreateFontFamilyMemberInfo
+---@field alphabet FontAlphabet 
+---@field file cstring 
+---@field height uiFontHeight 
+---@field flags TBFFlags 
+CreateFontFamilyMemberInfo = {}
 
 ---@class FontScriptInfo
 ---@field color colorRGBA 

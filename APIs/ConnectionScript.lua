@@ -4,6 +4,9 @@ function ForceLogout() end
 
 function ForceQuit() end
 
+---@return number nativeRealmID
+function GetNativeRealmID() end
+
 ---@return ConnectionIptype ipTypes
 function GetNetIpTypes() end
 

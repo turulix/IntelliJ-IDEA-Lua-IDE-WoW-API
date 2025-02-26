@@ -6,7 +6,7 @@ function DestroyTotem(slot) end
 function GetTotemCannotDismiss(slot) end
 
 ---@param slot luaIndex 
----@return boolean, cstring, number, number, fileID haveTotem, totemName, startTime, duration, icon
+---@return boolean, cstring, number, number, fileID, number haveTotem, totemName, startTime, duration, icon, modRate
 function GetTotemInfo(slot) end
 
 ---@param slot luaIndex 
@@ -22,5 +22,6 @@ function TargetTotem(slot) end
 ---@field startTime number 
 ---@field duration number 
 ---@field icon fileID 
+---@field modRate number 
 TotemInfoScript = {}
 

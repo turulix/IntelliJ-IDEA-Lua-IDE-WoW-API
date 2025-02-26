@@ -1,6 +1,9 @@
 ---@class C_DelvesUI @DelvesUI
 C_DelvesUI = {}
 
+---@return number playerCompanionInfoID
+function C_DelvesUI.GetCompanionInfoForActivePlayer() end
+
 ---@param companionID number @ [OPTIONAL]
 ---@return number creatureDisplayInfoID
 function C_DelvesUI.GetCreatureDisplayInfoForCompanion(companionID) end
@@ -11,10 +14,10 @@ function C_DelvesUI.GetCreatureDisplayInfoForCompanion(companionID) end
 ---@return cstring curioLink
 function C_DelvesUI.GetCurioLink(spellID, rarity) end
 
----@param companionID number @ [OPTIONAL]
 ---@param curioType CurioType 
+---@param companionID number @ [OPTIONAL]
 ---@return number nodeID
-function C_DelvesUI.GetCurioNodeForCompanion(companionID, curioType) end
+function C_DelvesUI.GetCurioNodeForCompanion(curioType, companionID) end
 
 ---@param traitCondAccountElementID number 
 ---@return CurioRarity rarity
@@ -45,10 +48,10 @@ function C_DelvesUI.GetModelSceneForCompanion(companionID) end
 ---@return number nodeID
 function C_DelvesUI.GetRoleNodeForCompanion(companionID) end
 
----@param companionID number @ [OPTIONAL]
 ---@param roleType CompanionRoleType 
+---@param companionID number @ [OPTIONAL]
 ---@return number subTreeID
-function C_DelvesUI.GetRoleSubtreeForCompanion(companionID, roleType) end
+function C_DelvesUI.GetRoleSubtreeForCompanion(roleType, companionID) end
 
 ---@param companionID number @ [OPTIONAL]
 ---@return number treeID
@@ -79,6 +82,7 @@ function C_DelvesUI.SaveSeenCuriosBySlotType(slotType, ownedCurioNodeIDs) end
 CompanionRoleType = {}
 CompanionRoleType.Dps = 0
 CompanionRoleType.Heal = 1
+CompanionRoleType.Tank = 2
 
 ---@class CurioType
 CurioType = {}

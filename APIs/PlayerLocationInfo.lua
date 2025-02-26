@@ -15,7 +15,7 @@ function C_PlayerInfo.GetName(playerLocation) end
 function C_PlayerInfo.GetRace(playerLocation) end
 
 ---@param playerLocation PlayerLocation 
----@return number|nil sex
+---@return UnitSex|nil sex
 function C_PlayerInfo.GetSex(playerLocation) end
 
 ---@param playerLocation PlayerLocation @ [OPTIONAL]

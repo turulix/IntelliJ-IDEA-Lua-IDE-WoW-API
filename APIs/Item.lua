@@ -87,6 +87,11 @@ function C_Item.GetCurrentItemTransmogInfo(itemLoc) end
 ---@return string|nil itemLink
 function C_Item.GetDelvePreviewItemLink(itemID, context) end
 
+---@param itemID number 
+---@param context ItemCreationContext 
+---@return ItemQuality itemQuality
+function C_Item.GetDelvePreviewItemQuality(itemID, context) end
+
 ---@param itemInfo ItemInfo 
 ---@return number, boolean, number actualItemLevel, previewLevel, sparseItemLevel
 function C_Item.GetDetailedItemLevelInfo(itemInfo) end

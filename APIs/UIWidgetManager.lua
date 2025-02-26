@@ -1140,6 +1140,7 @@ UIWidgetSetInfo = {}
 ---@field hAlignType WidgetTextHorizontalAlignmentType 
 ---@field tint SpellDisplayTint 
 ---@field showGlowState WidgetShowGlowState 
+---@field showAsEarned boolean 
 UIWidgetSpellInfo = {}
 
 ---@class UIWidgetStateIconInfo

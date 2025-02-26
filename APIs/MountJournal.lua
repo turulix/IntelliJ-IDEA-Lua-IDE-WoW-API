@@ -38,7 +38,7 @@ function C_MountJournal.GetDisplayedMountAllCreatureDisplayInfo(mountIndex) end
 function C_MountJournal.GetDisplayedMountID(displayIndex) end
 
 ---@param displayIndex luaIndex 
----@return cstring, number, fileID, boolean, boolean, number, boolean, boolean, number|nil, boolean, boolean, number, boolean name, spellID, icon, isActive, isUsable, sourceType, isFavorite, isFactionSpecific, faction, shouldHideOnChar, isCollected, mountID, isSteadyFlight
+---@return cstring, number, fileID, boolean, boolean, number, boolean, boolean, PvPFaction|nil, boolean, boolean, number, boolean name, spellID, icon, isActive, isUsable, sourceType, isFavorite, isFactionSpecific, faction, shouldHideOnChar, isCollected, mountID, isSteadyFlight
 function C_MountJournal.GetDisplayedMountInfo(displayIndex) end
 
 ---@param mountIndex luaIndex 
@@ -71,7 +71,7 @@ function C_MountJournal.GetMountFromSpell(spellID) end
 function C_MountJournal.GetMountIDs() end
 
 ---@param mountID number 
----@return cstring, number, fileID, boolean, boolean, number, boolean, boolean, number|nil, boolean, boolean, number, boolean name, spellID, icon, isActive, isUsable, sourceType, isFavorite, isFactionSpecific, faction, shouldHideOnChar, isCollected, mountID, isSteadyFlight
+---@return cstring, number, fileID, boolean, boolean, number, boolean, boolean, PvPFaction|nil, boolean, boolean, number, boolean name, spellID, icon, isActive, isUsable, sourceType, isFavorite, isFactionSpecific, faction, shouldHideOnChar, isCollected, mountID, isSteadyFlight
 function C_MountJournal.GetMountInfoByID(mountID) end
 
 ---@param mountID number 
@@ -197,7 +197,7 @@ MountCreatureDisplayInfo = {}
 ---@field sourceType number 
 ---@field isFavorite boolean 
 ---@field isFactionSpecific boolean 
----@field faction number|nil 
+---@field faction PvPFaction|nil 
 ---@field shouldHideOnChar boolean 
 ---@field isCollected boolean 
 ---@field mountID number 

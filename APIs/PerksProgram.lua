@@ -71,32 +71,6 @@ function C_PerksProgram.ResetHeldItemDragAndDrop() end
 
 function C_PerksProgram.SetFrozenPerksVendorItem() end
 
----@class ModelSceneActorData
----@field actorID number|nil 
----@field scriptTag string|nil 
----@field posX number|nil 
----@field posY number|nil 
----@field posZ number|nil 
----@field yaw number|nil 
----@field pitch number|nil 
----@field roll number|nil 
----@field normalizedScale number|nil 
-ModelSceneActorData = {}
-
----@class ModelSceneCameraData
----@field cameraID number|nil 
----@field scriptTag string|nil 
----@field targetX number|nil 
----@field targetY number|nil 
----@field targetZ number|nil 
----@field yaw number|nil 
----@field pitch number|nil 
----@field roll number|nil 
----@field defaultZoom number|nil 
----@field zoomMin number|nil 
----@field zoomMax number|nil 
-ModelSceneCameraData = {}
-
 ---@class PerksProgramItemDisplayInfo
 ---@field overrideModelSceneID number|nil 
 ---@field creatureDisplayInfoID number|nil 

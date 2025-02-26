@@ -34,6 +34,10 @@ function C_MajorFactions.GetRenownRewardsForLevel(majorFactionID, renownLevel) e
 function C_MajorFactions.HasMaximumRenown(majorFactionID) end
 
 ---@param majorFactionID number 
+---@return boolean isHidden
+function C_MajorFactions.IsMajorFactionHiddenFromExpansionPage(majorFactionID) end
+
+---@param majorFactionID number 
 ---@return boolean isWeeklyCapped
 function C_MajorFactions.IsWeeklyRenownCapped(majorFactionID) end
 
@@ -51,6 +55,8 @@ function C_MajorFactions.IsWeeklyRenownCapped(majorFactionID) end
 ---@field textureKit textureKit 
 ---@field celebrationSoundKit number 
 ---@field renownFanfareSoundKitID number 
+---@field factionFontColor DBColorExport|nil 
+---@field renownTrackLevelEffectID number|nil 
 MajorFactionData = {}
 
 ---@class MajorFactionRenownInfo

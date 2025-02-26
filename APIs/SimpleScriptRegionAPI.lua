@@ -76,6 +76,10 @@ function Hide() end
 ---@param bindingType number @ [OPTIONAL]
 function HookScript(scriptTypeName, script, bindingType) end
 
+---@param region ScriptRegion 
+---@return boolean intersects
+function Intersects(region) end
+
 
 ---@return boolean isRestricted
 function IsAnchoringRestricted() end

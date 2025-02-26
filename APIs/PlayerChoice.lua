@@ -35,6 +35,7 @@ PlayerChoiceRarity.Epic = 3
 ---@field uiTextureKit textureKit 
 ---@field hideWarboardHeader boolean 
 ---@field keepOpenAfterChoice boolean 
+---@field showChoicesAsList boolean 
 ---@field options PlayerChoiceOptionInfo 
 ---@field soundKitID number|nil 
 ---@field closeUISoundKitID number|nil 
@@ -44,10 +45,13 @@ PlayerChoiceInfo = {}
 ---@field id number 
 ---@field text string 
 ---@field disabled boolean 
+---@field showCheckmark boolean 
+---@field hideButtonShowText boolean 
 ---@field confirmation string|nil 
 ---@field tooltip string|nil 
 ---@field rewardQuestID number|nil 
 ---@field soundKitID number|nil 
+---@field listText string|nil 
 PlayerChoiceOptionButtonInfo = {}
 
 ---@class PlayerChoiceOptionInfo

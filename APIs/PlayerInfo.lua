@@ -7,6 +7,9 @@ function C_PlayerInfo.CanPlayerEnterChromieTime() end
 ---@return boolean canUseAreaLoot
 function C_PlayerInfo.CanPlayerUseAreaLoot() end
 
+---@return boolean canUseEventScheduler
+function C_PlayerInfo.CanPlayerUseEventScheduler() end
+
 ---@return boolean, string canUseMountEquipment, failureReason
 function C_PlayerInfo.CanPlayerUseMountEquipment() end
 

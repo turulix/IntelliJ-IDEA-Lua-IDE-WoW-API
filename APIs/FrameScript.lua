@@ -1,6 +1,7 @@
 ---@param popupStyle boolean 
+---@param topMost boolean 
 ---@return SimpleWindow|nil window
-function CreateWindow(popupStyle) end
+function CreateWindow(popupStyle, topMost) end
 
 ---@return number height
 function GetCallstackHeight() end

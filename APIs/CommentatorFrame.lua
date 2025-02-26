@@ -475,6 +475,10 @@ function C_Commentator.SetUseSmartCamera(useSmartCamera) end
 
 function C_Commentator.SnapCameraLookAtPoint() end
 
+---@param spellID number 
+---@return boolean spellUsesItemCharges
+function C_Commentator.SpellUsesItemCharges(spellID) end
+
 ---@param listID number 
 ---@param teamSize number 
 ---@param tournamentRules boolean 

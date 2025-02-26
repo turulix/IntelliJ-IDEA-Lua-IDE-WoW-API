@@ -5,7 +5,14 @@ C_TradeSkillUI = {}
 ---@return boolean canStore
 function C_TradeSkillUI.CanStoreEnchantInItem(itemGUID) end
 
+function C_TradeSkillUI.CancelProfessionRespec() end
+
+---@return boolean canInteract
+function C_TradeSkillUI.CheckRespecNPC() end
+
 function C_TradeSkillUI.CloseTradeSkill() end
+
+function C_TradeSkillUI.ConfirmProfessionRespec() end
 
 ---@param recipeSpellID number 
 ---@param numCasts number 

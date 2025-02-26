@@ -77,6 +77,10 @@ function GetMaxLetters() end
 function GetNumLetters() end
 
 
+---@return number lines
+function GetNumLines() end
+
+
 ---@return number|nil number
 function GetNumber() end
 
@@ -202,6 +206,9 @@ function SetFont(fontFile, height, flags) end
 
 ---@param font SimpleFont 
 function SetFontObject(font) end
+
+---@param ignoreParentAlpha boolean 
+function SetFontStringIgnoreParentAlpha(ignoreParentAlpha) end
 
 ---@param colorR number 
 ---@param colorG number 

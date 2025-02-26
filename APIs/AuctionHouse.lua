@@ -324,9 +324,15 @@ function C_AuctionHouse.SendSellSearchQuery(itemKey, sorts, separateOwnerItems) 
 ---@param setFavorite boolean 
 function C_AuctionHouse.SetFavoriteItem(itemKey, setFavorite) end
 
+---@return boolean shouldAutoPopulatePrice
+function C_AuctionHouse.ShouldAutoPopulatePrice() end
+
 ---@param itemID number 
 ---@param quantity number 
 function C_AuctionHouse.StartCommoditiesPurchase(itemID, quantity) end
+
+---@return boolean supportsCopperValues
+function C_AuctionHouse.SupportsCopperValues() end
 
 ---@class AuctionHouseFilterCategory
 AuctionHouseFilterCategory = {}

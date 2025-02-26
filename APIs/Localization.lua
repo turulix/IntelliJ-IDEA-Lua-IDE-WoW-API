@@ -8,13 +8,13 @@ function BreakUpLargeNumbers(largeNumber, natural) end
 function CaseAccentInsensitiveParse(name) end
 
 ---@param name cstring 
----@param gender number @ [OPTIONAL]
+---@param gender UnitSex @ [OPTIONAL]
 ---@param declensionSet luaIndex 
 ---@return string declinedNames
 function DeclineName(name, gender, declensionSet) end
 
 ---@param name cstring 
----@param gender number @ [OPTIONAL]
+---@param gender UnitSex @ [OPTIONAL]
 ---@return number numDeclensionSets
 function GetNumDeclensionSets(name, gender) end
 

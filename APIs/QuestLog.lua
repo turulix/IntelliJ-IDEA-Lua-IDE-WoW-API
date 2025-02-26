@@ -428,6 +428,7 @@ QuestInfo = {}
 ---@field finished boolean 
 ---@field numFulfilled number 
 ---@field numRequired number 
+---@field objectiveType QuestObjectiveType|nil 
 QuestObjectiveInfo = {}
 
 ---@class QuestTagInfo

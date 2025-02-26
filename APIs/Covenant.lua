@@ -24,6 +24,7 @@ function C_Covenants.GetCovenantIDs() end
 ---@field reservoirFullSoundKitID number 
 ---@field beginResearchSoundKitID number 
 ---@field renownFanfareSoundKitID number 
+---@field factionID number 
 ---@field name cstring 
 ---@field soulbindIDs number 
 CovenantData = {}

@@ -171,6 +171,7 @@ SendAddonMessageResult.TargetRequired = 6
 SendAddonMessageResult.InvalidChannel = 7
 SendAddonMessageResult.ChannelThrottle = 8
 SendAddonMessageResult.GeneralError = 9
+SendAddonMessageResult.NotInGuild = 10
 
 ---@class AddonMessageParams
 ---@field prefix cstring 

@@ -5,7 +5,7 @@ C_AreaPoiInfo = {}
 ---@return number areaPoiIDs
 function C_AreaPoiInfo.GetAreaPOIForMap(uiMapID) end
 
----@param uiMapID number 
+---@param uiMapID number @ [OPTIONAL]
 ---@param areaPoiID number 
 ---@return AreaPOIInfo poiInfo
 function C_AreaPoiInfo.GetAreaPOIInfo(uiMapID, areaPoiID) end

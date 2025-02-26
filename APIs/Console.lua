@@ -3,8 +3,11 @@
 ---@return number distance
 function CalculateStringEditDistance(firstString, secondString) end
 
----@param message cstring 
-function ConsoleAddMessage(message) end
+---@param command cstring 
+---@param addToHistory boolean 
+---@param prefix cstring @ [OPTIONAL]
+---@return boolean result
+function ConsoleEcho(command, addToHistory, prefix) end
 
 ---@param command cstring 
 ---@param addToHistory boolean 

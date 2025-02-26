@@ -13,6 +13,10 @@ function GetFont() end
 ---@return SimpleFont font
 function GetFontObject() end
 
+---@param alphabet FontAlphabet 
+---@return SimpleFont font
+function GetFontObjectForAlphabet(alphabet) end
+
 
 ---@return boolean wordWrap
 function GetIndentedWordWrap() end

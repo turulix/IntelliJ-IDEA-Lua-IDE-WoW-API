@@ -13,6 +13,10 @@ function C_AddOns.DisableAllAddOns(character) end
 function C_AddOns.DoesAddOnExist(name) end
 
 ---@param name uiAddon 
+---@return boolean hadError
+function C_AddOns.DoesAddOnHaveLoadError(name) end
+
+---@param name uiAddon 
 ---@param character cstring 
 function C_AddOns.EnableAddOn(name, character) end
 
@@ -46,6 +50,10 @@ function C_AddOns.GetNumAddOns() end
 
 ---@return boolean disallowed
 function C_AddOns.GetScriptsDisallowedForBeta() end
+
+---@param name uiAddon 
+---@return boolean defaultEnabled
+function C_AddOns.IsAddOnDefaultEnabled(name) end
 
 ---@param name uiAddon 
 ---@return boolean loadOnDemand

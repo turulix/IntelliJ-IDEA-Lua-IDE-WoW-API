@@ -176,6 +176,10 @@ function InterceptStartDrag(delegate) end
 ---@return boolean clampedToScreen
 function IsClampedToScreen() end
 
+---@param layer DrawLayer 
+---@return boolean isEnabled
+function IsDrawLayerEnabled(layer) end
+
 ---@param eventName cstring 
 ---@return boolean, string|nil isRegistered, units
 function IsEventRegistered(eventName) end

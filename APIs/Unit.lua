@@ -828,5 +828,6 @@ UnitChannelInfoResult = {}
 ---@field flashAtMinPower boolean 
 ---@field fractionalCounter boolean 
 ---@field animateNumbers boolean 
+---@field attachTooltipToBar boolean 
 UnitPowerBarInfo = {}
 

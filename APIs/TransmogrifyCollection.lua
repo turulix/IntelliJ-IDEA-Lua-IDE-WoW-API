@@ -11,10 +11,6 @@ function C_TransmogCollection.AreAllCollectionTypeFiltersChecked() end
 ---@return boolean areAllSourceTypeFiltersChecked
 function C_TransmogCollection.AreAllSourceTypeFiltersChecked() end
 
----@param itemAppearanceID number 
----@return boolean canAppearanceBeDisplayedOnPlayer
-function C_TransmogCollection.CanAppearanceBeDisplayedOnPlayer(itemAppearanceID) end
-
 ---@param appearanceID number 
 ---@return boolean canHaveIllusion
 function C_TransmogCollection.CanAppearanceHaveIllusion(appearanceID) end

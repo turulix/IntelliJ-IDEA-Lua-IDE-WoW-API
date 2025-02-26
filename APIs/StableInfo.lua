@@ -6,6 +6,9 @@ function C_StableInfo.ClosePetStables() end
 ---@return PetInfo activePets
 function C_StableInfo.GetActivePetList() end
 
+---@return PetSpecInfo petSpecInfos
+function C_StableInfo.GetAvailablePetSpecInfos() end
+
 ---@return number numActivePets
 function C_StableInfo.GetNumActivePets() end
 
@@ -49,12 +52,20 @@ function C_StableInfo.SetPetSlot(index, slot) end
 ---@field familyName string 
 ---@field specialization string 
 ---@field type string 
----@field abilities number 
+---@field petAbilities number 
+---@field specAbilities number 
 ---@field displayID number 
 ---@field isFavorite boolean 
 ---@field isExotic boolean 
 ---@field uiModelSceneID number 
 ---@field petNumber number 
 ---@field creatureID number 
+---@field specID number 
 PetInfo = {}
+
+---@class PetSpecInfo
+---@field specID number 
+---@field specIndex luaIndex 
+---@field specializationName string 
+PetSpecInfo = {}
 

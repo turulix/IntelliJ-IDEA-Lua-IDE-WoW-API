@@ -64,9 +64,17 @@ function C_SpecializationInfo.IsPvpTalentLocked(talentID) end
 ---@return boolean matches
 function C_SpecializationInfo.MatchesCurrentSpecSet(specSetID) end
 
+---@param specIndex luaIndex 
+---@param petNumber number @ [OPTIONAL]
+function C_SpecializationInfo.SetPetSpecialization(specIndex, petNumber) end
+
 ---@param talentID number 
 ---@param locked boolean 
 function C_SpecializationInfo.SetPvpTalentLocked(talentID, locked) end
+
+---@param specIndex luaIndex 
+---@return boolean success
+function C_SpecializationInfo.SetSpecialization(specIndex) end
 
 ---@class PvpTalentInfo
 ---@field talentID number 

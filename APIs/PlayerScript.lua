@@ -9,9 +9,6 @@ function AcceptResurrect() end
 ---@return string result
 function Ambiguate(fullName, context) end
 
----@return boolean result
-function AreAccountAchievementsHidden() end
-
 function AutoEquipCursorItem() end
 
 function BeginTrade() end
@@ -179,7 +176,7 @@ function GetPVPDesired() end
 ---@return boolean result
 function GetPVPGearStatRules() end
 
----@return number, number lifetimeHonorableKills, lifetimeMaxPVPRank
+---@return number, PvPRanks lifetimeHonorableKills, lifetimeMaxPVPRank
 function GetPVPLifetimeStats() end
 
 ---@return number, number honorableKills, dishonorableKills
@@ -324,6 +321,9 @@ function IsCemeterySelectionAvailable() end
 function IsCharacterNewlyBoosted() end
 
 ---@return boolean result
+function IsDrivableArea() end
+
+---@return boolean result
 function IsDualWielding() end
 
 ---@return boolean result
@@ -453,9 +453,6 @@ function ShouldShowIslandsWeeklyPOI() end
 
 ---@return boolean result
 function ShouldShowSpecialSplashScreen() end
-
----@param hide boolean 
-function ShowAccountAchievements(hide) end
 
 ---@param show boolean 
 function ShowCloak(show) end

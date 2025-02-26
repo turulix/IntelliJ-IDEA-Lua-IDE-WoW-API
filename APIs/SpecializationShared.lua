@@ -1,16 +1,16 @@
 ---@param classID number 
 ---@param index number 
----@param gender number @ [OPTIONAL]
+---@param gender UnitSex @ [OPTIONAL]
 ---@return number, cstring, string, fileID, cstring, boolean, boolean, number|nil, number|nil id, name, description, icon, role, recommended, allowedForBoost, masterySpell1, masterySpell2
 function GetSpecializationInfoForClassID(classID, index, gender) end
 
 ---@param specID number 
----@param gender number @ [OPTIONAL]
+---@param gender UnitSex @ [OPTIONAL]
 ---@return number, cstring, string, fileID, cstring, boolean, boolean, number|nil, number|nil id, name, description, icon, role, recommended, allowedForBoost, masterySpell1, masterySpell2
 function GetSpecializationInfoForSpecID(specID, gender) end
 
 ---@param specID number 
----@param gender number @ [OPTIONAL]
+---@param gender UnitSex @ [OPTIONAL]
 ---@return cstring|nil name
 function GetSpecializationNameForSpecID(specID, gender) end
 

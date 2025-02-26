@@ -104,6 +104,7 @@ AccountTransType.Mapping = 56
 AccountTransType.CharacterItems = 57
 AccountTransType.CurrencyTransferLog = 58
 AccountTransType.LgVendorPurchase = 59
+AccountTransType.SaveWarbandGroups = 60
 
 ---@class BnetAccountFlag
 BnetAccountFlag = {}
@@ -138,6 +139,39 @@ DisableAccountProfilesFlags.MountsCollections = 4
 DisableAccountProfilesFlags.PetsCollections = 8
 DisableAccountProfilesFlags.ItemsCollections = 16
 
+---@class ItemCollectionType
+ItemCollectionType = {}
+ItemCollectionType.ItemCollectionNone = 0
+ItemCollectionType.ItemCollectionToy = 1
+ItemCollectionType.ItemCollectionHeirloom = 2
+ItemCollectionType.ItemCollectionTransmog = 3
+ItemCollectionType.ItemCollectionTransmogSetFavorite = 4
+ItemCollectionType.ItemCollectionRuneforgeLegendaryAbility = 5
+ItemCollectionType.ItemCollectionTransmogIllusion = 6
+ItemCollectionType.ItemCollectionWarbandScene = 7
+ItemCollectionType.NumItemCollectionTypes = 7
+
+---@class AddOnPerformanceMessageType
+AddOnPerformanceMessageType = {}
+AddOnPerformanceMessageType.SpecificAddOnChatWarning = 0
+AddOnPerformanceMessageType.SpecificAddOnErrorDialog = 1
+AddOnPerformanceMessageType.OverallAddOnErrorDialog = 2
+
+---@class AddOnProfilerMetric
+AddOnProfilerMetric = {}
+AddOnProfilerMetric.SessionAverageTime = 0
+AddOnProfilerMetric.RecentAverageTime = 1
+AddOnProfilerMetric.EncounterAverageTime = 2
+AddOnProfilerMetric.LastTime = 3
+AddOnProfilerMetric.PeakTime = 4
+AddOnProfilerMetric.CountTimeOver1Ms = 5
+AddOnProfilerMetric.CountTimeOver5Ms = 6
+AddOnProfilerMetric.CountTimeOver10Ms = 7
+AddOnProfilerMetric.CountTimeOver50Ms = 8
+AddOnProfilerMetric.CountTimeOver100Ms = 9
+AddOnProfilerMetric.CountTimeOver500Ms = 10
+AddOnProfilerMetric.CountTimeOver1000Ms = 11
+
 ---@class AppearanceSourceInfo
 ---@field visualID number 
 ---@field sourceID number 
@@ -148,6 +182,7 @@ DisableAccountProfilesFlags.ItemsCollections = 16
 ---@field categoryID TransmogCollectionType 
 ---@field playerCanCollect boolean 
 ---@field isValidSourceForPlayer boolean 
+---@field canDisplayOnPlayer boolean 
 ---@field inventorySlot number|nil 
 ---@field sourceType luaIndex|nil 
 ---@field name string|nil 
@@ -530,7 +565,6 @@ BattlepetDbFlags.FanfareNeeded = 128
 BattlepetDbFlags.DisplayOverridden = 256
 BattlepetDbFlags.AcquiredViaLicense = 512
 BattlepetDbFlags.TradingPost = 1024
-BattlepetDbFlags.AccountStore = 2048
 BattlepetDbFlags.LockMask = 12
 
 ---@class BattlepetDeletedReason
@@ -803,17 +837,14 @@ ChrCustomizationOptionType.Slider = 2
 
 ---@class ChrModelFeatureFlags
 ChrModelFeatureFlags = {}
+ChrModelFeatureFlags.None = 0
 ChrModelFeatureFlags.Summons = 1
 ChrModelFeatureFlags.Forms = 2
 ChrModelFeatureFlags.Identity = 4
-ChrModelFeatureFlags.DragonCompanions = 8
+ChrModelFeatureFlags.Deprecated0 = 8
 ChrModelFeatureFlags.Mounts = 16
 ChrModelFeatureFlags.HunterPets = 32
-
----@class CustomizationScope
-CustomizationScope = {}
-CustomizationScope.Player = 0
-CustomizationScope.DragonCompanion = 1
+ChrModelFeatureFlags.Players = 64
 
 ---@class CharCustomizationCategory
 ---@field id number 
@@ -888,6 +919,7 @@ WarbandSceneAnimationEvent.Insert = 5
 WarbandSceneAnimationEvent.EnterWorld = 6
 WarbandSceneAnimationEvent.Spin = 7
 WarbandSceneAnimationEvent.Poke = 8
+WarbandSceneAnimationEvent.Ffx = 9
 
 ---@class WarbandSceneAnimationSheatheState
 WarbandSceneAnimationSheatheState = {}
@@ -902,12 +934,15 @@ WarbandSceneAnimationStandState.Stand = 1
 WarbandSceneAnimationStandState.SitOnGround = 2
 WarbandSceneAnimationStandState.Kneel = 3
 WarbandSceneAnimationStandState.ReadyStance = 4
-WarbandSceneAnimationStandState.Sleep = 5
+WarbandSceneAnimationStandState.SitOnChairLow = 5
+WarbandSceneAnimationStandState.SitOnChairMedium = 6
+WarbandSceneAnimationStandState.SitOnChairHigh = 7
+WarbandSceneAnimationStandState.Sleep = 8
 
----@class WarbandSceneSlotType
-WarbandSceneSlotType = {}
-WarbandSceneSlotType.Character = 0
-WarbandSceneSlotType.Pet = 1
+---@class WarbandScenePlacementType
+WarbandScenePlacementType = {}
+WarbandScenePlacementType.Character = 0
+WarbandScenePlacementType.Pet = 1
 
 ---@class ChannelPlayerFlags
 ChannelPlayerFlags = {}
@@ -1365,6 +1400,7 @@ CurrencyFlagsB.FutureCurrencyFlag = 16
 CurrencyFlagsB.CurrencyBDontDisplayIfZero = 32
 CurrencyFlagsB.CurrencyBScaleMaxQuantityBySeasonWeeks = 64
 CurrencyFlagsB.CurrencyBScaleMaxQuantityByWeeksSinceStart = 128
+CurrencyFlagsB.CurrencyBForceMaxQuantityOnConversion = 256
 
 ---@class CurrencyGainFlags
 CurrencyGainFlags = {}
@@ -1451,6 +1487,7 @@ CurrencyDestroyReason.FulfillCraftingOrder = 11
 CurrencyDestroyReason.Script = 12
 CurrencyDestroyReason.ConcentrationCast = 13
 CurrencyDestroyReason.AccountTransfer = 14
+CurrencyDestroyReason.HonorLoss = 15
 
 ---@class CurrencySource
 CurrencySource = {}
@@ -1750,8 +1787,8 @@ DelvesConsts = {}
 DelvesConsts.DELVES_MIN_PLAYER_LEVEL_CONTENT_TUNING_ID = 2677
 DelvesConsts.DELVES_NORMAL_KEY_CURRENCY_ID = 3028
 DelvesConsts.DELVES_COMPANION_TOOLTIP_WIDGET_SET_ID = 1331
-DelvesConsts.DELVES_COMPANION_TRAIT_SYSTEM_ID = 6
-DelvesConsts.BRANN_COMPANION_INFO_ID = 1
+DelvesConsts.DELVES_COMPANION_INFO_SELECTION_CHARACTER_DATA_ELEMENT_ID = 13
+DelvesConsts.COMPANION_SEASONAL_LEVEL_START = 10
 DelvesConsts.BRANN_MAX_LEVEL = 60
 DelvesConsts.BRANN_XP_FACTION_ID = 1203
 
@@ -2114,6 +2151,13 @@ JournalLinkTypes.Instance = 0
 JournalLinkTypes.Encounter = 1
 JournalLinkTypes.Section = 2
 JournalLinkTypes.Tier = 3
+
+---@class EventScheduler
+EventScheduler = {}
+EventScheduler.SCHEDULED_EVENT_REMINDER_WARNING_SECONDS = 300
+EventScheduler.SCHEDULED_EVENT_FUTURE_LIMIT = 12
+EventScheduler.SCHEDULED_EVENT_REMINDER_DEAD_SECONDS = 10
+EventScheduler.SCHEDULED_EVENT_PAST_LIMIT_SECONDS = 3600
 
 ---@class ExpansionLandingPageType
 ExpansionLandingPageType = {}
@@ -2510,6 +2554,11 @@ GossipNpcOption.PersonalTabardVendor = 54
 GossipNpcOption.ForgeMaster = 55
 GossipNpcOption.CharacterBanker = 56
 GossipNpcOption.AccountBanker = 57
+GossipNpcOption.ProfessionRespec = 58
+GossipNpcOption.Placeholder_1 = 59
+GossipNpcOption.Placeholder_2 = 60
+GossipNpcOption.Placeholder_3 = 61
+GossipNpcOption.Placeholder_4 = 62
 
 ---@class GossipNpcOptionDisplayFlags
 GossipNpcOptionDisplayFlags = {}
@@ -2519,6 +2568,7 @@ GossipNpcOptionDisplayFlags.ForceInteractionOnSingleChoice = 1
 GossipOptionRecFlags = {}
 GossipOptionRecFlags.QuestLabelPrepend = 1
 GossipOptionRecFlags.HideOptionIDFromClient = 2
+GossipOptionRecFlags.PlayMovieLabelPrepend = 4
 
 ---@class GuildTabardInfo
 ---@field backgroundColor colorRGB 
@@ -2987,6 +3037,7 @@ SubcontainerType.EquippedReagentbag = 33
 SubcontainerType.CraftingOrder = 34
 SubcontainerType.CraftingOrderReagents = 35
 SubcontainerType.AccountBankTabs = 36
+SubcontainerType.CurrencyTransfer = 37
 
 ---@class UIItemInteractionFlags
 UIItemInteractionFlags = {}
@@ -3119,6 +3170,7 @@ PointsModifierSourceType.ProfessionTraitRanksByLabel = 63
 PointsModifierSourceType.CreatureHealthMod = 64
 PointsModifierSourceType.FirstTimeQuestCompletionRewards = 65
 PointsModifierSourceType.PointsModifierSet = 66
+PointsModifierSourceType.CurrencyMaxWeeklyDelta = 67
 
 ---@class InventoryConstants
 InventoryConstants = {}
@@ -3228,6 +3280,15 @@ RuneforgePower = {}
 LevelConstsExposed = {}
 LevelConstsExposed.MIN_RES_SICKNESS_LEVEL = 10
 LevelConstsExposed.MIN_ACHIEVEMENT_LEVEL = 10
+
+---@class LogPriority
+LogPriority = {}
+LogPriority.Fatal = 1
+LogPriority.Error = 2
+LogPriority.Warning = 3
+LogPriority.Normal = 10
+LogPriority.Debug = 30
+LogPriority.Spam = 40
 
 ---@class LootSlotType
 LootSlotType = {}
@@ -3399,6 +3460,7 @@ PerksVendorCategoryType.Pet = 3
 PerksVendorCategoryType.Toy = 5
 PerksVendorCategoryType.Illusion = 7
 PerksVendorCategoryType.Transmogset = 8
+PerksVendorCategoryType.WarbandScene = 9
 
 ---@class PetBattleQueueStatus
 PetBattleQueueStatus = {}
@@ -3685,6 +3747,26 @@ Pettameresult.Invalidslot = 13
 Pettameresult.EliteToohighlevel = 14
 Pettameresult.Numresults = 15
 
+---@class StableResult
+StableResult = {}
+StableResult.MaxSlots = 0
+StableResult.InsufficientFunds = 1
+StableResult.NotStableMaster = 2
+StableResult.InvalidSlot = 3
+StableResult.NoPet = 4
+StableResult.AlreadyStabled = 5
+StableResult.AlreadySummoned = 6
+StableResult.NotFound = 7
+StableResult.StableSuccess = 8
+StableResult.UnstableSuccess = 9
+StableResult.ReviveSuccess = 10
+StableResult.CantControlExotic = 11
+StableResult.InternalError = 12
+StableResult.CheckForLuaHack = 13
+StableResult.BuySlotSuccess = 14
+StableResult.FavoriteToggle = 15
+StableResult.PetRenamed = 16
+
 ---@class UnitMirrorPetFlags
 UnitMirrorPetFlags = {}
 UnitMirrorPetFlags.Renameable = 1
@@ -3870,6 +3952,14 @@ PlayerInteractionType.PersonalTabardVendor = 65
 PlayerInteractionType.ForgeMaster = 66
 PlayerInteractionType.CharacterBanker = 67
 PlayerInteractionType.AccountBanker = 68
+PlayerInteractionType.ProfessionRespec = 69
+PlayerInteractionType.PlaceholderType71 = 70
+PlayerInteractionType.PlaceholderType72 = 71
+PlayerInteractionType.PlaceholderType73 = 72
+PlayerInteractionType.PlaceholderType74 = 73
+PlayerInteractionType.PlaceholderType75 = 74
+PlayerInteractionType.PlaceholderType76 = 75
+PlayerInteractionType.PlaceholderType77 = 76
 
 ---@class PlayerMentorshipApplicationResult
 PlayerMentorshipApplicationResult = {}
@@ -4229,6 +4319,28 @@ SpecializationTabInfo = {}
 PvPFaction = {}
 PvPFaction.Horde = 0
 PvPFaction.Alliance = 1
+
+---@class PvPRanks
+PvPRanks = {}
+PvPRanks.RankNone = 0
+PvPRanks.RankPariah = 1
+PvPRanks.RankOutlaw = 2
+PvPRanks.RankExiled = 3
+PvPRanks.RankDishonored = 4
+PvPRanks.Rank_1 = 5
+PvPRanks.Rank_2 = 6
+PvPRanks.Rank_3 = 7
+PvPRanks.Rank_4 = 8
+PvPRanks.Rank_5 = 9
+PvPRanks.Rank_6 = 10
+PvPRanks.Rank_7 = 11
+PvPRanks.Rank_8 = 12
+PvPRanks.Rank_9 = 13
+PvPRanks.Rank_10 = 14
+PvPRanks.Rank_11 = 15
+PvPRanks.Rank_12 = 16
+PvPRanks.Rank_13 = 17
+PvPRanks.Rank_14 = 18
 
 ---@class PvpInfoConsts
 PvpInfoConsts = {}
@@ -5233,11 +5345,6 @@ TraitConsts.INSPECT_TRAIT_CONFIG_ID = -1
 TraitConsts.STARTER_BUILD_TRAIT_CONFIG_ID = -2
 TraitConsts.VIEW_TRAIT_CONFIG_ID = -3
 
----@class TransmogIllusionFlags
-TransmogIllusionFlags = {}
-TransmogIllusionFlags.HideUntilCollected = 1
-TransmogIllusionFlags.PlayerConditionGrantsOnLogin = 2
-
 ---@class TransmogSlot
 TransmogSlot = {}
 TransmogSlot.Head = 0
@@ -5292,6 +5399,11 @@ TransmogCollectionType.Gun = 26
 TransmogCollectionType.Crossbow = 27
 TransmogCollectionType.Warglaives = 28
 TransmogCollectionType.Paired = 29
+
+---@class TransmogIllusionFlags
+TransmogIllusionFlags = {}
+TransmogIllusionFlags.HideUntilCollected = 1
+TransmogIllusionFlags.PlayerConditionGrantsOnLogin = 2
 
 ---@class TransmogModification
 TransmogModification = {}
@@ -5349,6 +5461,11 @@ UIActionType.UpdateMapSystem = 1
 ---@field icon textureAtlas 
 ---@field useNormalAsHiglight boolean 
 UIButtonInfo = {}
+
+---@class DBColorExport
+---@field baseTag cstring 
+---@field color colorRGBA 
+DBColorExport = {}
 
 ---@class UIMapPinInfo
 ---@field button UIButtonInfo 
@@ -5574,4 +5691,12 @@ VignetteType.PvPBounty = 1
 VignetteType.Torghast = 2
 VignetteType.Treasure = 3
 VignetteType.FyrakkFlight = 4
+
+---@class WarbandSceneFlags
+WarbandSceneFlags = {}
+WarbandSceneFlags.DoNotInclude = 1
+WarbandSceneFlags.HiddenUntilCollected = 2
+WarbandSceneFlags.CannotBeSaved = 4
+WarbandSceneFlags.AwardedAutomatically = 8
+WarbandSceneFlags.IsDefault = 16
 
