@@ -22,7 +22,6 @@ end
 function AcceptDuel()
 end
 
---- Accepts the invitation from a group.
 --- [https://warcraft.wiki.gg/wiki/API_AcceptGroup]
 --- @return void
 function AcceptGroup()
@@ -123,7 +122,8 @@ end
 function ArchaeologyMapUpdateAll()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_ArcheologyGetVisibleBlobID]
+--- @return void
 function ArcheologyGetVisibleBlobID()
 end
 
@@ -142,6 +142,7 @@ end
 function AreTalentsLocked()
 end
 
+--- Called when the player releases the jump key.
 --- [https://warcraft.wiki.gg/wiki/API_AscendStop]
 --- @return void
 function AscendStop()
@@ -187,16 +188,19 @@ end
 function BNAcceptFriendInvite()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_BNCheckBattleTagInviteToGuildMember]
+--- @return void
 function BNCheckBattleTagInviteToGuildMember()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_BNCheckBattleTagInviteToUnit]
+--- @return void
 function BNCheckBattleTagInviteToUnit()
 end
 
+--- Returns true if the WoW Client is connected to Battle.net.
 --- [https://warcraft.wiki.gg/wiki/API_BNConnected]
---- @return void
+--- @return boolean @ connected
 function BNConnected()
 end
 
@@ -215,11 +219,13 @@ end
 function BNFeaturesEnabledAndConnected()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_BNGetBlockedInfo]
+--- @return void
 function BNGetBlockedInfo()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_BNGetDisplayName]
+--- @return void
 function BNGetDisplayName()
 end
 
@@ -228,11 +234,9 @@ end
 function BNGetFOFInfo()
 end
 
---- Returns the index in the friend frame of the given Battle.net friend.
 --- [https://warcraft.wiki.gg/wiki/API_BNGetFriendIndex]
---- @param presenceID number @ A unique numeric identifier for the friend's battle.net account during this session.
---- @return number @ index
-function BNGetFriendIndex(presenceID)
+--- @return void
+function BNGetFriendIndex()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_BNGetFriendInviteInfo]
@@ -245,7 +249,8 @@ end
 function BNGetInfo()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_BNGetNumBlocked]
+--- @return void
 function BNGetNumBlocked()
 end
 
@@ -279,15 +284,18 @@ end
 function BNInviteFriend()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_BNIsBlocked]
+--- @return void
 function BNIsBlocked()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_BNIsFriend]
+--- @return void
 function BNIsFriend()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_BNIsSelf]
+--- @return void
 function BNIsSelf()
 end
 
@@ -301,8 +309,7 @@ end
 function BNRequestFOFInfo()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_BNRequestInviteFriend]
---- @return void
+--- No documentation available.
 function BNRequestInviteFriend()
 end
 
@@ -346,11 +353,9 @@ end
 function BNSetCustomMessage()
 end
 
---- Sets the player's online DND status.
 --- [https://warcraft.wiki.gg/wiki/API_BNSetDND]
---- @param bool boolean @ true set your battle.net status to dnd and false unset it.
 --- @return void
-function BNSetDND(bool)
+function BNSetDND()
 end
 
 --- Favorites a Battle.net friend.
@@ -381,7 +386,8 @@ end
 function BNSummonFriendByIndex()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_BNTokenFindName]
+--- @return void
 function BNTokenFindName()
 end
 
@@ -442,11 +448,9 @@ end
 function BuyReagentBank()
 end
 
---- Buys a trainer service (e.g. class skills and profession recipes).
 --- [https://warcraft.wiki.gg/wiki/API_BuyTrainerService]
---- @param index number @ The index of the service to train.
 --- @return void
-function BuyTrainerService(index)
+function BuyTrainerService()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_BuybackItem]
@@ -544,8 +548,7 @@ end
 function CanEditMOTD()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_CanEditPublicNote]
---- @return void
+--- No documentation available.
 function CanEditPublicNote()
 end
 
@@ -574,9 +577,8 @@ end
 function CanGuildDemote()
 end
 
---- Returns true if the player can invite new members to the guild.
 --- [https://warcraft.wiki.gg/wiki/API_CanGuildInvite]
---- @return boolean @ canInvite
+--- @return void
 function CanGuildInvite()
 end
 
@@ -590,7 +592,8 @@ end
 function CanGuildRemove()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_CanHearthAndResurrectFromArea]
+--- @return void
 function CanHearthAndResurrectFromArea()
 end
 
@@ -599,9 +602,12 @@ end
 function CanInitiateWarGame()
 end
 
+--- Returns true if the player can inspect the unit.
 --- [https://warcraft.wiki.gg/wiki/API_CanInspect]
---- @return void
-function CanInspect()
+--- @param unit string @ UnitId
+--- @param showError boolean @ ? - If true, the function will display an error message (You can't inspect that unit) if you cannot inspect the specified unit.
+--- @return boolean @ canInspect
+function CanInspect(unit, showError)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_CanItemBeSocketedToArtifact]
@@ -624,9 +630,8 @@ end
 function CanMapChangeDifficulty()
 end
 
---- Returns true if the merchant can repair items.
 --- [https://warcraft.wiki.gg/wiki/API_CanMerchantRepair]
---- @return boolean @ canRepair
+--- @return void
 function CanMerchantRepair()
 end
 
@@ -655,9 +660,8 @@ end
 function CanShowAchievementUI()
 end
 
---- Returns true if the character can currently reset their instances.
 --- [https://warcraft.wiki.gg/wiki/API_CanShowResetInstances]
---- @return boolean @ canReset
+--- @return void
 function CanShowResetInstances()
 end
 
@@ -671,7 +675,8 @@ end
 function CanSignPetition()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_CanSolveArtifact]
+--- @return void
 function CanSolveArtifact()
 end
 
@@ -694,19 +699,19 @@ end
 function CanUpgradeExpansion()
 end
 
+--- Returns if the player has access to the Void Storage.
 --- [https://warcraft.wiki.gg/wiki/API_CanUseVoidStorage]
---- @return void
+--- @return number @ canUse
 function CanUseVoidStorage()
 end
 
---- Checks if the player can view specific guild recipes.
 --- [https://warcraft.wiki.gg/wiki/API_CanViewGuildRecipes]
---- @param skillID number @ The skill ID to view recipes of. See GetGuildTradeSkillInfo on how to fetch a skill ID.
---- @return boolean @ canView
-function CanViewGuildRecipes(skillID)
+--- @return void
+function CanViewGuildRecipes()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_CanWithdrawGuildBankMoney]
+--- @return void
 function CanWithdrawGuildBankMoney()
 end
 
@@ -725,9 +730,11 @@ end
 function CancelEmote()
 end
 
+--- #protected - This can only be called from secure code.Use the cancelaura action type of SecureActionButtonTemplate with the target-slot attribute set to weapon slot ID.
 --- [https://warcraft.wiki.gg/wiki/API_CancelItemTempEnchantment]
+--- @param weaponHand number @ for Main Hand, 2 for Off Hand.
 --- @return void
-function CancelItemTempEnchantment()
+function CancelItemTempEnchantment(weaponHand)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_CancelLogout]
@@ -745,8 +752,7 @@ end
 function CancelPendingEquip()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_CancelPetPossess]
---- @return void
+--- No documentation available.
 function CancelPetPossess()
 end
 
@@ -770,7 +776,6 @@ end
 function CancelSpellByName()
 end
 
---- Declines the current trade offer.
 --- [https://warcraft.wiki.gg/wiki/API_CancelTrade]
 --- @return void
 function CancelTrade()
@@ -805,12 +810,16 @@ end
 function CastShapeshiftForm()
 end
 
+--- #protected - This can only be called from secure code.Use the spell action type of SecureActionButtonTemplate or the /cast slash command.
 --- [https://warcraft.wiki.gg/wiki/API_CastSpell]
+--- @param spellIndex number @ index of the spell to cast.
+--- @param spellbookType string @ spellbook to cast the spell from; one of
 --- @return void
-function CastSpell()
+function CastSpell(spellIndex, spellbookType)
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_CastSpellByID]
+--- @return void
 function CastSpellByID()
 end
 
@@ -819,7 +828,8 @@ end
 function CastSpellByName()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_CenterCamera]
+--- @return void
 function CenterCamera()
 end
 
@@ -838,12 +848,9 @@ end
 function ChannelBan()
 end
 
---- Invites the specified user to the channel.
 --- [https://warcraft.wiki.gg/wiki/API_ChannelInvite]
---- @param channelName string @ The name of the channel to invite to
---- @param playerName string @ The name of the player to invite
 --- @return void
-function ChannelInvite(channelName, playerName)
+function ChannelInvite()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_ChannelKick]
@@ -876,9 +883,12 @@ end
 function ChannelUnban()
 end
 
+--- Takes the specified user away from the moderator status.
 --- [https://warcraft.wiki.gg/wiki/API_ChannelUnmoderator]
+--- @param channelName string @ The name of the channel to remove moderator status on
+--- @param playerName string @ The name of the player to remove moderator status from
 --- @return void
-function ChannelUnmoderator()
+function ChannelUnmoderator(channelName, playerName)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_CheckInbox]
@@ -901,13 +911,9 @@ end
 function CinematicFinished()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_CinematicStarted]
---- @param movieType unknown @ Enum.CinematicType
---- @param movieID number
---- @param canCancel boolean @ ? = true
 --- @return void
-function CinematicStarted(movieType, movieID, canCancel)
+function CinematicStarted()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_ClassicExpansionAtLeast]
@@ -920,8 +926,7 @@ end
 function ClassicExpansionAtMost()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_ClearAchievementComparisonUnit]
---- @return void
+--- No documentation available.
 function ClearAchievementComparisonUnit()
 end
 
@@ -950,7 +955,6 @@ end
 function ClearCursor()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_ClearCursorHoveredItem]
 --- @return void
 function ClearCursorHoveredItem()
@@ -976,11 +980,9 @@ end
 function ClearInspectPlayer()
 end
 
---- #nocombat - This cannot be called while in combat.Restricted since patch 2.0
 --- [https://warcraft.wiki.gg/wiki/API_ClearOverrideBindings]
---- @param owner Frame @ 🔗 - The frame to clear override bindings for.
 --- @return void
-function ClearOverrideBindings(owner)
+function ClearOverrideBindings()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_ClearPartyAssignment]
@@ -1033,8 +1035,7 @@ end
 function ClickTargetTradeButton()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_ClickTradeButton]
---- @return void
+--- No documentation available.
 function ClickTradeButton()
 end
 
@@ -1088,7 +1089,6 @@ end
 function CloseMail()
 end
 
---- Closes the merchant window.
 --- [https://warcraft.wiki.gg/wiki/API_CloseMerchant]
 --- @return void
 function CloseMerchant()
@@ -1119,18 +1119,17 @@ end
 function CloseTabardCreation()
 end
 
---- Closes the Flight Map.
 --- [https://warcraft.wiki.gg/wiki/API_CloseTaxiMap]
 --- @return void
 function CloseTaxiMap()
 end
 
---- Closes the trade window.
 --- [https://warcraft.wiki.gg/wiki/API_CloseTrade]
 --- @return void
 function CloseTrade()
 end
 
+--- Closes the trainer window.
 --- [https://warcraft.wiki.gg/wiki/API_CloseTrainer]
 --- @return void
 function CloseTrainer()
@@ -1161,7 +1160,8 @@ end
 function CollapseWarGameHeader()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_CombatLogAddFilter]
+--- @return void
 function CombatLogAddFilter()
 end
 
@@ -1180,18 +1180,17 @@ end
 function CombatLogGetCurrentEntry()
 end
 
---- Returns the current COMBAT_LOG_EVENT payload.
 --- [https://warcraft.wiki.gg/wiki/API_CombatLogGetCurrentEventInfo]
---- @return unknown, unknown, unknown @ arg1, arg2, ...
+--- @return void
 function CombatLogGetCurrentEventInfo()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_CombatLogGetNumEntries]
+--- @return void
 function CombatLogGetNumEntries()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_CombatLogGetRetentionTime]
---- @return void
+--- No documentation available.
 function CombatLogGetRetentionTime()
 end
 
@@ -1209,8 +1208,7 @@ end
 function CombatLogSetRetentionTime()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_CombatLogShowCurrentEntry]
---- @return void
+--- No documentation available.
 function CombatLogShowCurrentEntry()
 end
 
@@ -1239,6 +1237,7 @@ end
 function CompleteQuest()
 end
 
+--- Accepts a quest started by a group member (e.g. escort quests).
 --- [https://warcraft.wiki.gg/wiki/API_ConfirmAcceptQuest]
 --- @return void
 function ConfirmAcceptQuest()
@@ -1309,7 +1308,6 @@ end
 function ConsoleSetFontHeight()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_ConvertItemToBindToAccount]
 --- @return void
 function ConvertItemToBindToAccount()
@@ -1356,9 +1354,8 @@ end
 function CursorHasItem()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_CursorHasMacro]
---- @return boolean @ result
+--- @return void
 function CursorHasMacro()
 end
 
@@ -1392,7 +1389,6 @@ end
 function DeclineGroup()
 end
 
---- Declines a guild invite.
 --- [https://warcraft.wiki.gg/wiki/API_DeclineGuild]
 --- @return void
 function DeclineGuild()
@@ -1453,7 +1449,8 @@ end
 function DepositGuildBankMoney()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_DepositReagentBank]
+--- @return void
 function DepositReagentBank()
 end
 
@@ -1487,9 +1484,13 @@ end
 function DisplayChannelOwner()
 end
 
+--- Performs an emote.
 --- [https://warcraft.wiki.gg/wiki/API_DoEmote]
---- @return void
-function DoEmote()
+--- @param token string @ EmoteToken - The emote to perform.
+--- @param unit string @ ? : UnitToken : - Who the emote will be performed on. Defaults to the current target.
+--- @param hold boolean @ ? - Supposedly holds the emote animation until canceled, like for the /read emote.
+--- @return boolean @ restricted
+function DoEmote(token, unit, hold)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_DoMasterLootRoll]
@@ -1497,7 +1498,6 @@ end
 function DoMasterLootRoll()
 end
 
---- Initiates a ready check.
 --- [https://warcraft.wiki.gg/wiki/API_DoReadyCheck]
 --- @return void
 function DoReadyCheck()
@@ -1513,6 +1513,7 @@ end
 function DoesTemplateExist()
 end
 
+--- Drops money held by the cursor back into your bag.
 --- [https://warcraft.wiki.gg/wiki/API_DropCursorMoney]
 --- @return void
 function DropCursorMoney()
@@ -1543,15 +1544,13 @@ end
 function EJ_GetCreatureInfo()
 end
 
---- Returns the currently active encounter journal tier index.
 --- [https://warcraft.wiki.gg/wiki/API_EJ_GetCurrentTier]
---- @return number @ index
+--- @return void
 function EJ_GetCurrentTier()
 end
 
---- Returns the currently viewed difficulty in the journal.
 --- [https://warcraft.wiki.gg/wiki/API_EJ_GetDifficulty]
---- @return number @ difficultyId
+--- @return void
 function EJ_GetDifficulty()
 end
 
@@ -1560,20 +1559,14 @@ end
 function EJ_GetEncounterInfo()
 end
 
---- Returns encounter info from the journal.
 --- [https://warcraft.wiki.gg/wiki/API_EJ_GetEncounterInfoByIndex]
---- @param index number
---- @param journalInstanceID number @ ? : JournalInstance.ID - If omitted, defaults to the currently selected instance from EJ_SelectInstance()
 --- @return void
-function EJ_GetEncounterInfoByIndex(index, journalInstanceID)
+function EJ_GetEncounterInfoByIndex()
 end
 
---- Returns instance info for the Encounter Journal.
 --- [https://warcraft.wiki.gg/wiki/API_EJ_GetInstanceByIndex]
---- @param index number
---- @param isRaid boolean @ whether to return raid or normal instances.
 --- @return void
-function EJ_GetInstanceByIndex(index, isRaid)
+function EJ_GetInstanceByIndex()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_EJ_GetInstanceForMap]
@@ -1586,11 +1579,9 @@ end
 function EJ_GetInstanceInfo()
 end
 
---- Returns the sort order for an inventory type.
 --- [https://warcraft.wiki.gg/wiki/API_EJ_GetInvTypeSortOrder]
---- @param invType number @ Enum.InventoryType
---- @return number @ sortOrder
-function EJ_GetInvTypeSortOrder(invType)
+--- @return void
+function EJ_GetInvTypeSortOrder()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_EJ_GetLootFilter]
@@ -1603,15 +1594,14 @@ end
 function EJ_GetMapEncounter()
 end
 
---- Returns the amount of encounters that drop the same loot item.
 --- [https://warcraft.wiki.gg/wiki/API_EJ_GetNumEncountersForLootByIndex]
---- @param index number @ ranging from 1 to EJ_GetNumLoot.
---- @return number @ numLoot
-function EJ_GetNumEncountersForLootByIndex(index)
+--- @return void
+function EJ_GetNumEncountersForLootByIndex()
 end
 
+--- Returns the amount of loot for the currently selected instance or encounter per EJ_SelectInstance.
 --- [https://warcraft.wiki.gg/wiki/API_EJ_GetNumLoot]
---- @return void
+--- @return number @ numLoot
 function EJ_GetNumLoot()
 end
 
@@ -1640,11 +1630,9 @@ end
 function EJ_GetSearchSize()
 end
 
---- Returns the parent Section ID if available.
 --- [https://warcraft.wiki.gg/wiki/API_EJ_GetSectionPath]
---- @param sectionID number
---- @return number, number, number @ sectionID, parentSectionID, grandParentSectionID
-function EJ_GetSectionPath(sectionID)
+--- @return void
+function EJ_GetSectionPath()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_EJ_GetTierInfo]
@@ -1657,9 +1645,8 @@ end
 function EJ_HandleLinkPath()
 end
 
---- Returns whether the selected instance is a raid.
 --- [https://warcraft.wiki.gg/wiki/API_EJ_InstanceIsRaid]
---- @return boolean @ isRaid
+--- @return void
 function EJ_InstanceIsRaid()
 end
 
@@ -1719,11 +1706,9 @@ end
 function EditMacro()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_EjectPassengerFromSeat]
---- @param virtualSeatIndex number
 --- @return void
-function EjectPassengerFromSeat(virtualSeatIndex)
+function EjectPassengerFromSeat()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_EnumerateFrames]
@@ -1845,8 +1830,7 @@ end
 function GMEuropaSuggestionsEnabled()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_GMEuropaTicketsEnabled]
---- @return void
+--- No documentation available.
 function GMEuropaTicketsEnabled()
 end
 
@@ -1920,9 +1904,11 @@ end
 function GetAchievementCategory()
 end
 
+--- Returns information about the comparison unit's achievements.
 --- [https://warcraft.wiki.gg/wiki/API_GetAchievementComparisonInfo]
---- @return void
-function GetAchievementComparisonInfo()
+--- @param achievementID number @ ID of the achievement to retrieve information for.
+--- @return boolean, number, number, number @ completed, month, day, year
+function GetAchievementComparisonInfo(achievementID)
 end
 
 --- Returns info for the specified achievement criteria.
@@ -1939,8 +1925,7 @@ end
 function GetAchievementCriteriaInfoByID()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_GetAchievementGuildRep]
---- @return void
+--- No documentation available.
 function GetAchievementGuildRep()
 end
 
@@ -1964,7 +1949,8 @@ end
 function GetAchievementNumRewards()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetAchievementReward]
+--- @return void
 function GetAchievementReward()
 end
 
@@ -1978,8 +1964,7 @@ end
 function GetAchievementSearchSize()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_GetActionAutocast]
---- @return void
+--- No documentation available.
 function GetActionAutocast()
 end
 
@@ -2013,11 +1998,9 @@ end
 function GetActionInfo()
 end
 
---- Returns information about a loss-of-control cooldown affecting an action.
 --- [https://warcraft.wiki.gg/wiki/API_GetActionLossOfControlCooldown]
---- @param slot number @ action slot to query information about.
---- @return number, number @ start, duration
-function GetActionLossOfControlCooldown(slot)
+--- @return void
+function GetActionLossOfControlCooldown()
 end
 
 --- Returns the label text for an action.
@@ -2082,8 +2065,9 @@ end
 function GetAlternativeDefaultLanguage()
 end
 
+--- Returns the localized name for the Archaeology profession.
 --- [https://warcraft.wiki.gg/wiki/API_GetArchaeologyInfo]
---- @return void
+--- @return unknown @ izedName
 function GetArchaeologyInfo()
 end
 
@@ -2108,11 +2092,9 @@ end
 function GetAreaText()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_GetArenaOpponentSpec]
---- @param id number @ to GetNumArenaOpponentSpecs()
---- @return number, number @ specID, gender
-function GetArenaOpponentSpec(id)
+--- @return void
+function GetArenaOpponentSpec()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetArtifactInfoByRace]
@@ -2175,11 +2157,9 @@ end
 function GetAvailableLocales()
 end
 
---- Returns info for an available quest.
 --- [https://warcraft.wiki.gg/wiki/API_GetAvailableQuestInfo]
---- @param index number @ Index of the available quest to query, starting from 1.
---- @return boolean, number, boolean, boolean, number, boolean @ isTrivial, frequency, isRepeatable, isLegendary, questID, isImportant
-function GetAvailableQuestInfo(index)
+--- @return void
+function GetAvailableQuestInfo()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetAvailableTitle]
@@ -2242,19 +2222,14 @@ end
 function GetBattlefieldScore()
 end
 
---- Returns battlefield-specific info for a player (e.g. Warsong Gulch flag captures).
 --- [https://warcraft.wiki.gg/wiki/API_GetBattlefieldStatData]
---- @param playerIndex number @ Player you want to grab the data for; between 1 and GetNumBattlefieldScores
---- @param slotIndex number @ Column you want to grab the data from; between 1 and GetNumBattlefieldStats
---- @return number @ columnData
-function GetBattlefieldStatData(playerIndex, slotIndex)
+--- @return void
+function GetBattlefieldStatData()
 end
 
---- Returns the status of the battlefield the player is either queued for or inside.
 --- [https://warcraft.wiki.gg/wiki/API_GetBattlefieldStatus]
---- @param index number @ Index of the battlefield you wish to view, in the range of 1 to GetMaxBattlefieldID()
---- @return unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown @ status, mapName, teamSize, registeredMatch, suspendedQueue, queueType, gameType, role, asGroup, shortDescription, longDescription, isSoloQueue
-function GetBattlefieldStatus(index)
+--- @return void
+function GetBattlefieldStatus()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetBattlefieldTeamInfo]
@@ -2321,9 +2296,11 @@ end
 function GetBindingByKey()
 end
 
+--- Returns the keys bound to the given command.
 --- [https://warcraft.wiki.gg/wiki/API_GetBindingKey]
---- @return void
-function GetBindingKey()
+--- @param command string @ The name of the command to get key bindings for (e.g. MOVEFORWARD, TOGGLEFRIENDSTAB)
+--- @return unknown, unknown, unknown @ key1, key2, ...
+function GetBindingKey(command)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetBindingText]
@@ -2427,11 +2404,9 @@ end
 function GetChannelName()
 end
 
---- Returns the index for a chat type.
 --- [https://warcraft.wiki.gg/wiki/API_GetChatTypeIndex]
---- @param messageGroup string @ The type code for the chat type (One of the key values of the ChatTypeInfo table).
---- @return number @ index
-function GetChatTypeIndex(messageGroup)
+--- @return void
+function GetChatTypeIndex()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetChatWindowChannels]
@@ -2454,7 +2429,8 @@ end
 function GetChatWindowSavedDimensions()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetChatWindowSavedPosition]
+--- @return void
 function GetChatWindowSavedPosition()
 end
 
@@ -2468,11 +2444,9 @@ end
 function GetClassicExpansionLevel()
 end
 
---- Returns the frame registered with the given object name.
 --- [https://warcraft.wiki.gg/wiki/API_GetClickFrame]
---- @param name string @ The name of the frame to obtain.
---- @return table @ frame
-function GetClickFrame(name)
+--- @return void
+function GetClickFrame()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetClientDisplayExpansionLevel]
@@ -2485,11 +2459,9 @@ end
 function GetCombatRating()
 end
 
---- Returns the bonus percentage for a specific combat rating.
 --- [https://warcraft.wiki.gg/wiki/API_GetCombatRatingBonus]
---- @param ratingIndex number @ One of the following values from FrameXML/PaperDollFrame.lua:
---- @return number @ ratingBonus
-function GetCombatRatingBonus(ratingIndex)
+--- @return void
+function GetCombatRatingBonus()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetCombatRatingBonusForCombatRatingValue]
@@ -2497,12 +2469,9 @@ end
 function GetCombatRatingBonusForCombatRatingValue()
 end
 
---- Returns the amount of current combo points.
 --- [https://warcraft.wiki.gg/wiki/API_GetComboPoints]
---- @param unit string @ UnitId - Normally player or vehicle.
---- @param target string @ UnitId - Normally target.
---- @return number @ comboPoints
-function GetComboPoints(unit, target)
+--- @return void
+function GetComboPoints()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetCompanionInfo]
@@ -2520,9 +2489,11 @@ end
 function GetComparisonCategoryNumAchievements()
 end
 
+--- Returns the specified statistic from the comparison player unit.
 --- [https://warcraft.wiki.gg/wiki/API_GetComparisonStatistic]
---- @return void
-function GetComparisonStatistic()
+--- @param achievementID number @ The ID of the Achievement.
+--- @return string @ value
+function GetComparisonStatistic(achievementID)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetCorpseRecoveryDelay]
@@ -2530,8 +2501,9 @@ end
 function GetCorpseRecoveryDelay()
 end
 
+--- Tracks the extent to which a player is wearing items touched by N'Zoth's influence.
 --- [https://warcraft.wiki.gg/wiki/API_GetCorruption]
---- @return void
+--- @return number @ corruption
 function GetCorruption()
 end
 
@@ -2555,9 +2527,8 @@ end
 function GetCriteriaSpell()
 end
 
---- Returns the current arena season.
 --- [https://warcraft.wiki.gg/wiki/API_GetCurrentArenaSeason]
---- @return number @ season
+--- @return void
 function GetCurrentArenaSeason()
 end
 
@@ -2567,15 +2538,13 @@ end
 function GetCurrentBindingSet()
 end
 
---- Returns the current COMBAT_TEXT_UPDATE payload.
 --- [https://warcraft.wiki.gg/wiki/API_GetCurrentCombatTextEventInfo]
---- @return string, string @ desc1, desc2
+--- @return void
 function GetCurrentCombatTextEventInfo()
 end
 
---- Returns the unique ID associated with the event the UI is currently handling. Requires the scriptProfile CVar to be enabled.
 --- [https://warcraft.wiki.gg/wiki/API_GetCurrentEventID]
---- @return number @ eventID
+--- @return void
 function GetCurrentEventID()
 end
 
@@ -2584,9 +2553,8 @@ end
 function GetCurrentGlyphNameForSpell()
 end
 
---- Returns the currently selected graphics API.
 --- [https://warcraft.wiki.gg/wiki/API_GetCurrentGraphicsAPI]
---- @return string @ gxAPI
+--- @return void
 function GetCurrentGraphicsAPI()
 end
 
@@ -2629,9 +2597,8 @@ end
 function GetCurrentTitle()
 end
 
---- Returns the distance that the cursor has moved since the last frame.
 --- [https://warcraft.wiki.gg/wiki/API_GetCursorDelta]
---- @return number, number @ x, y
+--- @return void
 function GetCursorDelta()
 end
 
@@ -2650,7 +2617,8 @@ end
 function GetCursorPosition()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetDailyQuestsCompleted]
+--- @return void
 function GetDailyQuestsCompleted()
 end
 
@@ -2659,9 +2627,8 @@ end
 function GetDeathRecapLink()
 end
 
---- Returns the character's default language.
 --- [https://warcraft.wiki.gg/wiki/API_GetDefaultLanguage]
---- @return string, number @ language, languageID
+--- @return void
 function GetDefaultLanguage()
 end
 
@@ -2695,8 +2662,9 @@ end
 function GetDownloadedPercentage()
 end
 
+--- Returns the selected dungeon difficulty.
 --- [https://warcraft.wiki.gg/wiki/API_GetDungeonDifficultyID]
---- @return void
+--- @return number @ difficultyID
 function GetDungeonDifficultyID()
 end
 
@@ -2730,8 +2698,7 @@ end
 function GetExistingSocketInfo()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_GetExistingSocketLink]
---- @return void
+--- No documentation available.
 function GetExistingSocketLink()
 end
 
@@ -2740,11 +2707,9 @@ end
 function GetExpansionDisplayInfo()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_GetExpansionForLevel]
---- @param playerLevel number
---- @return number @ expansionLevel
-function GetExpansionForLevel(playerLevel)
+--- @return void
+function GetExpansionForLevel()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetExpansionLevel]
@@ -2777,11 +2742,9 @@ end
 function GetFailedTalentIDs()
 end
 
---- Returns the FileID for an Interface file path.
 --- [https://warcraft.wiki.gg/wiki/API_GetFileIDFromPath]
---- @param filePath string @ The path to a game file. For example Interface/Icons/Temp.blp
---- @return number @ fileID
-function GetFileIDFromPath(filePath)
+--- @return void
+function GetFileIDFromPath()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetFileStreamingStatus]
@@ -2844,8 +2807,9 @@ end
 function GetFrameMetatable()
 end
 
+--- Returns the current framerate.
 --- [https://warcraft.wiki.gg/wiki/API_GetFramerate]
---- @return void
+--- @return number @ framerate
 function GetFramerate()
 end
 
@@ -2859,7 +2823,8 @@ end
 function GetGMStatus()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetGMTicket]
+--- @return void
 function GetGMTicket()
 end
 
@@ -2921,8 +2886,9 @@ end
 function GetGuildBankItemLink()
 end
 
+--- Returns the amount of money in the guild bank.
 --- [https://warcraft.wiki.gg/wiki/API_GetGuildBankMoney]
---- @return void
+--- @return number @ retVal1
 function GetGuildBankMoney()
 end
 
@@ -2941,23 +2907,19 @@ end
 function GetGuildBankTabInfo()
 end
 
---- Gets display / player's access info. Limited data available without bank proximity.
 --- [https://warcraft.wiki.gg/wiki/API_GetGuildBankTabPermissions]
---- @param tab number @ guild bank tab number
---- @return boolean, boolean, boolean, number @ canView, canDeposit, canEdit, stacksPerDay
-function GetGuildBankTabPermissions(tab)
+--- @return void
+function GetGuildBankTabPermissions()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetGuildBankText]
+--- @return void
 function GetGuildBankText()
 end
 
---- Returns info for an item transaction from the guild bank.
 --- [https://warcraft.wiki.gg/wiki/API_GetGuildBankTransaction]
---- @param tab number @ Tab number, ascending from 1 to GetNumGuildBankTabs().
---- @param index number @ Transaction index, ascending from 1 to GetNumGuildBankTransactions(tab). Higher indices correspond to more recent entries.
---- @return string, string, string, number, number, number, number, number, number, number @ type, name, itemLink, count, tab1, tab2, year, month, day, hour
-function GetGuildBankTransaction(tab, index)
+--- @return void
+function GetGuildBankTransaction()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetGuildBankWithdrawGoldLimit]
@@ -2965,9 +2927,8 @@ end
 function GetGuildBankWithdrawGoldLimit()
 end
 
---- Returns the amount of money the player is allowed to withdraw from the guild bank.
 --- [https://warcraft.wiki.gg/wiki/API_GetGuildBankWithdrawMoney]
---- @return number @ withdrawLimit
+--- @return void
 function GetGuildBankWithdrawMoney()
 end
 
@@ -2986,18 +2947,20 @@ end
 function GetGuildCharterCost()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetGuildEventInfo]
+--- @return void
 function GetGuildEventInfo()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_GetGuildFactionGroup]
---- @return void
+--- No documentation available.
 function GetGuildFactionGroup()
 end
 
+--- Returns guild info for a player unit.
 --- [https://warcraft.wiki.gg/wiki/API_GetGuildInfo]
---- @return void
-function GetGuildInfo()
+--- @param unit string @ UnitId - The unit whose guild information you wish to query.
+--- @return string, string, number, string @ guildName, guildRankName, guildRankIndex, realm
+function GetGuildInfo(unit)
 end
 
 --- No documentation available.
@@ -3014,7 +2977,8 @@ end
 function GetGuildMemberRecipes()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetGuildNewsFilters]
+--- @return void
 function GetGuildNewsFilters()
 end
 
@@ -3033,9 +2997,8 @@ end
 function GetGuildPerkInfo()
 end
 
---- This function returns information about the last tradeskill you were looking at when you clicked View Crafters on a guild listing.
 --- [https://warcraft.wiki.gg/wiki/API_GetGuildRecipeInfoPostQuery]
---- @return number, number, number @ professionID, recipeID, numMembers
+--- @return void
 function GetGuildRecipeInfoPostQuery()
 end
 
@@ -3054,11 +3017,9 @@ end
 function GetGuildRewardInfo()
 end
 
---- Returns info for a guild member.
 --- [https://warcraft.wiki.gg/wiki/API_GetGuildRosterInfo]
---- @param index number @ Ranging from 1 to GetNumGuildMembers()
---- @return string, string, number, number, string, string, string, string, boolean, number, string, number, number, boolean, boolean, number, string @ name, rankName, rankIndex, level, classDisplayName, zone, publicNote, officerNote, isOnline, status, class, achievementPoints, achievementRank, isMobile, canSoR, repStanding, guid
-function GetGuildRosterInfo(index)
+--- @return void
+function GetGuildRosterInfo()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetGuildRosterLargestAchievementPoints]
@@ -3066,11 +3027,9 @@ end
 function GetGuildRosterLargestAchievementPoints()
 end
 
---- Returns time since the guild member was last online.
 --- [https://warcraft.wiki.gg/wiki/API_GetGuildRosterLastOnline]
---- @param index number @ index of the guild roster entry you wish to query.
---- @return number, number, number, number @ yearsOffline, monthsOffline, daysOffline, hoursOffline
-function GetGuildRosterLastOnline(index)
+--- @return void
+function GetGuildRosterLastOnline()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetGuildRosterMOTD]
@@ -3093,15 +3052,14 @@ end
 function GetGuildTabardFiles()
 end
 
---- Returns info for a profession in the guild roster.
 --- [https://warcraft.wiki.gg/wiki/API_GetGuildTradeSkillInfo]
---- @param index number @ The index of the tradeskill from GetNumGuildTradeSkill().
 --- @return void
-function GetGuildTradeSkillInfo(index)
+function GetGuildTradeSkillInfo()
 end
 
+--- Returns the player's haste percentage.
 --- [https://warcraft.wiki.gg/wiki/API_GetHaste]
---- @return void
+--- @return number @ haste
 function GetHaste()
 end
 
@@ -3122,11 +3080,9 @@ end
 function GetInboxHeaderInfo()
 end
 
---- Returns info for an auction house invoice.
 --- [https://warcraft.wiki.gg/wiki/API_GetInboxInvoiceInfo]
---- @param index number @ The index of the message, starting from 1.
---- @return string, string, string, number, number, number, number @ invoiceType, itemName, playerName, bid, buyout, deposit, consignment
-function GetInboxInvoiceInfo(index)
+--- @return void
+function GetInboxInvoiceInfo()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetInboxItem]
@@ -3215,14 +3171,13 @@ end
 function GetInventoryItemCount()
 end
 
---- Returns the durability of an equipped item.
 --- [https://warcraft.wiki.gg/wiki/API_GetInventoryItemDurability]
---- @param invSlotId number @ InventorySlotId
---- @return number, number @ current, maximum
-function GetInventoryItemDurability(invSlotId)
+--- @return void
+function GetInventoryItemDurability()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetInventoryItemEquippedUnusable]
+--- @return void
 function GetInventoryItemEquippedUnusable()
 end
 
@@ -3231,12 +3186,9 @@ end
 function GetInventoryItemID()
 end
 
---- Returns the item link for an equipped item.
 --- [https://warcraft.wiki.gg/wiki/API_GetInventoryItemLink]
---- @param unit string @ UnitId - The unit whose inventory is to be queried.
---- @param invSlotId number @ InventorySlotId - The inventory slot to be queried.
---- @return string @ itemLink
-function GetInventoryItemLink(unit, invSlotId)
+--- @return void
+function GetInventoryItemLink()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetInventoryItemQuality]
@@ -3254,9 +3206,11 @@ end
 function GetInventoryItemsForSlot()
 end
 
+--- Returns info for an equipment slot.
 --- [https://warcraft.wiki.gg/wiki/API_GetInventorySlotInfo]
---- @return void
-function GetInventorySlotInfo()
+--- @param invSlotName string @ InventorySlotName to query (e.g. HEADSLOT).
+--- @return number, string, boolean @ invSlotId, textureName, checkRelic
+function GetInventorySlotInfo(invSlotName)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetInviteConfirmationInfo]
@@ -3264,9 +3218,8 @@ end
 function GetInviteConfirmationInfo()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_GetItemLevelColor]
---- @return number, number, number @ r, g, b
+--- @return void
 function GetItemLevelColor()
 end
 
@@ -3318,7 +3271,8 @@ end
 function GetLFGBootProposal()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetLFGCategoryForID]
+--- @return void
 function GetLFGCategoryForID()
 end
 
@@ -3337,9 +3291,8 @@ end
 function GetLFGCompletionRewardItemLink()
 end
 
---- Returns the time at which you may once again use the dungeon finder after prematurely leaving a group.
 --- [https://warcraft.wiki.gg/wiki/API_GetLFGDeserterExpiration]
---- @return number @ expiryTime
+--- @return void
 function GetLFGDeserterExpiration()
 end
 
@@ -3373,7 +3326,8 @@ end
 function GetLFGDungeonRewardCapInfo()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetLFGDungeonRewardInfo]
+--- @return void
 function GetLFGDungeonRewardInfo()
 end
 
@@ -3401,8 +3355,7 @@ end
 function GetLFGInfoServer()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_GetLFGInviteRoleAvailability]
---- @return void
+--- No documentation available.
 function GetLFGInviteRoleAvailability()
 end
 
@@ -3411,9 +3364,8 @@ end
 function GetLFGInviteRoleRestrictions()
 end
 
---- Returns information about the current LFD group invite.
 --- [https://warcraft.wiki.gg/wiki/API_GetLFGProposal]
---- @return boolean, number, number, number, string, string, string, boolean, number, number, number, boolean, boolean, number @ proposalExists, id, typeID, subtypeID, name, texture, role, hasResponded, totalEncounters, completedEncounters, numMembers, isLeader, isHoliday, proposalCategory
+--- @return void
 function GetLFGProposal()
 end
 
@@ -3446,7 +3398,8 @@ end
 function GetLFGRandomDungeonInfo()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetLFGReadyCheckUpdate]
+--- @return void
 function GetLFGReadyCheckUpdate()
 end
 
@@ -3505,7 +3458,8 @@ end
 function GetLatestCompletedAchievements()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetLatestCompletedComparisonAchievements]
+--- @return void
 function GetLatestCompletedComparisonAchievements()
 end
 
@@ -3524,8 +3478,9 @@ end
 function GetLatestUpdatedStats()
 end
 
+--- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_GetLegacyRaidDifficultyID]
---- @return void
+--- @return number @ result
 function GetLegacyRaidDifficultyID()
 end
 
@@ -3534,8 +3489,9 @@ end
 function GetLifesteal()
 end
 
+--- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_GetLocalGameTime]
---- @return void
+--- @return number, number @ hour, minute
 function GetLocalGameTime()
 end
 
@@ -3554,9 +3510,8 @@ end
 function GetLooseMacroItemIcons()
 end
 
---- Returns a table with all of the loot info for the current loot window.
 --- [https://warcraft.wiki.gg/wiki/API_GetLootInfo]
---- @return table @ info
+--- @return void
 function GetLootInfo()
 end
 
@@ -3565,18 +3520,14 @@ end
 function GetLootMethod()
 end
 
---- Returns information about the loot event with rollID.
 --- [https://warcraft.wiki.gg/wiki/API_GetLootRollItemInfo]
---- @param rollID number @ The number increments by 1 for each new roll. The count is not reset by reloading the UI.
---- @return string, string, number, number, boolean, boolean, boolean, boolean, number, number, number, number, boolean @ texture, name, count, quality, bindOnPickUp, canNeed, canGreed, canDisenchant, reasonNeed, reasonGreed, reasonDisenchant, deSkillRequired, canTransmog
-function GetLootRollItemInfo(rollID)
+--- @return void
+function GetLootRollItemInfo()
 end
 
---- Retrieves the itemlink of an item being rolled on.
 --- [https://warcraft.wiki.gg/wiki/API_GetLootRollItemLink]
---- @param id number @ id is a number used by the server to keep track of items being rolled on.  It is generated server side and transmitted to the client.
---- @return string @ itemLink
-function GetLootRollItemLink(id)
+--- @return void
+function GetLootRollItemLink()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetLootRollTimeLeft]
@@ -3589,9 +3540,11 @@ end
 function GetLootSlotInfo()
 end
 
+--- Returns the item link for a loot slot.
 --- [https://warcraft.wiki.gg/wiki/API_GetLootSlotLink]
---- @return void
-function GetLootSlotLink()
+--- @param index number @ The index of the item in the list to retrieve info from (1 to GetNumLootItems())
+--- @return string @ itemLink
+function GetLootSlotLink(index)
 end
 
 --- Returns an integer loot type for a given loot slot.
@@ -3641,15 +3594,14 @@ end
 function GetMacroItem()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetMacroItemIcons]
+--- @return void
 function GetMacroItemIcons()
 end
 
---- Returns information about the spell a given macro is set to cast.
 --- [https://warcraft.wiki.gg/wiki/API_GetMacroSpell]
---- @param name number @ |string - The macro index to query, or the name of the macro to query.
---- @return number @ id
-function GetMacroSpell(name)
+--- @return void
+function GetMacroSpell()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetManaRegen]
@@ -3668,13 +3620,15 @@ end
 function GetMastery()
 end
 
+--- Returns the effective mastery percentage.
 --- [https://warcraft.wiki.gg/wiki/API_GetMasteryEffect]
---- @return void
+--- @return number, number @ masteryEffect, bonusCoefficient
 function GetMasteryEffect()
 end
 
+--- Returns the max number of battlefields you can queue for.
 --- [https://warcraft.wiki.gg/wiki/API_GetMaxBattlefieldID]
---- @return void
+--- @return number @ maxBattlefieldID
 function GetMaxBattlefieldID()
 end
 
@@ -3728,9 +3682,8 @@ end
 function GetMaximumExpansionLevel()
 end
 
---- Returns the player's melee haste percentage.
 --- [https://warcraft.wiki.gg/wiki/API_GetMeleeHaste]
---- @return number @ haste
+--- @return void
 function GetMeleeHaste()
 end
 
@@ -3749,12 +3702,9 @@ end
 function GetMerchantItemCostInfo()
 end
 
---- Returns info for the currency cost for a merchant item.
 --- [https://warcraft.wiki.gg/wiki/API_GetMerchantItemCostItem]
---- @param index number @ Slot in the merchant's inventory to query.
---- @param itemIndex number @ The index for the required item cost type, ascending from 1 to itemCount returned by GetMerchantItemCostInfo.
---- @return string, number, string, string @ itemTexture, itemValue, itemLink, currencyName
-function GetMerchantItemCostItem(index, itemIndex)
+--- @return void
+function GetMerchantItemCostItem()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetMerchantItemID]
@@ -3762,9 +3712,11 @@ end
 function GetMerchantItemID()
 end
 
+--- Returns the item link for a merchant item.
 --- [https://warcraft.wiki.gg/wiki/API_GetMerchantItemLink]
---- @return void
-function GetMerchantItemLink()
+--- @param index number @ The index of the item in the merchant's inventory
+--- @return string @ link
+function GetMerchantItemLink(index)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetMerchantItemMaxStack]
@@ -3832,8 +3784,7 @@ end
 function GetMonitorCount()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_GetMonitorName]
---- @return void
+--- No documentation available.
 function GetMonitorName()
 end
 
@@ -3877,9 +3828,8 @@ end
 function GetNegativeCorruptionEffectInfo()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_GetNetIpTypes]
---- @return unknown @ ipTypes
+--- @return void
 function GetNetIpTypes()
 end
 
@@ -3939,11 +3889,9 @@ end
 function GetNumArenaOpponents()
 end
 
---- Returns the amount of artifacts the player has acquired from the provided race.
 --- [https://warcraft.wiki.gg/wiki/API_GetNumArtifactsByRace]
---- @param raceIndex number @ Index of the race to be selected.
---- @return number @ numProjects
-function GetNumArtifactsByRace(raceIndex)
+--- @return void
+function GetNumArtifactsByRace()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetNumAutoQuestPopUps]
@@ -4013,9 +3961,8 @@ end
 function GetNumComparisonCompletedAchievements()
 end
 
---- Returns the total and completed number of achievements.
 --- [https://warcraft.wiki.gg/wiki/API_GetNumCompletedAchievements]
---- @return number, number @ total, completed
+--- @return void
 function GetNumCompletedAchievements()
 end
 
@@ -4029,7 +3976,8 @@ end
 function GetNumDisplayChannels()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetNumDungeonForRandomSlot]
+--- @return void
 function GetNumDungeonForRandomSlot()
 end
 
@@ -4043,8 +3991,9 @@ end
 function GetNumFilteredAchievements()
 end
 
+--- Returns the number of available Flexible Raid instances.
 --- [https://warcraft.wiki.gg/wiki/API_GetNumFlexRaidDungeons]
---- @return void
+--- @return number @ numInstances
 function GetNumFlexRaidDungeons()
 end
 
@@ -4093,11 +4042,13 @@ end
 function GetNumGuildMembers()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetNumGuildNews]
+--- @return void
 function GetNumGuildNews()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetNumGuildPerks]
+--- @return void
 function GetNumGuildPerks()
 end
 
@@ -4149,7 +4100,8 @@ end
 function GetNumQuestCurrencies()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetNumQuestItemDrops]
+--- @return void
 function GetNumQuestItemDrops()
 end
 
@@ -4188,13 +4140,13 @@ end
 function GetNumQuestRewards()
 end
 
---- Returns the number of available Raid Finder dungeons.
 --- [https://warcraft.wiki.gg/wiki/API_GetNumRFDungeons]
---- @return number @ numRFDungeons
+--- @return void
 function GetNumRFDungeons()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetNumRaidProfiles]
+--- @return void
 function GetNumRaidProfiles()
 end
 
@@ -4213,9 +4165,8 @@ end
 function GetNumRoutes()
 end
 
---- Returns the number of instances for which the character is locked out.
 --- [https://warcraft.wiki.gg/wiki/API_GetNumSavedInstances]
---- @return number @ numInstances
+--- @return void
 function GetNumSavedInstances()
 end
 
@@ -4294,9 +4245,8 @@ end
 function GetNumWarGameTypes()
 end
 
---- Returns the locale of the Operating System.
 --- [https://warcraft.wiki.gg/wiki/API_GetOSLocale]
---- @return unknown @ e
+--- @return void
 function GetOSLocale()
 end
 
@@ -4305,8 +4255,9 @@ end
 function GetObjectiveText()
 end
 
+--- Returns true if the player is automatically passing on all loot.
 --- [https://warcraft.wiki.gg/wiki/API_GetOptOutOfLoot]
---- @return void
+--- @return boolean @ optedOut
 function GetOptOutOfLoot()
 end
 
@@ -4320,7 +4271,8 @@ end
 function GetOverrideBarIndex()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetOverrideBarSkin]
+--- @return void
 function GetOverrideBarSkin()
 end
 
@@ -4334,8 +4286,9 @@ end
 function GetPVPDesired()
 end
 
+--- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_GetPVPGearStatRules]
---- @return void
+--- @return boolean @ statRules
 function GetPVPGearStatRules()
 end
 
@@ -4355,14 +4308,14 @@ end
 function GetPVPSessionStats()
 end
 
---- Returns the time left in milliseconds until the player is unflagged for PvP.
 --- [https://warcraft.wiki.gg/wiki/API_GetPVPTimer]
---- @return number @ timer
+--- @return void
 function GetPVPTimer()
 end
 
+--- Returns the character's Honor statistics for yesterday.
 --- [https://warcraft.wiki.gg/wiki/API_GetPVPYesterdayStats]
---- @return void
+--- @return number, number @ honorableKills, dishonorableKills
 function GetPVPYesterdayStats()
 end
 
@@ -4400,11 +4353,9 @@ end
 function GetPendingInviteConfirmations()
 end
 
---- Returns information about the player's personal PvP rating in a specific bracket.
 --- [https://warcraft.wiki.gg/wiki/API_GetPersonalRatedInfo]
---- @param index number @ PvP bracket index ascending from 1 for 2v2, 3v3, 5v5 and 10v10 rated battlegrounds.
---- @return number, number, number, number, number, number, number, number @ rating, seasonBest, weeklyBest, seasonPlayed, seasonWon, weeklyPlayed, weeklyWon, cap
-function GetPersonalRatedInfo(index)
+--- @return void
+function GetPersonalRatedInfo()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetPetActionCooldown]
@@ -4487,7 +4438,8 @@ end
 function GetPlayerInfoByGUID()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetPlayerTradeCurrency]
+--- @return void
 function GetPlayerTradeCurrency()
 end
 
@@ -4516,9 +4468,11 @@ end
 function GetPrevCompleatedTutorial()
 end
 
+--- Returns the previous achievement in a chain.
 --- [https://warcraft.wiki.gg/wiki/API_GetPreviousAchievement]
---- @return void
-function GetPreviousAchievement()
+--- @param achievementID number @ The ID of the Achievement
+--- @return number @ previousAchievementID
+function GetPreviousAchievement(achievementID)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetPreviousArenaSeason]
@@ -4547,8 +4501,7 @@ end
 function GetProgressText()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_GetPromotionRank]
---- @return void
+--- No documentation available.
 function GetPromotionRank()
 end
 
@@ -4562,9 +4515,14 @@ end
 function GetPvpPowerHealing()
 end
 
+--- Returns information about a PvP (honor) talent.
 --- [https://warcraft.wiki.gg/wiki/API_GetPvpTalentInfoByID]
---- @return void
-function GetPvpTalentInfoByID()
+--- @param talentID number @ Talent ID.
+--- @param specGroupIndex number @ ? - Index of active specialization group (GetActiveSpecGroup); if nil, the selected/available return values will always be false.
+--- @param isInspect boolean @ ? - If non-nil, returns information based on inspectedUnit.
+--- @param inspectedUnit string @ ? - Inspected unitId.
+--- @return number, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown @ talentID, name, icon, selected, available, spellID, unlocked, row, column, known, grantedByAura
+function GetPvpTalentInfoByID(talentID, specGroupIndex, isInspect, inspectedUnit)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetPvpTalentInfoBySpecialization]
@@ -4581,7 +4539,8 @@ end
 function GetQuestBackgroundMaterial()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetQuestCurrencyID]
+--- @return void
 function GetQuestCurrencyID()
 end
 
@@ -4600,9 +4559,12 @@ end
 function GetQuestID()
 end
 
+--- Returns info for a required/reward/choice quest item.
 --- [https://warcraft.wiki.gg/wiki/API_GetQuestItemInfo]
---- @return void
-function GetQuestItemInfo()
+--- @param type string @ type of the item to query. One of the following values:
+--- @param index number @ index of the item of the specified type to return information about, ascending from 1.
+--- @return string, number, number, unknown, boolean, number @ name, texture, count, quality, isUsable, itemID
+function GetQuestItemInfo(type, index)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetQuestItemInfoLootType]
@@ -4640,13 +4602,17 @@ end
 function GetQuestLogCriteriaSpell()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetQuestLogItemDrop]
+--- @return void
 function GetQuestLogItemDrop()
 end
 
+--- Returns item link for selected quest reward/choice/required item from quest log.
 --- [https://warcraft.wiki.gg/wiki/API_GetQuestLogItemLink]
---- @return void
-function GetQuestLogItemLink()
+--- @param type string @ required, reward or choice
+--- @param index table @ Integer - Quest reward item index (starts with 1).
+--- @return string @ itemLink
+function GetQuestLogItemLink(type, index)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetQuestLogLeaderBoard]
@@ -4654,8 +4620,7 @@ end
 function GetQuestLogLeaderBoard()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_GetQuestLogPortraitTurnIn]
---- @return void
+--- No documentation available.
 function GetQuestLogPortraitTurnIn()
 end
 
@@ -4669,7 +4634,8 @@ end
 function GetQuestLogQuestType()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetQuestLogRewardArtifactXP]
+--- @return void
 function GetQuestLogRewardArtifactXP()
 end
 
@@ -4717,9 +4683,8 @@ end
 function GetQuestLogSpecialItemInfo()
 end
 
---- Returns the time left in seconds for the current quest.
 --- [https://warcraft.wiki.gg/wiki/API_GetQuestLogTimeLeft]
---- @return number @ timeLeft
+--- @return void
 function GetQuestLogTimeLeft()
 end
 
@@ -4743,12 +4708,12 @@ end
 function GetQuestPOILeaderBoard()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_GetQuestPOIs]
---- @return void
+--- No documentation available.
 function GetQuestPOIs()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetQuestPortraitGiver]
+--- @return void
 function GetQuestPortraitGiver()
 end
 
@@ -4757,13 +4722,16 @@ end
 function GetQuestPortraitTurnIn()
 end
 
+--- Returns a quest's objective completion percentage.
 --- [https://warcraft.wiki.gg/wiki/API_GetQuestProgressBarPercent]
---- @return void
-function GetQuestProgressBarPercent()
+--- @param questID number @ QuestID
+--- @return number @ percent
+function GetQuestProgressBarPercent(questID)
 end
 
+--- Returns the number of seconds until daily quests reset.
 --- [https://warcraft.wiki.gg/wiki/API_GetQuestResetTime]
---- @return void
+--- @return number @ nextReset
 function GetQuestResetTime()
 end
 
@@ -4787,11 +4755,9 @@ end
 function GetQuestUiMapID()
 end
 
---- Returns info about a Raid Finder dungeon by index. Limited by player level and other factors, so only Raid Finder dungeons listed in the LFG tool can be looked up.
 --- [https://warcraft.wiki.gg/wiki/API_GetRFDungeonInfo]
---- @param index number @ index of a Raid Finder dungeon, from 1 to GetNumRFDungeons()
---- @return unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown @ id, name, typeID, subtypeID, minLevel, maxLevel, recLevel, minRecLevel, maxRecLevel, expansionLevel, groupID, textureFilename, difficulty, maxPlayers, description, isHoliday, bonusRepAmount, minPlayers, isTimeWalking, name2, minGearLevel, isScaling, lfgMapID
-function GetRFDungeonInfo(index)
+--- @return void
+function GetRFDungeonInfo()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetRaidDifficultyID]
@@ -4824,9 +4790,11 @@ end
 function GetRaidRosterInfo()
 end
 
+--- Returns the raid target of a unit.
 --- [https://warcraft.wiki.gg/wiki/API_GetRaidTargetIndex]
---- @return void
-function GetRaidTargetIndex()
+--- @param unit string @ UnitId
+--- @return number @ index
+function GetRaidTargetIndex(unit)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetRandomDungeonBestChoice]
@@ -4834,7 +4802,8 @@ end
 function GetRandomDungeonBestChoice()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetRandomScenarioBestChoice]
+--- @return void
 function GetRandomScenarioBestChoice()
 end
 
@@ -4913,7 +4882,8 @@ end
 function GetRestrictedAccountData()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetRewardArtifactXP]
+--- @return void
 function GetRewardArtifactXP()
 end
 
@@ -4971,9 +4941,8 @@ end
 function GetRewardSkillPoints()
 end
 
---- Returns quest reward text, displayed by the NPC before the player hits Complete Quest.
 --- [https://warcraft.wiki.gg/wiki/API_GetRewardText]
---- @return string @ reward
+--- @return void
 function GetRewardText()
 end
 
@@ -4997,7 +4966,8 @@ end
 function GetRuneCount()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetRunningMacro]
+--- @return void
 function GetRunningMacro()
 end
 
@@ -5023,11 +4993,9 @@ end
 function GetSavedInstanceInfo()
 end
 
---- Returns information about the player's world boss loot lockout.
 --- [https://warcraft.wiki.gg/wiki/API_GetSavedWorldBossInfo]
---- @param index number @ Index of the world boss lockout to query, ascending from 1 to GetNumSavedWorldBosses().
---- @return string, number, number @ name, worldBossID, reset
-function GetSavedWorldBossInfo(index)
+--- @return void
+function GetSavedWorldBossInfo()
 end
 
 --- Returns an ordered list of all available scenario IDs.
@@ -5048,9 +5016,8 @@ end
 function GetScreenHeight()
 end
 
---- Returns the width of the window measured at UIParent scale (effectively the same as UIParent:GetWidth().
 --- [https://warcraft.wiki.gg/wiki/API_GetScreenWidth]
---- @return number @ screenWidth
+--- @return void
 function GetScreenWidth()
 end
 
@@ -5166,15 +5133,12 @@ end
 function GetSocketTypes()
 end
 
---- Returns the number of sound entries a sound kit contains.
 --- [https://warcraft.wiki.gg/wiki/API_GetSoundEntryCount]
---- @param soundKit number @ A sound kit ID.
---- @return number @ entryCount
-function GetSoundEntryCount(soundKit)
+--- @return void
+function GetSoundEntryCount()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_GetSpecChangeCost]
---- @return void
+--- No documentation available.
 function GetSpecChangeCost()
 end
 
@@ -5198,14 +5162,21 @@ end
 function GetSpecializationInfoForClassID()
 end
 
+--- Returns info for a specialization.
 --- [https://warcraft.wiki.gg/wiki/API_GetSpecializationInfoForSpecID]
+--- @param specID number @ SpecializationID
+--- @param gender unknown @ Enum.UnitSex?
 --- @return void
-function GetSpecializationInfoForSpecID()
+function GetSpecializationInfoForSpecID(specID, gender)
 end
 
+--- Returns the mastery spell ID of the specified specialization.
 --- [https://warcraft.wiki.gg/wiki/API_GetSpecializationMasterySpells]
---- @return void
-function GetSpecializationMasterySpells()
+--- @param specIndex number @ The index of the specialization to query (1, 2, 3, 4) (Druids have four specializations)
+--- @param isInspect boolean @ ? - Reserved. Must be nil
+--- @param isPet boolean @ ? - Reserved. Must be nil
+--- @return number, number @ masterySpell, masterySpell2
+function GetSpecializationMasterySpells(specIndex, isInspect, isPet)
 end
 
 --- Needs summary.
@@ -5245,9 +5216,8 @@ end
 function GetSpecsForSpell()
 end
 
---- Returns the player's bonus speed percentage.
 --- [https://warcraft.wiki.gg/wiki/API_GetSpeed]
---- @return number @ speed
+--- @return void
 function GetSpeed()
 end
 
@@ -5256,11 +5226,9 @@ end
 function GetSpellBaseCooldown()
 end
 
---- Returns the raw spell damage bonus for the specified spell tree.
 --- [https://warcraft.wiki.gg/wiki/API_GetSpellBonusDamage]
---- @param school number @ the spell tree:
---- @return number @ bonusDamage
-function GetSpellBonusDamage(school)
+--- @return void
+function GetSpellBonusDamage()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetSpellBonusHealing]
@@ -5268,7 +5236,8 @@ end
 function GetSpellBonusHealing()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetSpellConfirmationPromptsInfo]
+--- @return void
 function GetSpellConfirmationPromptsInfo()
 end
 
@@ -5297,24 +5266,24 @@ end
 function GetStatistic()
 end
 
---- Returns the list of statistic categories.
 --- [https://warcraft.wiki.gg/wiki/API_GetStatisticsCategoryList]
---- @return table @ categories
+--- @return void
 function GetStatisticsCategoryList()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_GetSturdiness]
---- @return number @ sturdiness
+--- @return void
 function GetSturdiness()
 end
 
+--- Returns the subzone name.
 --- [https://warcraft.wiki.gg/wiki/API_GetSubZoneText]
---- @return void
+--- @return string @ subzone
 function GetSubZoneText()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GetSuggestedGroupSize]
+--- @return void
 function GetSuggestedGroupSize()
 end
 
@@ -5338,13 +5307,9 @@ end
 function GetTalentInfoByID()
 end
 
---- Returns info for the specified talent.
 --- [https://warcraft.wiki.gg/wiki/API_GetTalentInfoBySpecialization]
---- @param specIndex number @ Index of the specialization, ascending from 1 to GetNumSpecializations().
---- @param tier number @ Talent tier from 1 to MAX_TALENT_TIERS
---- @param column number @ Talent column from 1 to NUM_TALENT_COLUMNS
 --- @return void
-function GetTalentInfoBySpecialization(specIndex, tier, column)
+function GetTalentInfoBySpecialization()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetTalentLink]
@@ -5357,8 +5322,7 @@ end
 function GetTalentTierInfo()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_GetTargetTradeCurrency]
---- @return void
+--- No documentation available.
 function GetTargetTradeCurrency()
 end
 
@@ -5434,11 +5398,9 @@ end
 function GetTitleText()
 end
 
---- Returns the total number of achievement points earned.
 --- [https://warcraft.wiki.gg/wiki/API_GetTotalAchievementPoints]
---- @param guild boolean @ ? - True if you want guild score
---- @return number @ points
-function GetTotalAchievementPoints(guild)
+--- @return void
+function GetTotalAchievementPoints()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetTotemCannotDismiss]
@@ -5446,9 +5408,11 @@ end
 function GetTotemCannotDismiss()
 end
 
+--- Returns info for the specified totem.
 --- [https://warcraft.wiki.gg/wiki/API_GetTotemInfo]
---- @return void
-function GetTotemInfo()
+--- @param slot number @ Index of the totem (Fire = 1 Earth = 2 Water = 3 Air = 4)
+--- @return boolean, string, number, number, number, number, number @ haveTotem, totemName, startTime, duration, icon, modRate, spellID
+function GetTotemInfo(slot)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetTotemTimeLeft]
@@ -5473,11 +5437,9 @@ end
 function GetTradeTargetItemInfo(index)
 end
 
---- Returns a hyperlink for an item offered for trade by the target.
 --- [https://warcraft.wiki.gg/wiki/API_GetTradeTargetItemLink]
---- @param index number
---- @return string @ itemLink
-function GetTradeTargetItemLink(index)
+--- @return void
+function GetTradeTargetItemLink()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetTrainerGreetingText]
@@ -5495,11 +5457,9 @@ end
 function GetTrainerServiceAbilityReq()
 end
 
---- Returns the cost of the specified trainer service.
 --- [https://warcraft.wiki.gg/wiki/API_GetTrainerServiceCost]
---- @param index number @ The index number of a specific trainer service.
---- @return number, number, number @ serviceCost, talentCost, professionCost
-function GetTrainerServiceCost(index)
+--- @return void
+function GetTrainerServiceCost()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetTrainerServiceDescription]
@@ -5512,11 +5472,9 @@ end
 function GetTrainerServiceIcon()
 end
 
---- Returns information about a trainer service.
 --- [https://warcraft.wiki.gg/wiki/API_GetTrainerServiceInfo]
---- @param index number @ Index of the trainer service to retrieve information about. Note that indices are affected by the trainer filter. (See GetTrainerServiceTypeFilter and SetTrainerServiceTypeFilter.)
---- @return string, string, string, number @ name, rank, category, expanded
-function GetTrainerServiceInfo(index)
+--- @return void
+function GetTrainerServiceInfo()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetTrainerServiceItemLink]
@@ -5524,9 +5482,11 @@ end
 function GetTrainerServiceItemLink()
 end
 
+--- Returns the required level to learn a skill from the trainer.
 --- [https://warcraft.wiki.gg/wiki/API_GetTrainerServiceLevelReq]
---- @return void
-function GetTrainerServiceLevelReq()
+--- @param id number @ Index of the trainer service to retrieve information about. Note that indices are affected by the trainer filter. (See GetTrainerServiceTypeFilter and SetTrainerServiceTypeFilter.)
+--- @return number @ reqLevel
+function GetTrainerServiceLevelReq(id)
 end
 
 --- No documentation available.
@@ -5585,9 +5545,11 @@ end
 function GetUnitEmpowerHoldAtMaxTime()
 end
 
+--- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_GetUnitEmpowerMinHoldTime]
---- @return void
-function GetUnitEmpowerMinHoldTime()
+--- @param unit string
+--- @return number @ minHoldTime
+function GetUnitEmpowerMinHoldTime(unit)
 end
 
 --- Needs summary.
@@ -5598,11 +5560,9 @@ end
 function GetUnitEmpowerStageDuration(unit, index)
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_GetUnitHealthModifier]
---- @param unit string @ UnitToken
---- @return number @ healthMod
-function GetUnitHealthModifier(unit)
+--- @return void
+function GetUnitHealthModifier()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetUnitMaxHealthModifier]
@@ -5630,13 +5590,9 @@ end
 function GetUnitPowerBarStringsByID()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_GetUnitPowerBarTextureInfo]
---- @param unitToken string @ UnitId
---- @param textureIndex number
---- @param timerIndex number @ ?
---- @return number, number, number, number, number @ texture, colorR, colorG, colorB, colorA
-function GetUnitPowerBarTextureInfo(unitToken, textureIndex, timerIndex)
+--- @return void
+function GetUnitPowerBarTextureInfo()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetUnitPowerBarTextureInfoByID]
@@ -5664,11 +5620,9 @@ end
 function GetVehicleBarIndex()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_GetVehicleUIIndicator]
---- @param vehicleIndicatorID number
---- @return number, number @ backgroundTextureID, numSeatIndicators
-function GetVehicleUIIndicator(vehicleIndicatorID)
+--- @return void
+function GetVehicleUIIndicator()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_GetVehicleUIIndicatorSeat]
@@ -5701,9 +5655,8 @@ end
 function GetVoidStorageSlotPageIndex()
 end
 
---- Returns the total Void Transfer cost.
 --- [https://warcraft.wiki.gg/wiki/API_GetVoidTransferCost]
---- @return number @ cost
+--- @return void
 function GetVoidTransferCost()
 end
 
@@ -5772,12 +5725,9 @@ end
 function GetZoneText()
 end
 
---- Assigns an item from the current loot window to a group member, when in Master Looter mode.
 --- [https://warcraft.wiki.gg/wiki/API_GiveMasterLoot]
---- @param slot number @ The index of the item you wish to assign. Should be between 1 and GetNumLootItems
---- @param index number @ The index of the player you wish to receive the item. You can retreive candidate names with GetMasterLootCandidate
 --- @return void
-function GiveMasterLoot(slot, index)
+function GiveMasterLoot()
 end
 
 --- No documentation available.
@@ -5800,7 +5750,8 @@ end
 function GuildControlGetAllowedShifts()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_GuildControlGetNumRanks]
+--- @return void
 function GuildControlGetNumRanks()
 end
 
@@ -5842,14 +5793,12 @@ end
 function GuildControlShiftRankUp()
 end
 
---- Prints info for the guild the player belongs to.
 --- [https://warcraft.wiki.gg/wiki/API_GuildInfo]
 --- @return void
 function GuildInfo()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_GuildMasterAbsent]
---- @return void
+--- No documentation available.
 function GuildMasterAbsent()
 end
 
@@ -5868,15 +5817,13 @@ end
 function GuildRosterSetOfficerNote()
 end
 
---- Sets the public note of a guild member.
 --- [https://warcraft.wiki.gg/wiki/API_GuildRosterSetPublicNote]
---- @param index number @ The position a member is in the guild roster. Between 1 and GetNumGuildMembers, or 0 for no selection.
---- @param note string @ Text to be set to the public note of the index.
 --- @return void
-function GuildRosterSetPublicNote(index, note)
+function GuildRosterSetPublicNote()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_HandleAtlasMemberCommand]
+--- @return void
 function HandleAtlasMemberCommand()
 end
 
@@ -5890,7 +5837,8 @@ end
 function HasAction()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_HasArtifactEquipped]
+--- @return void
 function HasArtifactEquipped()
 end
 
@@ -5940,8 +5888,9 @@ end
 function HasInboxItem()
 end
 
+--- Returns whether or not the player has a key ring.
 --- [https://warcraft.wiki.gg/wiki/API_HasKey]
---- @return void
+--- @return boolean @ hasKey
 function HasKey()
 end
 
@@ -6010,7 +5959,8 @@ end
 function HaveQuestData()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_HaveQuestRewardData]
+--- @return void
 function HaveQuestRewardData()
 end
 
@@ -6024,8 +5974,9 @@ end
 function HideRepairCursor()
 end
 
+--- Returns true during simple in-game cinematics where only the camera moves, like the race intro cinematics.
 --- [https://warcraft.wiki.gg/wiki/API_InCinematic]
---- @return void
+--- @return boolean @ inCinematic
 function InCinematic()
 end
 
@@ -6096,9 +6047,8 @@ end
 function IsAdvancedFlyableArea()
 end
 
---- Returns whether the player can teleport to/from an LFG instance.
 --- [https://warcraft.wiki.gg/wiki/API_IsAllowedToUserTeleport]
---- @return boolean @ allowedToTeleport
+--- @return void
 function IsAllowedToUserTeleport()
 end
 
@@ -6112,8 +6062,7 @@ end
 function IsArenaSkirmish()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_IsArtifactCompletionHistoryAvailable]
---- @return void
+--- No documentation available.
 function IsArtifactCompletionHistoryAvailable()
 end
 
@@ -6132,7 +6081,8 @@ end
 function IsAutoRepeatAction()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_IsAvailableQuestTrivial]
+--- @return void
 function IsAvailableQuestTrivial()
 end
 
@@ -6155,8 +6105,7 @@ end
 function IsBreadcrumbQuest()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_IsCastingGlyph]
---- @return void
+--- No documentation available.
 function IsCastingGlyph()
 end
 
@@ -6165,8 +6114,9 @@ end
 function IsCemeterySelectionAvailable()
 end
 
+--- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_IsCharacterNewlyBoosted]
---- @return void
+--- @return boolean @ newlyBoosted
 function IsCharacterNewlyBoosted()
 end
 
@@ -6180,8 +6130,7 @@ end
 function IsChatChannelRaid()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_IsChatDND]
---- @return void
+--- No documentation available.
 function IsChatDND()
 end
 
@@ -6190,8 +6139,7 @@ end
 function IsConsumableAction()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_IsConsumableSpell]
---- @return void
+--- No documentation available.
 function IsConsumableSpell()
 end
 
@@ -6229,7 +6177,8 @@ end
 function IsDisplayChannelModerator()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_IsDisplayChannelOwner]
+--- @return void
 function IsDisplayChannelOwner()
 end
 
@@ -6253,8 +6202,7 @@ end
 function IsEncounterLimitingResurrections()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_IsEncounterSuppressingRelease]
---- @return void
+--- No documentation available.
 function IsEncounterSuppressingRelease()
 end
 
@@ -6272,9 +6220,8 @@ end
 function IsEveryoneAssistant()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_IsExpansionTrial]
---- @return boolean @ isExpansionTrialAccount
+--- @return void
 function IsExpansionTrial()
 end
 
@@ -6293,13 +6240,16 @@ end
 function IsFlyableArea()
 end
 
+--- Returns true if the character is currently on a flying mount.
 --- [https://warcraft.wiki.gg/wiki/API_IsFlying]
---- @return void
-function IsFlying()
+--- @param unit string @ ? : UnitToken
+--- @return boolean @ flying
+function IsFlying(unit)
 end
 
+--- Returns true if the client downloaded has the GM MPQs attached, returns false otherwise.
 --- [https://warcraft.wiki.gg/wiki/API_IsGMClient]
---- @return void
+--- @return boolean @ isGM
 function IsGMClient()
 end
 
@@ -6347,7 +6297,8 @@ end
 function IsInActiveWorldPVP()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_IsInAuthenticatedRank]
+--- @return void
 function IsInAuthenticatedRank()
 end
 
@@ -6356,9 +6307,11 @@ end
 function IsInCinematicScene()
 end
 
+--- Returns true if the player is in a group.
 --- [https://warcraft.wiki.gg/wiki/API_IsInGroup]
---- @return void
-function IsInGroup()
+--- @param groupType number @ ? - If omitted, checks if you're in any type of group.
+--- @return boolean @ inGroup
+function IsInGroup(groupType)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_IsInGuild]
@@ -6371,9 +6324,8 @@ end
 function IsInGuildGroup()
 end
 
---- Returns true if the player is in an instance, and the type of instance.
 --- [https://warcraft.wiki.gg/wiki/API_IsInInstance]
---- @return boolean, string @ inInstance, instanceType
+--- @return void
 function IsInInstance()
 end
 
@@ -6407,11 +6359,9 @@ end
 function IsInsane()
 end
 
---- Returns whether an inventory item is locked, usually as it awaits pending action.
 --- [https://warcraft.wiki.gg/wiki/API_IsInventoryItemLocked]
---- @param slotId number @ The slot ID used to refer to that slot in the other GetInventory functions.
---- @return boolean @ isLocked
-function IsInventoryItemLocked(slotId)
+--- @return void
+function IsInventoryItemLocked()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_IsInventoryItemProfessionBag]
@@ -6494,16 +6444,15 @@ end
 function IsMasterLooter()
 end
 
+--- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_IsMetaKeyDown]
---- @return void
+--- @return boolean @ down
 function IsMetaKeyDown()
 end
 
---- Returns true if the modifier key needed for an an action is pressed.
 --- [https://warcraft.wiki.gg/wiki/API_IsModifiedClick]
---- @param action string @ ? - The action to check for. Actions defined by Blizzard:
---- @return boolean @ isHeld
-function IsModifiedClick(action)
+--- @return void
+function IsModifiedClick()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_IsModifierKeyDown]
@@ -6521,9 +6470,8 @@ end
 function IsMouseButtonDown()
 end
 
---- Returns true if the player is currently in mouselook mode.
 --- [https://warcraft.wiki.gg/wiki/API_IsMouselooking]
---- @return boolean @ isMouseLooking
+--- @return void
 function IsMouselooking()
 end
 
@@ -6537,11 +6485,9 @@ end
 function IsMoviePlayable()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_IsMovieReadable]
---- @param movieId number
---- @return boolean @ readable
-function IsMovieReadable(movieId)
+--- @return void
+function IsMovieReadable()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_IsOnGroundFloorInJailersTower]
@@ -6549,8 +6495,9 @@ end
 function IsOnGroundFloorInJailersTower()
 end
 
+--- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_IsOnTournamentRealm]
---- @return void
+--- @return boolean @ result
 function IsOnTournamentRealm()
 end
 
@@ -6559,9 +6506,8 @@ end
 function IsOutOfBounds()
 end
 
---- Returns true if the character is currently outdoors.
 --- [https://warcraft.wiki.gg/wiki/API_IsOutdoors]
---- @return boolean @ outdoors
+--- @return void
 function IsOutdoors()
 end
 
@@ -6610,9 +6556,8 @@ end
 function IsPlayerInGuildFromGUID()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_IsPlayerInWorld]
---- @return boolean @ result
+--- @return void
 function IsPlayerInWorld()
 end
 
@@ -6626,9 +6571,11 @@ end
 function IsPlayerNeutral()
 end
 
+--- Returns whether the player has learned a particular spell.
 --- [https://warcraft.wiki.gg/wiki/API_IsPlayerSpell]
---- @return void
-function IsPlayerSpell()
+--- @param spellID number @ Spell ID of the spell to query, e.g. 1953 for [Blink].
+--- @return boolean @ isKnown
+function IsPlayerSpell(spellID)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_IsPossessBarVisible]
@@ -6641,8 +6588,9 @@ end
 function IsPublicBuild()
 end
 
+--- Returns true if the displayed quest at a quest giver can be completed.
 --- [https://warcraft.wiki.gg/wiki/API_IsQuestCompletable]
---- @return void
+--- @return boolean @ isQuestCompletable
 function IsQuestCompletable()
 end
 
@@ -6671,8 +6619,9 @@ end
 function IsRaidMarkerActive()
 end
 
+--- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_IsRangedWeapon]
---- @return void
+--- @return boolean @ isRanged
 function IsRangedWeapon()
 end
 
@@ -6746,12 +6695,9 @@ end
 function IsSpellClassOrSpec()
 end
 
---- Returns whether the player (or pet) knows the given spell.
 --- [https://warcraft.wiki.gg/wiki/API_IsSpellKnown]
---- @param spellID number @ the spell ID number
---- @param isPetSpell boolean @ ? - if true, will check if the currently active pet knows the spell; if false or omitted, will check if the player knows the spell
---- @return boolean @ isKnown
-function IsSpellKnown(spellID, isPetSpell)
+--- @return void
+function IsSpellKnown()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_IsSpellKnownOrOverridesKnown]
@@ -6769,12 +6715,14 @@ end
 function IsSpellValidForPendingGlyph()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_IsStackableAction]
+--- @return void
 function IsStackableAction()
 end
 
+--- Returns true if the character is currently stealthed.
 --- [https://warcraft.wiki.gg/wiki/API_IsStealthed]
---- @return void
+--- @return boolean @ stealthed
 function IsStealthed()
 end
 
@@ -6801,9 +6749,8 @@ end
 function IsTargetLoose()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_IsTestBuild]
---- @return boolean @ isTestBuild
+--- @return void
 function IsTestBuild()
 end
 
@@ -6822,9 +6769,8 @@ end
 function IsTradeskillTrainer()
 end
 
---- Returns whether the player is using a trial (free-to-play) account.
 --- [https://warcraft.wiki.gg/wiki/API_IsTrialAccount]
---- @return boolean @ isTrialAccount
+--- @return void
 function IsTrialAccount()
 end
 
@@ -6847,9 +6793,8 @@ end
 function IsUsingFixedTimeStep()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_IsUsingGamepad]
---- @return boolean @ down
+--- @return void
 function IsUsingGamepad()
 end
 
@@ -6858,7 +6803,8 @@ end
 function IsUsingMouse()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_IsUsingVehicleControls]
+--- @return void
 function IsUsingVehicleControls()
 end
 
@@ -6902,13 +6848,13 @@ end
 function ItemAddedToArtifact()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_ItemCanTargetGarrisonFollowerAbility]
---- @return void
+--- No documentation available.
 function ItemCanTargetGarrisonFollowerAbility()
 end
 
+--- Returns the name of the character who created the item text.
 --- [https://warcraft.wiki.gg/wiki/API_ItemTextGetCreator]
---- @return void
+--- @return string @ creatorName
 function ItemTextGetCreator()
 end
 
@@ -6937,10 +6883,12 @@ end
 function ItemTextHasNextPage()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_ItemTextIsFullPage]
+--- @return void
 function ItemTextIsFullPage()
 end
 
+--- Moves to the next page of the item text.
 --- [https://warcraft.wiki.gg/wiki/API_ItemTextNextPage]
 --- @return void
 function ItemTextNextPage()
@@ -6961,14 +6909,9 @@ end
 function JoinBattlefield()
 end
 
---- Joins the specified chat channel.
 --- [https://warcraft.wiki.gg/wiki/API_JoinChannelByName]
---- @param channelName string @ The name of the channel to join. You can't use the - character in channelName.
---- @param password string @ ? - The channel password, nil if none.
---- @param frameID number @ ? - The chat frame ID number to add the channel to. Use Frame:GetID() to retrieve it for chat frame objects.
---- @param hasVoice boolean @ Enable voice chat for this channel.
---- @return number, string @ type, name
-function JoinChannelByName(channelName, password, frameID, hasVoice)
+--- @return void
+function JoinChannelByName()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_JoinLFG]
@@ -6981,8 +6924,7 @@ end
 function JoinPermanentChannel()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_JoinRatedBattlefield]
---- @return void
+--- No documentation available.
 function JoinRatedBattlefield()
 end
 
@@ -7046,7 +6988,8 @@ end
 function LearnTalent()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_LearnTalents]
+--- @return void
 function LearnTalents()
 end
 
@@ -7102,11 +7045,9 @@ end
 function LocalizedClassList()
 end
 
---- Gets or sets whether logging chat to Logs\WoWChatLog.txt is enabled.
 --- [https://warcraft.wiki.gg/wiki/API_LoggingChat]
---- @param newState boolean @ ? - toggles chat logging
---- @return boolean @ isLogging
-function LoggingChat(newState)
+--- @return void
+function LoggingChat()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_LoggingCombat]
@@ -7149,7 +7090,8 @@ end
 function MouselookStop()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_MoveAndSteerStart]
+--- @return void
 function MoveAndSteerStart()
 end
 
@@ -7163,16 +7105,15 @@ end
 function MoveBackwardStart()
 end
 
+--- #protected - This can only be called from secure code.#hwevent - This requires a hardware event i.e. keyboard/mouse input.
 --- [https://warcraft.wiki.gg/wiki/API_MoveBackwardStop]
 --- @return void
 function MoveBackwardStop()
 end
 
---- #hwevent - This requires a hardware event i.e. keyboard/mouse input.
 --- [https://warcraft.wiki.gg/wiki/API_MoveForwardStart]
---- @param startTime number @ Begin moving forward at this time, per GetTime * 1000.
 --- @return void
-function MoveForwardStart(startTime)
+function MoveForwardStart()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_MoveForwardStop]
@@ -7190,14 +7131,11 @@ end
 function MoveViewDownStop()
 end
 
---- Begins zooming the camera in.
 --- [https://warcraft.wiki.gg/wiki/API_MoveViewInStart]
---- @param speed number @ Speed at which to begin zooming.
 --- @return void
-function MoveViewInStart(speed)
+function MoveViewInStart()
 end
 
---- Stops zooming the camera in.
 --- [https://warcraft.wiki.gg/wiki/API_MoveViewInStop]
 --- @return void
 function MoveViewInStop()
@@ -7238,6 +7176,7 @@ end
 function MoveViewUpStart()
 end
 
+--- Stops rotating the camera upward.
 --- [https://warcraft.wiki.gg/wiki/API_MoveViewUpStop]
 --- @return void
 function MoveViewUpStop()
@@ -7277,11 +7216,9 @@ end
 function NotWhileDeadError()
 end
 
---- Requests another player's inventory and talent info before inspecting.
 --- [https://warcraft.wiki.gg/wiki/API_NotifyInspect]
---- @param unit string @ UnitId - The unit to inspect.
 --- @return void
-function NotifyInspect(unit)
+function NotifyInspect()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_NumTaxiNodes]
@@ -7359,8 +7296,9 @@ end
 function PetFollow()
 end
 
+--- Returns true if player has a pet with an action bar.
 --- [https://warcraft.wiki.gg/wiki/API_PetHasActionBar]
---- @return void
+--- @return boolean @ hasActionBar
 function PetHasActionBar()
 end
 
@@ -7369,7 +7307,8 @@ end
 function PetHasSpellbook()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_PetMoveTo]
+--- @return void
 function PetMoveTo()
 end
 
@@ -7435,14 +7374,18 @@ end
 function PickupMacro(name)
 end
 
+--- Places a merchant item onto the cursor. If the cursor already has an item, it will be sold.
 --- [https://warcraft.wiki.gg/wiki/API_PickupMerchantItem]
+--- @param index number @ The index of the item in the merchant's inventory.
 --- @return void
-function PickupMerchantItem()
+function PickupMerchantItem(index)
 end
 
+--- #nocombat - This cannot be called while in combat.Restricted since patch 2.2
 --- [https://warcraft.wiki.gg/wiki/API_PickupPetAction]
+--- @param petActionSlot number @ The pet action slot to pick the action up from (1-10).
 --- @return void
-function PickupPetAction()
+function PickupPetAction(petActionSlot)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_PickupPetSpell]
@@ -7450,9 +7393,11 @@ end
 function PickupPetSpell()
 end
 
+--- Picks up an amount of money from the player onto the cursor.
 --- [https://warcraft.wiki.gg/wiki/API_PickupPlayerMoney]
+--- @param copper number @ The amount of money, in copper, to place on the cursor.
 --- @return void
-function PickupPlayerMoney()
+function PickupPlayerMoney(copper)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_PickupPvpTalent]
@@ -7472,7 +7417,8 @@ end
 function PickupTradeMoney(copper)
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_PitchDownStart]
+--- @return void
 function PitchDownStart()
 end
 
@@ -7490,9 +7436,11 @@ end
 function PitchUpStop()
 end
 
+--- Places an action onto into the specified action slot.
 --- [https://warcraft.wiki.gg/wiki/API_PlaceAction]
+--- @param slot number @ The action slot to place the action into.
 --- @return void
-function PlaceAction()
+function PlaceAction(slot)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_PlaceRaidMarker]
@@ -7523,14 +7471,14 @@ end
 function PlaySoundFile(sound, channel)
 end
 
+--- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_PlayerCanTeleport]
---- @return void
+--- @return boolean @ canTeleport
 function PlayerCanTeleport()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_PlayerEffectiveAttackPower]
---- @return number, number, number, number, number @ mainHandAttackPower, offHandAttackPower, rangedAttackPower, baseAttackPower, baseRangedAttackPower
+--- @return void
 function PlayerEffectiveAttackPower()
 end
 
@@ -7539,16 +7487,16 @@ end
 function PlayerGetTimerunningSeasonID()
 end
 
+--- Determines if player has a specific toy in their toybox
 --- [https://warcraft.wiki.gg/wiki/API_PlayerHasToy]
---- @return void
-function PlayerHasToy()
+--- @param itemId number @ itemId of a toy.
+--- @return boolean @ hasToy
+function PlayerHasToy(itemId)
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_PlayerIsPVPInactive]
---- @param unit string @ UnitToken
---- @return boolean @ result
-function PlayerIsPVPInactive(unit)
+--- @return void
+function PlayerIsPVPInactive()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_PlayerVehicleHasComboPoints]
@@ -7561,11 +7509,9 @@ end
 function PortGraveyard()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_PreloadMovie]
---- @param movieId number
 --- @return void
-function PreloadMovie(movieId)
+function PreloadMovie()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_PrevView]
@@ -7593,8 +7539,7 @@ end
 function PromoteToLeader()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_PurchaseSlot]
---- @return void
+--- No documentation available.
 function PurchaseSlot()
 end
 
@@ -7668,8 +7613,7 @@ end
 function QuestIsDaily()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_QuestIsFromAdventureMap]
---- @return void
+--- No documentation available.
 function QuestIsFromAdventureMap()
 end
 
@@ -7684,7 +7628,6 @@ end
 function QuestIsWeekly()
 end
 
---- Shares the current quest in the quest log with other players.
 --- [https://warcraft.wiki.gg/wiki/API_QuestLogPushQuest]
 --- @return void
 function QuestLogPushQuest()
@@ -7710,6 +7653,7 @@ end
 function QuestPOIUpdateIcons()
 end
 
+--- #protected - This can only be called from secure code.Use the /quit slash command.
 --- [https://warcraft.wiki.gg/wiki/API_Quit]
 --- @return void
 function Quit()
@@ -7720,14 +7664,16 @@ end
 function RaidProfileExists()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_RaidProfileHasUnsavedChanges]
---- @return void
+--- No documentation available.
 function RaidProfileHasUnsavedChanges()
 end
 
+--- Performs a random roll between two values.
 --- [https://warcraft.wiki.gg/wiki/API_RandomRoll]
+--- @param low number @ lowest number (default 1)
+--- @param high number @ highest number (default 100)
 --- @return void
-function RandomRoll()
+function RandomRoll(low, high)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_ReagentBankButtonIDToInvSlotID]
@@ -7735,7 +7681,8 @@ end
 function ReagentBankButtonIDToInvSlotID()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_RedockChatWindows]
+--- @return void
 function RedockChatWindows()
 end
 
@@ -7749,6 +7696,7 @@ end
 function RegisterStaticConstants()
 end
 
+--- Declines a LFG invite and leaves the queue.
 --- [https://warcraft.wiki.gg/wiki/API_RejectProposal]
 --- @return void
 function RejectProposal()
@@ -7759,8 +7707,7 @@ end
 function ReleaseAction()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_RemoveAutoQuestPopUp]
---- @return void
+--- No documentation available.
 function RemoveAutoQuestPopUp()
 end
 
@@ -7774,9 +7721,8 @@ end
 function RemoveChatWindowMessages()
 end
 
---- Removes a Keystone from the selected artifact.
 --- [https://warcraft.wiki.gg/wiki/API_RemoveItemFromArtifact]
---- @return boolean @ keystoneRemoved
+--- @return void
 function RemoveItemFromArtifact()
 end
 
@@ -7785,7 +7731,8 @@ end
 function RemovePvpTalent()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_RemoveRaidTargets]
+--- @return void
 function RemoveRaidTargets()
 end
 
@@ -7841,7 +7788,8 @@ end
 function RequestBattlegroundInstanceInfo()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_RequestBottomLeftActionBar]
+--- @return void
 function RequestBottomLeftActionBar()
 end
 
@@ -7870,7 +7818,8 @@ end
 function RequestLFDPlayerLockInfo()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_RequestPVPOptionsEnabled]
+--- @return void
 function RequestPVPOptionsEnabled()
 end
 
@@ -7899,7 +7848,8 @@ end
 function RequestTimePlayed()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_RequeueSkirmish]
+--- @return void
 function RequeueSkirmish()
 end
 
@@ -7934,7 +7884,6 @@ end
 function ResetSetMerchantFilter()
 end
 
---- Starts with the first tutorial again
 --- [https://warcraft.wiki.gg/wiki/API_ResetTutorials]
 --- @return void
 function ResetTutorials()
@@ -7945,9 +7894,12 @@ end
 function ResetView()
 end
 
+--- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_ResistancePercent]
---- @return void
-function ResistancePercent()
+--- @param resistance number
+--- @param casterLevel number
+--- @return number @ resistance
+function ResistancePercent(resistance, casterLevel)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_RespondInstanceLock]
@@ -7965,7 +7917,6 @@ end
 function RespondToInviteConfirmation()
 end
 
---- Restarts the graphics engine.
 --- [https://warcraft.wiki.gg/wiki/API_RestartGx]
 --- @return void
 function RestartGx()
@@ -7976,8 +7927,9 @@ end
 function RestoreRaidProfileFromCopy()
 end
 
+--- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_ResurrectGetOfferer]
---- @return void
+--- @return string @ name
 function ResurrectGetOfferer()
 end
 
@@ -7986,12 +7938,12 @@ end
 function ResurrectHasSickness()
 end
 
+--- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_ResurrectHasTimer]
---- @return void
+--- @return boolean @ result
 function ResurrectHasTimer()
 end
 
---- Resurrects when the player is standing near its corpse.
 --- [https://warcraft.wiki.gg/wiki/API_RetrieveCorpse]
 --- @return void
 function RetrieveCorpse()
@@ -8043,8 +7995,7 @@ end
 function Screenshot()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_SearchLFGGetEncounterResults]
---- @return void
+--- No documentation available.
 function SearchLFGGetEncounterResults()
 end
 
@@ -8053,17 +8004,15 @@ end
 function SearchLFGGetJoinedID()
 end
 
+--- Returns how many players listed in raid browser for selected LFG id.
 --- [https://warcraft.wiki.gg/wiki/API_SearchLFGGetNumResults]
---- @return void
+--- @return number, number @ numResults, totalResults
 function SearchLFGGetNumResults()
 end
 
---- Returns information about the party player listed in raid browser.
 --- [https://warcraft.wiki.gg/wiki/API_SearchLFGGetPartyResults]
---- @param index number @ Index of the player to query, ascending from 1 to totalResults return value from SearchLFGGetNumResults.
---- @param partyIndex number @ Index of the party player to query, ascending from 1 to partyMembers return value from SearchLFGGetResults.
---- @return string, number, unknown, unknown, string, string, unknown, unknown, unknown, unknown, number, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, number, unknown, unknown, unknown, unknown, unknown, unknown, unknown @ name, level, relationship, className, areaName, comment, isLeader, isTank, isHealer, isDamage, bossKills, specID, isGroupLeader, armor, spellDamage, plusHealing, CritMelee, CritRanged, critSpell, mp5, mp5Combat, attackPower, agility, maxHealth, maxMana, gearRating, avgILevel, defenseRating, dodgeRating, BlockRating, ParryRating, HasteRating, expertise
-function SearchLFGGetPartyResults(index, partyIndex)
+--- @return void
+function SearchLFGGetPartyResults()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_SearchLFGGetResults]
@@ -8083,7 +8032,8 @@ end
 function SearchLFGLeave()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_SearchLFGSort]
+--- @return void
 function SearchLFGSort()
 end
 
@@ -8097,7 +8047,8 @@ end
 function SelectActiveQuest()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_SelectAvailableQuest]
+--- @return void
 function SelectAvailableQuest()
 end
 
@@ -8106,26 +8057,19 @@ end
 function SelectTrainerService()
 end
 
---- Returns the realm name that will be used in Recruit-a-Friend invitations.
 --- [https://warcraft.wiki.gg/wiki/API_SelectedRealmName]
---- @return string @ selectedRealmName
+--- @return void
 function SelectedRealmName()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_SellCursorItem]
 --- @return void
 function SellCursorItem()
 end
 
---- SAY, YELL and CHANNEL require a hardware event while outdoors.
 --- [https://warcraft.wiki.gg/wiki/API_SendChatMessage]
---- @param msg string @ The message to be sent. Large messages are truncated to max 255 characters, and only valid chat message characters are permitted.
---- @param chatType string @ ? - The type of message to be sent, e.g. PARTY. If omitted, this defaults to SAY
---- @param languageID number @ ? - The languageID used for the message. Only works with chatTypes SAY and YELL, and only if not in a group. If omitted the default language will be used: Orcish for the Horde and Common for the Alliance, as returned by GetDefaultLanguage()
---- @param target number @ |string? - The channel number or player name receiving the message for WHISPER or CHANNEL chatTypes.
 --- @return void
-function SendChatMessage(msg, chatType, languageID, target)
+function SendChatMessage()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_SendMail]
@@ -8143,16 +8087,16 @@ end
 function SendSystemMessage()
 end
 
+--- Sets the unit to be compared to.
 --- [https://warcraft.wiki.gg/wiki/API_SetAchievementComparisonUnit]
---- @return void
-function SetAchievementComparisonUnit()
+--- @param unit string @ UnitId
+--- @return boolean @ success
+function SetAchievementComparisonUnit(unit)
 end
 
---- Starts a search for achievements containing the specified text.
 --- [https://warcraft.wiki.gg/wiki/API_SetAchievementSearchString]
---- @param searchText string @ Text to search for in the achievements.
---- @return boolean @ searchFinished
-function SetAchievementSearchString(searchText)
+--- @return void
+function SetAchievementSearchString()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_SetActionBarToggles]
@@ -8170,11 +8114,9 @@ end
 function SetAllowDangerousScripts()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_SetAllowLowLevelRaid]
---- @param allow boolean @ ? = false
 --- @return void
-function SetAllowLowLevelRaid(allow)
+function SetAllowLowLevelRaid()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_SetAutoDeclineGuildInvites]
@@ -8211,17 +8153,17 @@ end
 function SetBindingItem()
 end
 
---- #nocombat - This cannot be called while in combat.Restricted since patch 2.0; Snippets executed by SecureHandlers may alter [override] bindings in-combat.
 --- [https://warcraft.wiki.gg/wiki/API_SetBindingMacro]
---- @param key string @ Any binding string accepted by World of Warcraft. For example: ALT-CTRL-F, SHIFT-T, W, BUTTON4.
---- @param name number @ |string - Id or name of the macro you wish to execute.
---- @return boolean @ success
-function SetBindingMacro(key, name)
+--- @return void
+function SetBindingMacro()
 end
 
+--- #nocombat - This cannot be called while in combat.Restricted since patch 2.0; Snippets executed by SecureHandlers may alter [override] bindings in-combat.
 --- [https://warcraft.wiki.gg/wiki/API_SetBindingSpell]
---- @return void
-function SetBindingSpell()
+--- @param key string @ Any binding string accepted by World of Warcraft. For example: ALT-CTRL-F, SHIFT-T, W, BUTTON4.
+--- @param spell string @ Name of the spell you wish to cast when the binding is pressed.
+--- @return boolean @ ok
+function SetBindingSpell(key, spell)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_SetCemeteryPreference]
@@ -8242,7 +8184,8 @@ end
 function SetChannelPassword()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_SetChatColorNameByClass]
+--- @return void
 function SetChatColorNameByClass()
 end
 
@@ -8251,8 +8194,7 @@ end
 function SetChatWindowAlpha()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_SetChatWindowColor]
---- @return void
+--- No documentation available.
 function SetChatWindowColor()
 end
 
@@ -8290,8 +8232,7 @@ end
 function SetChatWindowSize()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_SetChatWindowUninteractable]
---- @return void
+--- No documentation available.
 function SetChatWindowUninteractable()
 end
 
@@ -8307,7 +8248,8 @@ end
 function SetCurrentGraphicsSetting()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_SetCurrentGuildBankTab]
+--- @return void
 function SetCurrentGuildBankTab()
 end
 
@@ -8316,9 +8258,11 @@ end
 function SetCurrentTitle()
 end
 
+--- Sets the current cursor texture.
 --- [https://warcraft.wiki.gg/wiki/API_SetCursor]
---- @return void
-function SetCursor()
+--- @param cursor string @ |nil - cursor to switch to; either a built-in cursor identifier (like ATTACK_CURSOR), path to a cursor texture (e.g. Interface/Cursor/Taxi), or explicitly nil to reset to a default cursor.
+--- @return boolean @ changed
+function SetCursor(cursor)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_SetCursorHoveredItem]
@@ -8336,9 +8280,11 @@ end
 function SetCursorVirtualItem()
 end
 
+--- Sets the player's dungeon difficulty.
 --- [https://warcraft.wiki.gg/wiki/API_SetDungeonDifficultyID]
+--- @param difficultyIndex number @ 1 → 5 Player
 --- @return void
-function SetDungeonDifficultyID()
+function SetDungeonDifficultyID(difficultyIndex)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_SetErrorCallstackHeight]
@@ -8346,11 +8292,9 @@ end
 function SetErrorCallstackHeight()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_SetEuropeanNumbers]
---- @param enabled boolean
 --- @return void
-function SetEuropeanNumbers(enabled)
+function SetEuropeanNumbers()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_SetEveryoneIsAssistant]
@@ -8358,8 +8302,7 @@ end
 function SetEveryoneIsAssistant()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_SetFocusedAchievement]
---- @return void
+--- No documentation available.
 function SetFocusedAchievement()
 end
 
@@ -8368,17 +8311,14 @@ end
 function SetGamePadCursorControl()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_SetGamePadFreeLook]
+--- @return void
 function SetGamePadFreeLook()
 end
 
---- Sets the name and icon of a guild bank tab.
 --- [https://warcraft.wiki.gg/wiki/API_SetGuildBankTabInfo]
---- @param tab number @ Bank Tab to edit.
---- @param name string @ New tab name.
---- @param icon number @ FileID of the new icon texture.
 --- @return void
-function SetGuildBankTabInfo(tab, name, icon)
+function SetGuildBankTabInfo()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_SetGuildBankTabItemWithdraw]
@@ -8386,13 +8326,9 @@ end
 function SetGuildBankTabItemWithdraw()
 end
 
---- Modifies the permissions for a guild bank tab.
 --- [https://warcraft.wiki.gg/wiki/API_SetGuildBankTabPermissions]
---- @param tab number @ Bank Tab to edit.
---- @param index number @ Index of Permission to edit.
---- @param enabled boolean @ true or false to Enable or Disable permission.
 --- @return void
-function SetGuildBankTabPermissions(tab, index, enabled)
+function SetGuildBankTabPermissions()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_SetGuildBankText]
@@ -8412,7 +8348,8 @@ end
 function SetGuildInfoText(text)
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_SetGuildMemberRank]
+--- @return void
 function SetGuildMemberRank()
 end
 
@@ -8495,11 +8432,9 @@ end
 function SetLootSpecialization()
 end
 
---- Sets the loot quality threshold for group/master loot.
 --- [https://warcraft.wiki.gg/wiki/API_SetLootThreshold]
---- @param threshold number @ The loot quality to start using the current loot method with.
 --- @return void
-function SetLootThreshold(threshold)
+function SetLootThreshold()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_SetMacroItem]
@@ -8507,16 +8442,13 @@ end
 function SetMacroItem()
 end
 
---- Changes the spell used for dynamic feedback for a macro.
 --- [https://warcraft.wiki.gg/wiki/API_SetMacroSpell]
---- @param name number @ |string - Index of the macro, using the values 1-36 for the first page and 37-54 for the second; or the name of the macro.
---- @param spell string @ Localized name of a spell to assign.
---- @param target string @ UnitToken - The unit to assign (for range indication).
 --- @return void
-function SetMacroSpell(name, spell, target)
+function SetMacroSpell()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_SetMerchantFilter]
+--- @return void
 function SetMerchantFilter()
 end
 
@@ -8565,14 +8497,9 @@ end
 function SetOverrideBindingMacro()
 end
 
---- #nocombat - This cannot be called while in combat.Restricted since patch 2.0
 --- [https://warcraft.wiki.gg/wiki/API_SetOverrideBindingSpell]
---- @param owner Frame @ 🔗 - The frame this binding belongs to; this can later be used to clear all override bindings belonging to a particular frame.
---- @param isPriority boolean @ true if this is a priority binding, false otherwise. Both types of override bindings take precedence over normal bindings.
---- @param key string @ Binding to bind the command to. For example, Q, ALT-Q, ALT-CTRL-SHIFT-Q, BUTTON5
---- @param spell string @ Name of the spell you want to cast when this binding is triggered.
 --- @return void
-function SetOverrideBindingSpell(owner, isPriority, key, spell)
+function SetOverrideBindingSpell()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_SetPOIIconOverlapDistance]
@@ -8657,7 +8584,8 @@ end
 function SetSelectedDisplayChannel()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_SetSelectedScreenResolutionIndex]
+--- @return void
 function SetSelectedScreenResolutionIndex()
 end
 
@@ -8725,14 +8653,9 @@ end
 function SetUIVisibility()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_SetUnitCursorTexture]
---- @param textureObject unknown @ Unknown
---- @param unit string
---- @param style unknown @ Enum.CursorStyle?
---- @param includeLowPriority boolean @ ?
---- @return boolean @ hasCursor
-function SetUnitCursorTexture(textureObject, unit, style, includeLowPriority)
+--- @return void
+function SetUnitCursorTexture()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_SetView]
@@ -8765,11 +8688,9 @@ end
 function ShowBuybackSellCursor()
 end
 
---- Shows the completion dialog for a complete, auto-completable quest.
 --- [https://warcraft.wiki.gg/wiki/API_ShowQuestComplete]
---- @param questID number @ id of the quest which is complete and auto-completable.
 --- @return void
-function ShowQuestComplete(questID)
+function ShowQuestComplete()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_ShowQuestOffer]
@@ -8807,7 +8728,8 @@ end
 function SolveArtifact()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_SortBGList]
+--- @return void
 function SortBGList()
 end
 
@@ -8831,11 +8753,13 @@ end
 function SortQuestSortTypes()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_SortQuests]
+--- @return void
 function SortQuests()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_Sound_ChatSystem_GetInputDriverNameByIndex]
+--- @return void
 function Sound_ChatSystem_GetInputDriverNameByIndex()
 end
 
@@ -8844,7 +8768,8 @@ end
 function Sound_ChatSystem_GetNumInputDrivers()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_Sound_ChatSystem_GetNumOutputDrivers]
+--- @return void
 function Sound_ChatSystem_GetNumOutputDrivers()
 end
 
@@ -8886,8 +8811,7 @@ end
 function SpellCanTargetGarrisonFollowerAbility()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_SpellCanTargetGarrisonMission]
---- @return void
+--- No documentation available.
 function SpellCanTargetGarrisonMission()
 end
 
@@ -8905,15 +8829,12 @@ end
 function SpellCanTargetQuest()
 end
 
---- Returns true if the spell awaiting target selection can be cast on the unit.
 --- [https://warcraft.wiki.gg/wiki/API_SpellCanTargetUnit]
---- @param unit string @ UnitToken - The unit to check.
---- @return boolean @ canTarget
-function SpellCanTargetUnit(unit)
+--- @return void
+function SpellCanTargetUnit()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_SpellCancelQueuedSpell]
---- @return void
+--- No documentation available.
 function SpellCancelQueuedSpell()
 end
 
@@ -8937,9 +8858,8 @@ end
 function SpellIsSelfBuff()
 end
 
---- Returns true if a spell is about to be cast and is waiting for the player to select a target.
 --- [https://warcraft.wiki.gg/wiki/API_SpellIsTargeting]
---- @return boolean @ isTargeting
+--- @return void
 function SpellIsTargeting()
 end
 
@@ -8948,7 +8868,6 @@ end
 function SpellStopCasting()
 end
 
---- #protected - This can only be called from secure code.Use the stop action type of SecureActionButtonTemplate or the /stopspelltarget slash command.
 --- [https://warcraft.wiki.gg/wiki/API_SpellStopTargeting]
 --- @return void
 function SpellStopTargeting()
@@ -9009,8 +8928,7 @@ end
 function StartWarGame()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_StartWarGameByName]
---- @return void
+--- No documentation available.
 function StartWarGameByName()
 end
 
@@ -9039,12 +8957,9 @@ end
 function StopMusic()
 end
 
---- Stops playing the specified sound.
 --- [https://warcraft.wiki.gg/wiki/API_StopSound]
---- @param soundHandle number @ Playing sound handle, as returned by PlaySound or PlaySoundFile.
---- @param fadeoutTime number @ ? - In milliseconds.
 --- @return void
-function StopSound(soundHandle, fadeoutTime)
+function StopSound()
 end
 
 --- No documentation available.
@@ -9056,7 +8971,6 @@ end
 function StrafeLeftStart()
 end
 
---- #protected - This can only be called from secure code.#hwevent - This requires a hardware event i.e. keyboard/mouse input.
 --- [https://warcraft.wiki.gg/wiki/API_StrafeLeftStop]
 --- @return void
 function StrafeLeftStop()
@@ -9067,7 +8981,6 @@ end
 function StrafeRightStart()
 end
 
---- #protected - This can only be called from secure code.#hwevent - This requires a hardware event i.e. keyboard/mouse input.
 --- [https://warcraft.wiki.gg/wiki/API_StrafeRightStop]
 --- @return void
 function StrafeRightStop()
@@ -9093,8 +9006,9 @@ end
 function SummonRandomCritter()
 end
 
+--- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_SupportsClipCursor]
---- @return void
+--- @return boolean @ supportsClipCursor
 function SupportsClipCursor()
 end
 
@@ -9113,12 +9027,9 @@ end
 function SwitchAchievementSearchTab()
 end
 
---- Takes the attached item from the mailbox message.
 --- [https://warcraft.wiki.gg/wiki/API_TakeInboxItem]
---- @param messageIndex number @ the index of the mailbox message you want to take the item attachment from.
---- @param attachIndex number @ The index of the item to take (1-ATTACHMENTS_MAX_RECEIVE(16))
 --- @return void
-function TakeInboxItem(messageIndex, attachIndex)
+function TakeInboxItem()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_TakeInboxMoney]
@@ -9126,7 +9037,8 @@ end
 function TakeInboxMoney()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_TakeInboxTextItem]
+--- @return void
 function TakeInboxTextItem()
 end
 
@@ -9135,12 +9047,9 @@ end
 function TakeTaxiNode()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_TargetDirectionEnemy]
---- @param facing number
---- @param coneAngle number @ ?
 --- @return void
-function TargetDirectionEnemy(facing, coneAngle)
+function TargetDirectionEnemy()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_TargetDirectionFinished]
@@ -9153,7 +9062,6 @@ end
 function TargetDirectionFriend()
 end
 
---- #protected - This can only be called from secure code.Use the /targetlastenemy slash command.
 --- [https://warcraft.wiki.gg/wiki/API_TargetLastEnemy]
 --- @return void
 function TargetLastEnemy()
@@ -9214,6 +9122,7 @@ end
 function TargetPriorityHighlightStart()
 end
 
+--- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_TargetToggle]
 --- @return void
 function TargetToggle()
@@ -9234,12 +9143,9 @@ end
 function TaxiGetDestX()
 end
 
---- Returns the vertical position of the destination node of a given route to the destination.
 --- [https://warcraft.wiki.gg/wiki/API_TaxiGetDestY]
---- @param destinationIndex number @ ? - The final destination taxi node.
---- @param routeIndex number @ ? - The index of the route to get the source from.
---- @return number @ dY
-function TaxiGetDestY(destinationIndex, routeIndex)
+--- @return void
+function TaxiGetDestY()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_TaxiGetNodeSlot]
@@ -9374,9 +9280,11 @@ end
 function UnitAffectingCombat()
 end
 
+--- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_UnitAlliedRaceInfo]
---- @return void
-function UnitAlliedRaceInfo()
+--- @param unit string @ UnitId
+--- @return boolean, boolean @ isAlliedRace, hasHeritageArmorUnlocked
+function UnitAlliedRaceInfo(unit)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_UnitArmor]
@@ -9389,11 +9297,9 @@ end
 function UnitAttackPower()
 end
 
---- Returns the unit's melee attack speed for each hand.
 --- [https://warcraft.wiki.gg/wiki/API_UnitAttackSpeed]
---- @param unit string @ UnitToken - The unit to get information from. (Verified for player and target)
---- @return number, number @ mainSpeed, offSpeed
-function UnitAttackSpeed(unit)
+--- @return void
+function UnitAttackSpeed()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_UnitBattlePetLevel]
@@ -9406,11 +9312,9 @@ end
 function UnitBattlePetSpeciesID()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_UnitBattlePetType]
---- @param unit string @ UnitToken
---- @return number @ result
-function UnitBattlePetType(unit)
+--- @return void
+function UnitBattlePetType()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_UnitCanAssist]
@@ -9418,12 +9322,9 @@ end
 function UnitCanAssist()
 end
 
---- Returns true if the first unit can attack the second.
 --- [https://warcraft.wiki.gg/wiki/API_UnitCanAttack]
---- @param unit1 string @ UnitId
---- @param unit2 string @ UnitId - The unit to compare with the first unit.
---- @return boolean @ canAttack
-function UnitCanAttack(unit1, unit2)
+--- @return void
+function UnitCanAttack()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_UnitCanCooperate]
@@ -9448,14 +9349,18 @@ end
 function UnitChannelInfo()
 end
 
+--- Returns the Timewalking Campaign ID that a specified unit is in.
 --- [https://warcraft.wiki.gg/wiki/API_UnitChromieTimeID]
---- @return void
-function UnitChromieTimeID()
+--- @param unit string @ UnitId
+--- @return number @ ID
+function UnitChromieTimeID(unit)
 end
 
+--- Returns the class of the unit.
 --- [https://warcraft.wiki.gg/wiki/API_UnitClass]
---- @return void
-function UnitClass()
+--- @param unit string @ UnitId
+--- @return string, string, number @ className, classFilename, classId
+function UnitClass(unit)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_UnitClassBase]
@@ -9475,11 +9380,9 @@ end
 function UnitControllingVehicle(unit)
 end
 
---- Returns the creature type of the unit (e.g. Crab).
 --- [https://warcraft.wiki.gg/wiki/API_UnitCreatureFamily]
---- @param unit string @ UnitToken
---- @return string, number @ name, id
-function UnitCreatureFamily(unit)
+--- @return void
+function UnitCreatureFamily()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_UnitCreatureType]
@@ -9554,11 +9457,9 @@ end
 function UnitGetTotalHealAbsorbs(unit)
 end
 
---- Returns the assigned role for players in your group or raid.
 --- [https://warcraft.wiki.gg/wiki/API_UnitGroupRolesAssigned]
---- @param unit string @ UnitId
---- @return string @ role
-function UnitGroupRolesAssigned(unit)
+--- @return void
+function UnitGroupRolesAssigned()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_UnitGroupRolesAssignedEnum]
@@ -9566,16 +9467,16 @@ end
 function UnitGroupRolesAssignedEnum()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_UnitHPPerStamina]
---- @param unit string @ UnitToken
---- @return number @ hp
-function UnitHPPerStamina(unit)
+--- @return void
+function UnitHPPerStamina()
 end
 
+--- Returns true if the unit is currently being resurrected.
 --- [https://warcraft.wiki.gg/wiki/API_UnitHasIncomingResurrection]
---- @return void
-function UnitHasIncomingResurrection()
+--- @param unit string @ UnitToken - either the unitID (player, target, party3, etc) or unit's name (Bob or Bob-Llane)
+--- @return boolean @ isBeingResurrected
+function UnitHasIncomingResurrection(unit)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_UnitHasLFGDeserter]
@@ -9632,11 +9533,9 @@ end
 function UnitHonorMax()
 end
 
---- Returns whether or not the targeted unit is in a Group of any type. Instance, raid, party, etc.
 --- [https://warcraft.wiki.gg/wiki/API_UnitInAnyGroup]
---- @param unit string @ UnitToken - The unit token of the unit to check group status for. Always returns false if no unit is provided.
---- @return boolean @ inGroup
-function UnitInAnyGroup(unit)
+--- @return void
+function UnitInAnyGroup()
 end
 
 --- Returns the unit index if the unit is in your battleground.
@@ -9658,11 +9557,9 @@ end
 function UnitInParty(unit)
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_UnitInPartyIsAI]
---- @param unit string @ ? : UnitToken
---- @return boolean @ result
-function UnitInPartyIsAI(unit)
+--- @return void
+function UnitInPartyIsAI()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_UnitInPartyShard]
@@ -9670,9 +9567,11 @@ end
 function UnitInPartyShard()
 end
 
+--- Returns the index if the unit is in your raid group.
 --- [https://warcraft.wiki.gg/wiki/API_UnitInRaid]
---- @return void
-function UnitInRaid()
+--- @param unit string @ UnitId
+--- @return number @ index
+function UnitInRaid(unit)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_UnitInRange]
@@ -9690,11 +9589,9 @@ end
 function UnitInVehicle()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_UnitInVehicleControlSeat]
---- @param unit string @ ? : UnitToken
---- @return boolean @ inVehicle
-function UnitInVehicleControlSeat(unit)
+--- @return void
+function UnitInVehicleControlSeat()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_UnitInVehicleHidesPetFrame]
@@ -9727,16 +9624,16 @@ end
 function UnitIsCharmed()
 end
 
+--- Returns true if the unit is connected to the game (i.e. not offline).
 --- [https://warcraft.wiki.gg/wiki/API_UnitIsConnected]
---- @return void
-function UnitIsConnected()
+--- @param unit string @ UnitId
+--- @return unknown @ isOnline
+function UnitIsConnected(unit)
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_UnitIsControlling]
---- @param unit string @ UnitToken
---- @return boolean @ isControlling
-function UnitIsControlling(unit)
+--- @return void
+function UnitIsControlling()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_UnitIsCorpse]
@@ -9754,11 +9651,9 @@ end
 function UnitIsDead()
 end
 
---- Returns true if the unit is dead or in ghost form.
 --- [https://warcraft.wiki.gg/wiki/API_UnitIsDeadOrGhost]
---- @param unit string @ UnitToken
---- @return boolean @ isDeadOrGhost
-function UnitIsDeadOrGhost(unit)
+--- @return void
+function UnitIsDeadOrGhost()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_UnitIsEnemy]
@@ -9791,9 +9686,12 @@ end
 function UnitIsGroupAssistant()
 end
 
+--- Returns whether the unit is the leader of a party or raid.
 --- [https://warcraft.wiki.gg/wiki/API_UnitIsGroupLeader]
---- @return void
-function UnitIsGroupLeader()
+--- @param unit string @ UnitId
+--- @param partyCategory number @ ?
+--- @return boolean @ isLeader
+function UnitIsGroupLeader(unit, partyCategory)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_UnitIsInMyGuild]
@@ -9851,11 +9749,9 @@ end
 function UnitIsPossessed()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_UnitIsQuestBoss]
---- @param unit string @ UnitToken
---- @return boolean @ isQuestBoss
-function UnitIsQuestBoss(unit)
+--- @return void
+function UnitIsQuestBoss()
 end
 
 --- Needs summary.
@@ -9880,17 +9776,16 @@ end
 function UnitIsTrivial()
 end
 
+--- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_UnitIsUnconscious]
---- @return void
-function UnitIsUnconscious()
+--- @param unit string @ UnitToken
+--- @return boolean @ isUnconscious
+function UnitIsUnconscious(unit)
 end
 
---- Returns true if the specified units are the same unit.
 --- [https://warcraft.wiki.gg/wiki/API_UnitIsUnit]
---- @param unit1 string @ UnitId - The first unit to query (e.g. party1, pet, player)
---- @param unit2 string @ UnitId - The second unit to compare it to (e.g. target)
---- @return boolean @ isSame
-function UnitIsUnit(unit1, unit2)
+--- @return void
+function UnitIsUnit()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_UnitIsVisible]
@@ -9898,14 +9793,18 @@ end
 function UnitIsVisible()
 end
 
+--- Returns if the unit is a wild battle pet or tamer battle pet.
 --- [https://warcraft.wiki.gg/wiki/API_UnitIsWildBattlePet]
---- @return void
-function UnitIsWildBattlePet()
+--- @param unit string @ UnitId
+--- @return boolean @ isWild
+function UnitIsWildBattlePet(unit)
 end
 
+--- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_UnitLeadsAnyGroup]
---- @return void
-function UnitLeadsAnyGroup()
+--- @param unit string @ UnitToken
+--- @return boolean @ isLeader
+function UnitLeadsAnyGroup(unit)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_UnitLevel]
@@ -9943,20 +9842,14 @@ end
 function UnitPVPName()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_UnitPartialPower]
---- @param unitToken string @ UnitToken
---- @param powerType unknown @ Enum.PowerType?🔗
---- @param unmodified boolean @ ? = false
---- @return number @ partialPower
-function UnitPartialPower(unitToken, powerType, unmodified)
+--- @return void
+function UnitPartialPower()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_UnitPercentHealthFromGUID]
---- @param unitGUID string
---- @return number @ percentHealth
-function UnitPercentHealthFromGUID(unitGUID)
+--- @return void
+function UnitPercentHealthFromGUID()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_UnitPhaseReason]
@@ -9964,18 +9857,14 @@ end
 function UnitPhaseReason()
 end
 
---- Returns true if the unit is controlled by a player.
 --- [https://warcraft.wiki.gg/wiki/API_UnitPlayerControlled]
---- @param unit string @ UnitId
---- @return boolean @ UnitIsPlayerControlled
-function UnitPlayerControlled(unit)
+--- @return void
+function UnitPlayerControlled()
 end
 
---- Returns true if a different unit or pet is a member of the party.
 --- [https://warcraft.wiki.gg/wiki/API_UnitPlayerOrPetInParty]
---- @param unit string @ The unit to check for party membership.
---- @return boolean @ inMyParty
-function UnitPlayerOrPetInParty(unit)
+--- @return void
+function UnitPlayerOrPetInParty()
 end
 
 --- Returns true if a different unit or pet is a member of the raid.
@@ -10019,22 +9908,23 @@ end
 function UnitPowerMax(unitToken, powerType, unmodified)
 end
 
---- Returns a number corresponding to the power type (e.g., mana, rage or energy) of the specified unit.
 --- [https://warcraft.wiki.gg/wiki/API_UnitPowerType]
---- @param unit string @ UnitToken - The unit whose power type to query.
---- @param index number @ ? = 0 - Optional value for classes with multiple powerTypes. If not specified, information about the first (currently active) power type will be returned.
---- @return unknown, unknown, number, number, number @ powerType, powerTypeToken, rgbX, rgbY, rgbZ
-function UnitPowerType(unit, index)
+--- @return void
+function UnitPowerType()
 end
 
+--- Returns whether the unit is a flag/orb carrier or cart runner.
 --- [https://warcraft.wiki.gg/wiki/API_UnitPvpClassification]
---- @return void
-function UnitPvpClassification()
+--- @param unit string @ UnitId
+--- @return unknown @ classification
+function UnitPvpClassification(unit)
 end
 
+--- Returns the difference between the units' current level and the level at which fixed-level quests are of trivial difficulty.
 --- [https://warcraft.wiki.gg/wiki/API_UnitQuestTrivialLevelRange]
---- @return void
-function UnitQuestTrivialLevelRange()
+--- @param unit string @ UnitId
+--- @return number @ levelRange
+function UnitQuestTrivialLevelRange(unit)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_UnitQuestTrivialLevelRangeScaling]
@@ -10042,9 +9932,11 @@ end
 function UnitQuestTrivialLevelRangeScaling()
 end
 
+--- Returns the race of the unit.
 --- [https://warcraft.wiki.gg/wiki/API_UnitRace]
---- @return void
-function UnitRace()
+--- @param unit string @ UnitId
+--- @return unknown, string, number @ izedRaceName, englishRaceName, raceID
+function UnitRace(unit)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_UnitRangedAttackPower]
@@ -10095,11 +9987,9 @@ end
 function UnitSex()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_UnitShouldDisplayName]
---- @param unit string @ UnitToken
---- @return boolean @ shouldDisplay
-function UnitShouldDisplayName(unit)
+--- @return void
+function UnitShouldDisplayName()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_UnitSpellHaste]
@@ -10114,17 +10004,17 @@ end
 function UnitStagger(unit)
 end
 
---- Returns the basic attributes for a unit (strength, agility, stamina, intellect).
 --- [https://warcraft.wiki.gg/wiki/API_UnitStat]
---- @param unit string @ UnitToken - Only works for player and pet. Will work on target as long as it is equal to player)
---- @param statID number @ An internal id corresponding to one of the stats.
---- @return number, number, number, number @ currentStat, effectiveStat, statPositiveBuff, statNegativeBuff
-function UnitStat(unit, statID)
+--- @return void
+function UnitStat()
 end
 
+--- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_UnitSwitchToVehicleSeat]
+--- @param unit string @ UnitToken
+--- @param virtualSeatIndex number
 --- @return void
-function UnitSwitchToVehicleSeat()
+function UnitSwitchToVehicleSeat(unit, virtualSeatIndex)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_UnitTargetsVehicleInRaidUI]
@@ -10147,11 +10037,9 @@ end
 function UnitTokenFromGUID()
 end
 
---- Whether a unit should be treated as if it was an actual player.
 --- [https://warcraft.wiki.gg/wiki/API_UnitTreatAsPlayerForDisplay]
---- @param unit string
---- @return boolean @ treatAsPlayer
-function UnitTreatAsPlayerForDisplay(unit)
+--- @return void
+function UnitTreatAsPlayerForDisplay()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_UnitTrialBankedLevels]
@@ -10223,12 +10111,12 @@ end
 function UnmuteSoundFile(sound)
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_UpdateAddOnCPUUsage]
 --- @return void
 function UpdateAddOnCPUUsage()
 end
 
+--- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_UpdateAddOnMemoryUsage]
 --- @return void
 function UpdateAddOnMemoryUsage()
@@ -10263,7 +10151,8 @@ end
 function UseInventoryItem()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_UseQuestLogSpecialItem]
+--- @return void
 function UseQuestLogSpecialItem()
 end
 
@@ -10277,7 +10166,8 @@ end
 function UseToyByName()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_UseWorldMapActionButtonSpellOnQuest]
+--- @return void
 function UseWorldMapActionButtonSpellOnQuest()
 end
 
@@ -10321,7 +10211,8 @@ end
 function VehicleAimUpStart()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_VehicleAimUpStop]
+--- @return void
 function VehicleAimUpStop()
 end
 
@@ -10354,11 +10245,9 @@ end
 function WithdrawGuildBankMoney()
 end
 
---- Needs summary.
 --- [https://warcraft.wiki.gg/wiki/API_WorldLootObjectExists]
---- @param unit string @ UnitToken
---- @return boolean @ exists
-function WorldLootObjectExists(unit)
+--- @return void
+function WorldLootObjectExists()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_abs]
@@ -10371,11 +10260,9 @@ end
 function acos()
 end
 
---- Appends a string to the debug frame text buffer for crash reporting.
 --- [https://warcraft.wiki.gg/wiki/API_addframetext]
---- @param text string @ A string to log in the frame text buffer.
 --- @return void
-function addframetext(text)
+function addframetext()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_asin]
@@ -10412,7 +10299,8 @@ end
 function bit.bnot()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_bit.bor]
+--- @return void
 function bit.bor()
 end
 
@@ -10485,6 +10373,7 @@ end
 function date()
 end
 
+--- Returns a string dump of all local variables and upvalues at a given stack level.
 --- [https://warcraft.wiki.gg/wiki/API_debuglocals]
 --- @return void
 function debuglocals()
@@ -10495,9 +10384,8 @@ end
 function debugprofilestart()
 end
 
---- Returns the time in milliseconds since the last call to debugprofilestart().
 --- [https://warcraft.wiki.gg/wiki/API_debugprofilestop]
---- @return number @ elapsedMilliseconds
+--- @return void
 function debugprofilestop()
 end
 
@@ -10526,21 +10414,17 @@ end
 function exp()
 end
 
---- Returns a random number within the specified interval.
 --- [https://warcraft.wiki.gg/wiki/API_fastrandom]
---- @param low number @ lower integer limit on the returned random value.
---- @param high number @ upper integer limit on the returned random value.
---- @return number @ rand
-function fastrandom(low, high)
+--- @return void
+function fastrandom()
 end
 
---- floor(value) returns the floor of the value (essentially it returns the whole part of the value) i.e. rounds value down
 --- [https://warcraft.wiki.gg/wiki/API_floor]
---- @param value unknown
---- @return unknown @ val
-function floor(value)
+--- @return void
+function floor()
 end
 
+--- Taints the current execution path.
 --- [https://warcraft.wiki.gg/wiki/API_forceinsecure]
 --- @return void
 function forceinsecure()
@@ -10614,11 +10498,9 @@ end
 function hooksecurefunc(tbl, functionName, hookfunc)
 end
 
---- Returns an iterator triple that allows the Lua for loop to iterate over the array portion of a table.
 --- [https://warcraft.wiki.gg/wiki/API_ipairs]
---- @param table unknown
---- @return unknown, unknown, unknown @ iteratorFunc, table, startState
-function ipairs(table)
+--- @return void
+function ipairs()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_issecure]
@@ -10638,7 +10520,8 @@ end
 function issecurevariable()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_ldexp]
+--- @return void
 function ldexp()
 end
 
@@ -10662,8 +10545,7 @@ end
 function math.abs()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_math.acos]
---- @return void
+--- No documentation available.
 function math.acos()
 end
 
@@ -10687,12 +10569,12 @@ end
 function math.ceil()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_math.cos]
---- @return void
+--- No documentation available.
 function math.cos()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_math.cosh]
+--- @return void
 function math.cosh()
 end
 
@@ -10701,15 +10583,18 @@ end
 function math.deg()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_math.exp]
+--- @return void
 function math.exp()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_math.floor]
+--- @return void
 function math.floor()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_math.fmod]
+--- @return void
 function math.fmod()
 end
 
@@ -10747,8 +10632,7 @@ end
 function math.modf()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_math.pow]
---- @return void
+--- No documentation available.
 function math.pow()
 end
 
@@ -10767,7 +10651,8 @@ end
 function math.sin()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_math.sinh]
+--- @return void
 function math.sinh()
 end
 
@@ -10781,13 +10666,11 @@ end
 function math.tan()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_math.tanh]
---- @return void
+--- No documentation available.
 function math.tanh()
 end
 
---- [https://warcraft.wiki.gg/wiki/API_max]
---- @return void
+--- No documentation available.
 function max()
 end
 
@@ -10801,11 +10684,9 @@ end
 function mod()
 end
 
---- Creates a zero-size userdata object, optionally with a sharable empty metatable.
 --- [https://warcraft.wiki.gg/wiki/API_newproxy]
---- @param otherproxy unknown @ userdata - If an object previously created by newproxy is passed, the new userdata will share that proxy's metatable.
---- @return unknown @ proxy
-function newproxy(otherproxy)
+--- @return void
+function newproxy()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_next]
@@ -10818,14 +10699,9 @@ end
 function pairs()
 end
 
---- Calls a function, returning a boolean indicating success as the first return value, and error text / return values as the following values.
 --- [https://warcraft.wiki.gg/wiki/API_pcall]
---- @param func unknown @ Function - The function that will be called (from within) pcall().
---- @param arg1 unknown @ Variable - Any variable that is also to be passed with the function when its called (Optional).
---- @param arg2 unknown
---- @param ... unknown
---- @return boolean, string, unknown, unknown @ retOK, ret1, ret2, ...
-function pcall(func, arg1, arg2, ...)
+--- @return void
+function pcall()
 end
 
 --- Calls a function in protected mode with a temporarily replaced function environment.
@@ -10862,11 +10738,9 @@ end
 function rawset()
 end
 
---- Returns the argument list with non-number/boolean/string values changed to nil.
 --- [https://warcraft.wiki.gg/wiki/API_scrub]
---- @param ... any @ The values to be scrubbed.
---- @return any @ ...
-function scrub(...)
+--- @return void
+function scrub()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_securecall]
@@ -10944,7 +10818,8 @@ end
 function strfind()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_string.byte]
+--- @return void
 function string.byte()
 end
 
@@ -10993,11 +10868,13 @@ end
 function string.lower()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_string.match]
+--- @return void
 function string.match()
 end
 
---- No documentation available.
+--- [https://warcraft.wiki.gg/wiki/API_string.rep]
+--- @return void
 function string.rep()
 end
 
@@ -11025,9 +10902,13 @@ end
 function string.upper()
 end
 
+--- Joins strings together with a delimiter.
 --- [https://warcraft.wiki.gg/wiki/API_strjoin]
---- @return void
-function strjoin()
+--- @param delimiter string @ The delimiter to insert between each string being joined.
+--- @param string1 unknown
+--- @param ... unknown
+--- @return string @ joinedString
+function strjoin(delimiter, string1, ...)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_strlen]
@@ -11035,9 +10916,11 @@ end
 function strlen()
 end
 
+--- Returns the number of characters in a UTF8-encoded string.
 --- [https://warcraft.wiki.gg/wiki/API_strlenutf8]
---- @return void
-function strlenutf8()
+--- @param str string @ UTF8-encoded string.
+--- @return number @ amount
+function strlenutf8(str)
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_strlower]
@@ -11045,21 +10928,26 @@ end
 function strlower()
 end
 
+--- Extract substrings by matching against a pattern.
 --- [https://warcraft.wiki.gg/wiki/API_strmatch]
---- @return void
-function strmatch()
+--- @param string string @ The string to examine.
+--- @param pattern string @ The pattern to search for within string.  This pattern is similar to Unix regular expressions, but is not the same -- see Lua Pattern matching for more details.
+--- @param initpos number @ Index of the character within string to begin searching.  As is usual for Lua string functions, 1 refers to the first character of the string, 2 to the second, etc.  -1 refers to the last character of the string, -2 to the second last, etc.  If this argument is omitted, it defaults to 1; i.e., the search begins at the beginning of string.
+--- @return unknown, unknown, unknown @ match1, match2, ...
+function strmatch(string, pattern, initpos)
 end
 
+--- Generate a string which is n copies of the string passed concatenated together.
 --- [https://warcraft.wiki.gg/wiki/API_strrep]
+--- @param s unknown
+--- @param n unknown
 --- @return void
-function strrep()
+function strrep(s, n)
 end
 
---- Reverses all of the characters in a string.
 --- [https://warcraft.wiki.gg/wiki/API_strrev]
---- @param string unknown
 --- @return void
-function strrev(string)
+function strrev()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_strsplit]
@@ -11103,9 +10991,8 @@ function table.foreachi()
 end
 
 --- [https://warcraft.wiki.gg/wiki/API_table.getn]
---- @param table unknown
---- @return unknown @ size
-function table.getn(table)
+--- @return void
+function table.getn()
 end
 
 --- From TableLibraryTutorial of lua-users.org.
@@ -11197,13 +11084,8 @@ end
 function wipe()
 end
 
---- Executes a function in protected mode with a custom error handler.
 --- [https://warcraft.wiki.gg/wiki/API_xpcall]
---- @param f unknown @ function - The function that will be called.
---- @param msgh unknown @ function - Error handler function to be used should f cause an error.
---- @param arg1 unknown
---- @param ... any @ Optional arguments to be passed to the function.
---- @return boolean, unknown, any @ success, res1, ...
-function xpcall(f, msgh, arg1, ...)
+--- @return void
+function xpcall()
 end
 
