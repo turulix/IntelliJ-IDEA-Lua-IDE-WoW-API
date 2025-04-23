@@ -26,6 +26,7 @@ EventToastDisplayType.WeeklyRewardUpgrade = 10
 EventToastDisplayType.FlightpointDiscovered = 11
 EventToastDisplayType.CapstoneUnlocked = 12
 EventToastDisplayType.SingleLineWithIcon = 13
+EventToastDisplayType.Scoreboard = 14
 
 ---@class EventToastEventType
 EventToastEventType = {}

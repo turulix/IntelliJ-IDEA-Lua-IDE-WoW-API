@@ -75,6 +75,17 @@ function C_GuildInfo.QueryGuildMembersForRecipe(skillLineID, recipeSpellID, reci
 ---@param guid WOWGUID 
 function C_GuildInfo.RemoveFromGuild(guid) end
 
+---@param desiredName cstring 
+function C_GuildInfo.RequestGuildRename(desiredName) end
+
+function C_GuildInfo.RequestGuildRenameRefund() end
+
+---@param desiredName cstring 
+function C_GuildInfo.RequestRenameNameCheck(desiredName) end
+
+---@return boolean ableToRequest
+function C_GuildInfo.RequestRenameStatus() end
+
 ---@param guid WOWGUID 
 ---@param rankOrder luaIndex 
 function C_GuildInfo.SetGuildRankOrder(guid, rankOrder) end
@@ -107,4 +118,18 @@ function C_GuildInfo.Uninvite(name) end
 ---@field year number 
 ---@field guildMembersPresent number 
 GuildNewsInfo = {}
+
+---@class GuildRenameStatus
+---@field isNameChangeEnabled boolean 
+---@field isPlayerGuildMaster boolean 
+---@field refundEligibleEndTime time_t 
+---@field nextRenameTime time_t 
+---@field renamePrice WOWMONEY 
+---@field refundAmount WOWMONEY 
+---@field currentGuildMoney WOWMONEY 
+---@field result GuildErrorType 
+---@field oldGuildName cstring 
+---@field reservedName cstring 
+---@field reservedNameExpirationTime time_t 
+GuildRenameStatus = {}
 

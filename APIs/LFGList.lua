@@ -81,6 +81,11 @@ function C_LFGList.GetApplicantInfo(applicantID) end
 ---@return PvpRatingInfo pvpRatingInfo
 function C_LFGList.GetApplicantPvpRatingInfoForListing(localID, applicantIndex, activityID) end
 
+---@param categoryID number 
+---@param filter number 
+---@return number activityIDs
+function C_LFGList.GetAvailableActivityGroups(categoryID, filter) end
+
 ---@return number, number totalResultsFound, filteredResults
 function C_LFGList.GetFilteredSearchResults() end
 

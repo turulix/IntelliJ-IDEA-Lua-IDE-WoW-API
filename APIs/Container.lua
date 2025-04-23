@@ -44,7 +44,7 @@ function C_Container.GetContainerItemDurability(containerIndex, slotIndex) end
 
 ---@param containerIndex BagIndex 
 ---@param slotIndex luaIndex 
----@return boolean, cstring inSet, setList
+---@return boolean, string inSet, setList
 function C_Container.GetContainerItemEquipmentSetInfo(containerIndex, slotIndex) end
 
 ---@param containerIndex BagIndex 

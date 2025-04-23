@@ -89,14 +89,6 @@ function SetObeyHideInTransmogFlag(obey) end
 ---@param affectsGlobalPause boolean 
 function SetPaused(paused, affectsGlobalPause) end
 
----@param characterIndex number @ [OPTIONAL]
----@param sheatheWeapons boolean 
----@param autoDress boolean 
----@param hideWeapons boolean 
----@param usePlayerNativeForm boolean 
----@return boolean success
-function SetPlayerModelFromGlues(characterIndex, sheatheWeapons, autoDress, hideWeapons, usePlayerNativeForm) end
-
 ---@param sheathed boolean 
 ---@param hidden boolean 
 function SetSheathed(sheathed, hidden) end
@@ -106,12 +98,6 @@ function SetUseTransmogChoices(use) end
 
 ---@param use boolean 
 function SetUseTransmogSkin(use) end
-
----@param itemLinkOrItemModifiedAppearanceID cstring 
----@param handSlotName cstring @ [OPTIONAL]
----@param spellEnchantmentID number 
----@return ItemTryOnReason|nil reason
-function TryOn(itemLinkOrItemModifiedAppearanceID, handSlotName, spellEnchantmentID) end
 
 ---@param includeWeapons boolean 
 function Undress(includeWeapons) end

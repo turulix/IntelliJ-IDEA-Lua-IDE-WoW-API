@@ -1,4 +1,5 @@
-function FlashClientIcon() end
+---@param briefly boolean 
+function FlashClientIcon(briefly) end
 
 ---@return number billingTimeRested
 function GetBillingTimeRested() end

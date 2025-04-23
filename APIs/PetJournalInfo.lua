@@ -3,6 +3,8 @@ C_PetJournal = {}
 
 function C_PetJournal.ClearHoveredBattlePet() end
 
+function C_PetJournal.ClearSearchFilter() end
+
 ---@param speciesID number 
 ---@param index luaIndex 
 ---@return number|nil displayID
@@ -20,6 +22,9 @@ function C_PetJournal.GetNumDisplays(speciesID) end
 ---@param creatureID number 
 ---@return number, number maxAllowed, numPets
 function C_PetJournal.GetNumPetsInJournal(creatureID) end
+
+---@return WOWGUID ownedPetIDs
+function C_PetJournal.GetOwnedPetIDs() end
 
 ---@param abilityID number 
 ---@return string, fileID, number name, icon, petType
@@ -41,6 +46,9 @@ function C_PetJournal.GetPetLoadOutInfo(slot) end
 ---@return boolean, PetJournalError, cstring isSummonable, error, errorText
 function C_PetJournal.GetPetSummonInfo(battlePetGUID) end
 
+---@return cstring filterText
+function C_PetJournal.GetSearchFilter() end
+
 ---@return boolean hasFavorites
 function C_PetJournal.HasFavoritePets() end
 
@@ -59,6 +67,9 @@ function C_PetJournal.SetDefaultFilters() end
 
 ---@param battlePetGUID WOWGUID 
 function C_PetJournal.SetHoveredBattlePet(battlePetGUID) end
+
+---@param filterText cstring 
+function C_PetJournal.SetSearchFilter(filterText) end
 
 ---@param battlePetGUID WOWGUID 
 function C_PetJournal.SpellTargetBattlePet(battlePetGUID) end

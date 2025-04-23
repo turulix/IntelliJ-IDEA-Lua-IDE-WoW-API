@@ -69,7 +69,6 @@ PlayerChoiceOptionButtonInfo = {}
 ---@field widgetSetID number|nil 
 ---@field spellID number|nil 
 ---@field rarity PlayerChoiceRarity|nil 
----@field rarityColor colorRGBA|nil 
 ---@field typeArtID number|nil 
 ---@field headerIconAtlasElement string|nil 
 ---@field subHeader string|nil 

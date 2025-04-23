@@ -100,6 +100,9 @@ function GetWrappedWidth() end
 ---@return boolean isTruncated
 function IsTruncated() end
 
+
+function OnColorsUpdated() end
+
 ---@param start number 
 ---@param length number 
 ---@return boolean isWithinText

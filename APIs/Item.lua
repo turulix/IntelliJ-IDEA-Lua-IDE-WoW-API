@@ -240,7 +240,7 @@ function C_Item.GetItemQuality(itemLocation) end
 ---@return ItemQuality|nil itemQuality
 function C_Item.GetItemQualityByID(itemInfo) end
 
----@param quality number 
+---@param quality ItemQuality 
 ---@return number, number, number, cstring colorRGBR, colorRGBG, colorRGBB, qualityString
 function C_Item.GetItemQualityColor(quality) end
 
@@ -277,6 +277,10 @@ function C_Item.GetItemUniqueness(itemInfo) end
 ---@param itemInfo ItemInfo 
 ---@return boolean, cstring|nil, number|nil, number|nil isUnique, limitCategoryName, limitCategoryCount, limitCategoryID
 function C_Item.GetItemUniquenessByID(itemInfo) end
+
+---@param itemInfo ItemInfo 
+---@return ItemUpgradeInfo|nil itemUpgradeInfo
+function C_Item.GetItemUpgradeInfo(itemInfo) end
 
 ---@param itemInfo ItemInfo 
 ---@return cstring, fileID, number, number, number name, icon, quantity, maxQuantity, totalEarned
@@ -465,4 +469,12 @@ function C_Item.UseItemByName(itemInfo, target) end
 ---@field setID number|nil 
 ---@field isCraftingReagent boolean 
 ItemInfoResult = {}
+
+---@class ItemUpgradeInfo
+---@field currentLevel number 
+---@field maxLevel number 
+---@field maxItemLevel number 
+---@field trackString cstring|nil 
+---@field trackStringID number|nil 
+ItemUpgradeInfo = {}
 

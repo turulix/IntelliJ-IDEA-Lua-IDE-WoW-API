@@ -59,6 +59,9 @@ function C_PerksProgram.ItemSelectedTelemetry(perksVendorItemID) end
 ---@param perksVendorItemID number 
 function C_PerksProgram.PickupPerksVendorItem(perksVendorItemID) end
 
+---@param perksVendorItemIDs number 
+function C_PerksProgram.RequestCartCheckout(perksVendorItemIDs) end
+
 function C_PerksProgram.RequestPendingChestRewards() end
 
 ---@param perksVendorItemID number 
@@ -116,6 +119,8 @@ PerksVendorCategoryInfo = {}
 ---@field itemModifiedAppearanceID number 
 ---@field subItems PerksVendorSubItemInfo 
 ---@field uiGroupInfo PerksVendorItemUIGroupInfo|nil 
+---@field invType string 
+---@field quality ItemQuality 
 PerksVendorItemInfo = {}
 
 ---@class PerksVendorItemUIGroupInfo
@@ -127,7 +132,7 @@ PerksVendorItemUIGroupInfo = {}
 ---@class PerksVendorSubItemInfo
 ---@field name string 
 ---@field itemID number 
----@field itemAppearanceID number 
+---@field itemModifiedAppearanceID number 
 ---@field invType string 
 ---@field quality ItemQuality 
 PerksVendorSubItemInfo = {}

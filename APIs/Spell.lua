@@ -6,6 +6,11 @@ C_Spell = {}
 ---@return boolean spellExists
 function C_Spell.DoesSpellExist(spellIdentifier) end
 
+--- Used in conjunction with SpellRangeCheckUpdate to inform the UI when a spell goes in or out of range with the current target.
+---@param spellIdentifier SpellIdentifier 
+---@param enable boolean @ True if changes in range for the spell should dispatch SpellRangeCheckUpdate. False if the spell no longer needs the event.
+function C_Spell.EnableSpellRangeCheck(spellIdentifier, enable) end
+
 ---@param spellIdentifier SpellIdentifier 
 ---@return DeadlyDebuffInfo deadlyDebuffInfo
 function C_Spell.GetDeadlyDebuffInfo(spellIdentifier) end

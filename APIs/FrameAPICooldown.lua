@@ -32,12 +32,20 @@ function GetDrawSwipe() end
 function GetEdgeScale() end
 
 
+---@return boolean hideNumbers
+function GetHideCountdownNumbers() end
+
+
 ---@return boolean reverse
 function GetReverse() end
 
 
 ---@return number rotationRadians
 function GetRotation() end
+
+
+---@return boolean useAuraDisplayTime
+function GetUseAuraDisplayTime() end
 
 
 ---@return boolean isPaused
@@ -120,6 +128,10 @@ function SetSwipeTexture(texture, colorR, colorG, colorB, colorA) end
 ---@param low vector2 
 ---@param high vector2 
 function SetTexCoordRange(low, high) end
+
+--- Aura durations are displayed slightly differently than cooldown durations. Setting this to true will adjust the display logic to stay in sync with aura timers.
+---@param useAuraDisplayTime boolean 
+function SetUseAuraDisplayTime(useAuraDisplayTime) end
 
 ---@param useCircularEdge boolean 
 function SetUseCircularEdge(useCircularEdge) end

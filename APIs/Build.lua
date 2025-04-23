@@ -19,6 +19,10 @@ function IsMacClient() end
 ---@return boolean isPublicBuild
 function IsPublicBuild() end
 
+--- Reflects the state of the OnlyBetaAndPTR TOC directive
+---@return boolean isPublicTestClient
+function IsPublicTestClient() end
+
 ---@return boolean isTestBuild
 function IsTestBuild() end
 

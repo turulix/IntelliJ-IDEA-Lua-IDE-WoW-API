@@ -5,6 +5,9 @@ function AbortDrag() end
 ---@return boolean canChangeAttributes
 function CanChangeAttribute() end
 
+
+function ClearAlphaGradient() end
+
 ---@param name cstring @ [OPTIONAL]
 ---@param drawLayer DrawLayer @ [OPTIONAL]
 ---@param templateName cstring @ [OPTIONAL]
@@ -267,6 +270,10 @@ function RotateTextures(radians, x, y) end
 
 ---@param alpha SingleColorValue 
 function SetAlpha(alpha) end
+
+---@param index number 
+---@param gradient vector2 
+function SetAlphaGradient(index, gradient) end
 
 ---@param attributeName cstring 
 ---@param value cstring 

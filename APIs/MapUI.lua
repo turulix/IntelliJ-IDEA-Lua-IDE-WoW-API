@@ -157,6 +157,9 @@ function C_Map.IsMapValidForNavBarDropdown(uiMapID) end
 ---@return boolean hasArt
 function C_Map.MapHasArt(uiMapID) end
 
+---@param uiMapID number @ [OPTIONAL]
+function C_Map.OpenWorldMap(uiMapID) end
+
 ---@param uiMapID number 
 function C_Map.RequestPreloadMap(uiMapID) end
 

@@ -16,6 +16,9 @@ function GetErrorCallstackHeight() end
 ---@return number, number, cstring, number totalElapsedTime, numExecutedHandlers, slowestHandlerName, slowestHandlerTime
 function GetEventTime(eventProfileIndex) end
 
+---@return string location
+function GetSourceLocation() end
+
 ---@param text cstring 
 function RunScript(text) end
 

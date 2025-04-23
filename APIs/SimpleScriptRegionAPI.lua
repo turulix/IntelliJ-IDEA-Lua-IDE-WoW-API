@@ -3,6 +3,14 @@
 function CanChangeProtectedState() end
 
 
+---@return boolean canPropagate
+function CanPropagateMouseClicks() end
+
+
+---@return boolean canPropagate
+function CanPropagateMouseMotion() end
+
+
 ---@return boolean collapsesLayout
 function CollapsesLayout() end
 

@@ -105,6 +105,7 @@ AccountTransType.CharacterItems = 57
 AccountTransType.CurrencyTransferLog = 58
 AccountTransType.LgVendorPurchase = 59
 AccountTransType.SaveWarbandGroups = 60
+AccountTransType.Profile = 61
 
 ---@class BnetAccountFlag
 BnetAccountFlag = {}
@@ -846,6 +847,11 @@ ChrModelFeatureFlags.Mounts = 16
 ChrModelFeatureFlags.HunterPets = 32
 ChrModelFeatureFlags.Players = 64
 
+---@class NewCharGear
+NewCharGear = {}
+NewCharGear.Start = 0
+NewCharGear.Preview = 1
+
 ---@class CharCustomizationCategory
 ---@field id number 
 ---@field orderIndex number 
@@ -1080,6 +1086,17 @@ ClubRoleIdentifier.Leader = 2
 ClubRoleIdentifier.Moderator = 3
 ClubRoleIdentifier.Member = 4
 
+---@class ColorOverride
+ColorOverride = {}
+ColorOverride.ItemQualityPoor = 0
+ColorOverride.ItemQualityCommon = 1
+ColorOverride.ItemQualityUncommon = 2
+ColorOverride.ItemQualityRare = 3
+ColorOverride.ItemQualityEpic = 4
+ColorOverride.ItemQualityLegendary = 5
+ColorOverride.ItemQualityArtifact = 6
+ColorOverride.ItemQualityAccount = 7
+
 ---@class TrackedSpellCategory
 TrackedSpellCategory = {}
 TrackedSpellCategory.None = 0
@@ -1152,6 +1169,22 @@ EncounterTrackingInfo = {}
 ---@field currencyType number|nil 
 ---@field cost BigUInteger|nil 
 VendorTrackingInfo = {}
+
+---@class CooldownSetSpellFlags
+CooldownSetSpellFlags = {}
+CooldownSetSpellFlags.HideAura = 1
+
+---@class CooldownViewerCategory
+CooldownViewerCategory = {}
+CooldownViewerCategory.Essential = 0
+CooldownViewerCategory.Utility = 1
+CooldownViewerCategory.TrackedBuff = 2
+CooldownViewerCategory.TrackedBar = 3
+
+---@class CooldownViewerUIConstants
+CooldownViewerUIConstants = {}
+CooldownViewerUIConstants.COOLDOWN_VIEWER_LINKED_SPELLS_SIZE = 4
+CooldownViewerUIConstants.COOLDOWN_VIEWER_CATEGORY_SET_SIZE = 16
 
 ---@class CallingStates
 CallingStates = {}
@@ -1557,6 +1590,7 @@ CurrencySource.ConvertItemsToCurrencyAndReputation = 62
 CurrencySource.PhBuffer_63 = 63
 CurrencySource.SpellSkipLinkedCurrency = 64
 CurrencySource.AccountTransfer = 65
+CurrencySource.RenownRepGainInitialVisibility = 66
 
 ---@class CursorStyle
 CursorStyle = {}
@@ -1786,11 +1820,7 @@ CurioRarity.Epic = 4
 DelvesConsts = {}
 DelvesConsts.DELVES_MIN_PLAYER_LEVEL_CONTENT_TUNING_ID = 2677
 DelvesConsts.DELVES_NORMAL_KEY_CURRENCY_ID = 3028
-DelvesConsts.DELVES_COMPANION_TOOLTIP_WIDGET_SET_ID = 1331
 DelvesConsts.DELVES_COMPANION_INFO_SELECTION_CHARACTER_DATA_ELEMENT_ID = 13
-DelvesConsts.COMPANION_SEASONAL_LEVEL_START = 10
-DelvesConsts.BRANN_MAX_LEVEL = 60
-DelvesConsts.BRANN_XP_FACTION_ID = 1203
 
 ---@class ActionBarOrientation
 ActionBarOrientation = {}
@@ -1835,6 +1865,28 @@ BagsOrientation = {}
 BagsOrientation.Horizontal = 0
 BagsOrientation.Vertical = 1
 
+---@class CooldownViewerBarContent
+CooldownViewerBarContent = {}
+CooldownViewerBarContent.IconAndName = 0
+CooldownViewerBarContent.IconOnly = 1
+CooldownViewerBarContent.NameOnly = 2
+
+---@class CooldownViewerIconDirection
+CooldownViewerIconDirection = {}
+CooldownViewerIconDirection.Left = 0
+CooldownViewerIconDirection.Right = 1
+
+---@class CooldownViewerOrientation
+CooldownViewerOrientation = {}
+CooldownViewerOrientation.Horizontal = 0
+CooldownViewerOrientation.Vertical = 1
+
+---@class CooldownViewerVisibleSetting
+CooldownViewerVisibleSetting = {}
+CooldownViewerVisibleSetting.Always = 0
+CooldownViewerVisibleSetting.InCombat = 1
+CooldownViewerVisibleSetting.Hidden = 2
+
 ---@class EditModeAccountSetting
 EditModeAccountSetting = {}
 EditModeAccountSetting.ShowGrid = 0
@@ -1865,6 +1917,7 @@ EditModeAccountSetting.ShowPetFrame = 24
 EditModeAccountSetting.ShowTimerBars = 25
 EditModeAccountSetting.ShowVehicleSeatIndicator = 26
 EditModeAccountSetting.ShowArchaeologyBar = 27
+EditModeAccountSetting.ShowCooldownViewer = 28
 
 ---@class EditModeActionBarSetting
 EditModeActionBarSetting = {}
@@ -1931,6 +1984,27 @@ EditModeChatFrameSetting.WidthHundreds = 0
 EditModeChatFrameSetting.WidthTensAndOnes = 1
 EditModeChatFrameSetting.HeightHundreds = 2
 EditModeChatFrameSetting.HeightTensAndOnes = 3
+
+---@class EditModeCooldownViewerSetting
+EditModeCooldownViewerSetting = {}
+EditModeCooldownViewerSetting.Orientation = 0
+EditModeCooldownViewerSetting.IconLimit = 1
+EditModeCooldownViewerSetting.IconDirection = 2
+EditModeCooldownViewerSetting.IconSize = 3
+EditModeCooldownViewerSetting.IconPadding = 4
+EditModeCooldownViewerSetting.Opacity = 5
+EditModeCooldownViewerSetting.VisibleSetting = 6
+EditModeCooldownViewerSetting.BarContent = 7
+EditModeCooldownViewerSetting.HideWhenInactive = 8
+EditModeCooldownViewerSetting.ShowTimer = 9
+EditModeCooldownViewerSetting.ShowTooltips = 10
+
+---@class EditModeCooldownViewerSystemIndices
+EditModeCooldownViewerSystemIndices = {}
+EditModeCooldownViewerSystemIndices.Essential = 1
+EditModeCooldownViewerSystemIndices.Utility = 2
+EditModeCooldownViewerSystemIndices.BuffIcon = 3
+EditModeCooldownViewerSystemIndices.BuffBar = 4
 
 ---@class EditModeDurabilityFrameSetting
 EditModeDurabilityFrameSetting = {}
@@ -2006,6 +2080,7 @@ EditModeSystem.DurabilityFrame = 16
 EditModeSystem.TimerBars = 17
 EditModeSystem.VehicleSeatIndicator = 18
 EditModeSystem.ArchaeologyBar = 19
+EditModeSystem.CooldownViewer = 20
 
 ---@class EditModeTimerBarsSetting
 EditModeTimerBarsSetting = {}
@@ -2087,6 +2162,11 @@ EditModeConsts.EditModeDefaultGridSpacing = 100
 EditModeConsts.EditModeMinGridSpacing = 20
 EditModeConsts.EditModeMaxGridSpacing = 300
 EditModeConsts.EditModeMaxLayoutsPerType = 5
+
+---@class EncodingLimits
+EncodingLimits = {}
+EncodingLimits.EncodingDecompressSizeLimit = 104857600
+EncodingLimits.EncodingStackSizeLimit = 100
 
 ---@class JournalEncounterFlags
 JournalEncounterFlags = {}
@@ -2185,19 +2265,6 @@ GarrisonType.Type_7_0_Garrison = 3
 GarrisonType.Type_8_0_Garrison = 9
 GarrisonType.Type_9_0_Garrison = 111
 
----@class EventRealmQueues
-EventRealmQueues = {}
-EventRealmQueues.None = 0
-EventRealmQueues.PlunderstormSolo = 1
-EventRealmQueues.PlunderstormDuo = 2
-EventRealmQueues.PlunderstormTrio = 4
-EventRealmQueues.PlunderstormTraining = 8
-
----@class GameEnvironment
-GameEnvironment = {}
-GameEnvironment.WoW = 0
-GameEnvironment.WoWLabs = 1
-
 ---@class GamePadPowerLevel
 GamePadPowerLevel = {}
 GamePadPowerLevel.Critical = 0
@@ -2206,6 +2273,14 @@ GamePadPowerLevel.Medium = 2
 GamePadPowerLevel.High = 3
 GamePadPowerLevel.Wired = 4
 GamePadPowerLevel.Unknown = 5
+
+---@class EventRealmQueues
+EventRealmQueues = {}
+EventRealmQueues.None = 0
+EventRealmQueues.PlunderstormSolo = 1
+EventRealmQueues.PlunderstormDuo = 2
+EventRealmQueues.PlunderstormTrio = 4
+EventRealmQueues.PlunderstormTraining = 8
 
 ---@class GameRuleFlags
 GameRuleFlags = {}
@@ -2558,7 +2633,9 @@ GossipNpcOption.ProfessionRespec = 58
 GossipNpcOption.Placeholder_1 = 59
 GossipNpcOption.Placeholder_2 = 60
 GossipNpcOption.Placeholder_3 = 61
-GossipNpcOption.Placeholder_4 = 62
+GossipNpcOption.GuildRename = 62
+GossipNpcOption.Placeholder_4 = 63
+GossipNpcOption.ItemUpgrade = 64
 
 ---@class GossipNpcOptionDisplayFlags
 GossipNpcOptionDisplayFlags = {}
@@ -2569,6 +2646,60 @@ GossipOptionRecFlags = {}
 GossipOptionRecFlags.QuestLabelPrepend = 1
 GossipOptionRecFlags.HideOptionIDFromClient = 2
 GossipOptionRecFlags.PlayMovieLabelPrepend = 4
+
+---@class GuildErrorType
+GuildErrorType = {}
+GuildErrorType.Success = 0
+GuildErrorType.UnknownError = 1
+GuildErrorType.AlreadyInGuild = 2
+GuildErrorType.TargetAlreadyInGuild = 3
+GuildErrorType.InvitedToGuild = 4
+GuildErrorType.TargetInvitedToGuild = 5
+GuildErrorType.NameInvalid = 6
+GuildErrorType.NameAlreadyExists = 7
+GuildErrorType.NoPermisson = 8
+GuildErrorType.NotInGuild = 9
+GuildErrorType.TargetNotInGuild = 10
+GuildErrorType.PlayerNotFound = 11
+GuildErrorType.WrongFaction = 12
+GuildErrorType.TargetTooHigh = 13
+GuildErrorType.TargetTooLow = 14
+GuildErrorType.TooManyRanks = 15
+GuildErrorType.TooFewRanks = 16
+GuildErrorType.RanksLocked = 17
+GuildErrorType.RankInUse = 18
+GuildErrorType.Ignored = 19
+GuildErrorType.Busy = 20
+GuildErrorType.TargetLevelTooLow = 21
+GuildErrorType.TargetLevelTooHigh = 22
+GuildErrorType.TooManyMembers = 23
+GuildErrorType.InvalidBankTab = 24
+GuildErrorType.WithdrawLimit = 25
+GuildErrorType.NotEnoughMoney = 26
+GuildErrorType.TeamNotFound = 27
+GuildErrorType.BankTabFull = 28
+GuildErrorType.BadItem = 29
+GuildErrorType.TeamsLocked = 30
+GuildErrorType.TooMuchMoney = 31
+GuildErrorType.WrongBankTab = 32
+GuildErrorType.TooManyCreate = 33
+GuildErrorType.RankRequiresAuthenticator = 34
+GuildErrorType.BankTabLocked = 35
+GuildErrorType.TrialAccount = 36
+GuildErrorType.VeteranAccount = 37
+GuildErrorType.UndeletableDueToLevel = 38
+GuildErrorType.LockedForMove = 39
+GuildErrorType.GuildRepTooLow = 40
+GuildErrorType.CantInviteSelf = 41
+GuildErrorType.HasRestriction = 42
+GuildErrorType.BankNotFound = 43
+GuildErrorType.NewLeaderWrongFaction = 44
+GuildErrorType.GuildBankNotAvailable = 45
+GuildErrorType.NewLeaderWrongRealm = 46
+GuildErrorType.DeleteNoAppropriateLeader = 47
+GuildErrorType.RealmMismatch = 48
+GuildErrorType.InCooldown = 49
+GuildErrorType.ReservationExpired = 50
 
 ---@class GuildTabardInfo
 ---@field backgroundColor colorRGB 
@@ -2813,6 +2944,7 @@ ItemGemColor.Fragrance = 67108864
 ItemGemColor.SingingThunder = 134217728
 ItemGemColor.SingingSea = 268435456
 ItemGemColor.SingingWind = 536870912
+ItemGemColor.FutureUse = 1073741824
 
 ---@class ItemMiscellaneousSubclass
 ItemMiscellaneousSubclass = {}
@@ -2840,18 +2972,6 @@ ItemProfessionSubclass.Skinning = 10
 ItemProfessionSubclass.Jewelcrafting = 11
 ItemProfessionSubclass.Inscription = 12
 ItemProfessionSubclass.Archaeology = 13
-
----@class ItemQuality
-ItemQuality = {}
-ItemQuality.Poor = 0
-ItemQuality.Common = 1
-ItemQuality.Uncommon = 2
-ItemQuality.Rare = 3
-ItemQuality.Epic = 4
-ItemQuality.Legendary = 5
-ItemQuality.Artifact = 6
-ItemQuality.Heirloom = 7
-ItemQuality.WoWToken = 8
 
 ---@class ItemReagentSubclass
 ItemReagentSubclass = {}
@@ -2906,6 +3026,7 @@ ItemSocketType.Fragrance = 26
 ItemSocketType.SingingThunder = 27
 ItemSocketType.SingingSea = 28
 ItemSocketType.SingingWind = 29
+ItemSocketType.FutureUse = 30
 
 ---@class ItemSubclassDisplay
 ItemSubclassDisplay = {}
@@ -3061,6 +3182,10 @@ ItemConsts = {}
 ItemConsts.NUM_ITEM_ENCHANTMENT_SOCKETS = 3
 ItemConsts.MAX_LOOT_OBJECT_ITEMS = 31
 ItemConsts.INVALID_TRANSACTION_BANK_TAB_SLOT = 255
+ItemConsts.DEFAULT_ITEM_SAVE_VERSION = 2
+ItemConsts.CURRENT_ITEM_SAVE_VERSION = 0
+ItemConsts.DEFAULT_ARTIFACT_POWERS_VERSION = 1
+ItemConsts.CURRENT_ARTIFACT_POWERS_VERSION = 0
 
 ---@class ITEM_WEAPON_SUBCLASSConstants
 ITEM_WEAPON_SUBCLASSConstants = {}
@@ -3171,6 +3296,7 @@ PointsModifierSourceType.CreatureHealthMod = 64
 PointsModifierSourceType.FirstTimeQuestCompletionRewards = 65
 PointsModifierSourceType.PointsModifierSet = 66
 PointsModifierSourceType.CurrencyMaxWeeklyDelta = 67
+PointsModifierSourceType.RaidEncounterLevel = 68
 
 ---@class InventoryConstants
 InventoryConstants = {}
@@ -3180,6 +3306,18 @@ InventoryConstants.NumBankBagSlots = 0
 InventoryConstants.NumReagentBagSlots = 0
 InventoryConstants.NumAccountBankSlots = 0
 InventoryConstants.MAX_TRANSACTION_BANK_TABS = 0
+
+---@class ItemQuality
+ItemQuality = {}
+ItemQuality.Poor = 0
+ItemQuality.Common = 1
+ItemQuality.Uncommon = 2
+ItemQuality.Rare = 3
+ItemQuality.Epic = 4
+ItemQuality.Legendary = 5
+ItemQuality.Artifact = 6
+ItemQuality.Heirloom = 7
+ItemQuality.WoWToken = 8
 
 ---@class LFGEntryPlaystyle
 LFGEntryPlaystyle = {}
@@ -3204,6 +3342,29 @@ LFGRole = {}
 LFGRole.Tank = 0
 LFGRole.Healer = 1
 LFGRole.Damage = 2
+
+---@class LFGSlotInvalidReason
+LFGSlotInvalidReason = {}
+LFGSlotInvalidReason.None = 0
+LFGSlotInvalidReason.ExpansionTooLow = 1
+LFGSlotInvalidReason.LevelTooLow = 2
+LFGSlotInvalidReason.LevelTooHigh = 3
+LFGSlotInvalidReason.GearTooLow = 4
+LFGSlotInvalidReason.GearTooHigh = 5
+LFGSlotInvalidReason.RaidLocked = 6
+LFGSlotInvalidReason.LevelTargetTooLow = 7
+LFGSlotInvalidReason.LevelTargetTooHigh = 8
+LFGSlotInvalidReason.AreaNotExplored = 9
+LFGSlotInvalidReason.WrongFaction = 10
+LFGSlotInvalidReason.NoValidRoles = 11
+LFGSlotInvalidReason.EngagedInPvP = 12
+LFGSlotInvalidReason.NoSpec = 13
+LFGSlotInvalidReason.CannotRunAnyChildDungeon = 14
+LFGSlotInvalidReason.Restricted = 15
+LFGSlotInvalidReason.ChromieTime = 16
+LFGSlotInvalidReason.Npe = 17
+LFGSlotInvalidReason.Timerunning = 18
+LFGSlotInvalidReason.PlayerConditionFailed = 19
 
 ---@class PremadeGroupFinderStyle
 PremadeGroupFinderStyle = {}
@@ -3461,6 +3622,11 @@ PerksVendorCategoryType.Toy = 5
 PerksVendorCategoryType.Illusion = 7
 PerksVendorCategoryType.Transmogset = 8
 PerksVendorCategoryType.WarbandScene = 9
+PerksVendorCategoryType.Stipend = 20
+PerksVendorCategoryType.Activity = 21
+PerksVendorCategoryType.GmAdjustment = 22
+PerksVendorCategoryType.Achievement = 23
+PerksVendorCategoryType.Refund = 24
 
 ---@class PetBattleQueueStatus
 PetBattleQueueStatus = {}
@@ -3959,7 +4125,8 @@ PlayerInteractionType.PlaceholderType73 = 72
 PlayerInteractionType.PlaceholderType74 = 73
 PlayerInteractionType.PlaceholderType75 = 74
 PlayerInteractionType.PlaceholderType76 = 75
-PlayerInteractionType.PlaceholderType77 = 76
+PlayerInteractionType.GuildRename = 76
+PlayerInteractionType.PlaceholderType77 = 77
 
 ---@class PlayerMentorshipApplicationResult
 PlayerMentorshipApplicationResult = {}
@@ -4038,6 +4205,7 @@ CraftingOrderDuration.Long = 2
 
 ---@class CraftingOrderFlags
 CraftingOrderFlags = {}
+CraftingOrderFlags.None = 0
 CraftingOrderFlags.IsRecraft = 1
 CraftingOrderFlags.HasNoneReagents = 2
 CraftingOrderFlags.HasSomeReagents = 4
@@ -4734,6 +4902,10 @@ SpellBookSpellBank = {}
 SpellBookSpellBank.Player = 0
 SpellBookSpellBank.Pet = 1
 
+---@class SpellCooldownConsts
+SpellCooldownConsts = {}
+SpellCooldownConsts.GLOBAL_RECOVERY_CATEGORY = 133
+
 ---@class SpellChargeInfo
 ---@field currentCharges number @ Number of charges currently available
 ---@field maxCharges number @ Max number of charges that can be accumulated
@@ -4747,6 +4919,7 @@ SpellChargeInfo = {}
 ---@field duration number @ Cooldown duration in seconds if active; 0 if cooldown is inactive
 ---@field isEnabled boolean @ False if cooldown is on hold (ex: some cooldowns only start after an active spell is cancelled); True otherwise
 ---@field modRate number @ Rate at which cooldown UI should update
+---@field activeCategory number|nil @ Indicates which category is responsible for determining the duration. A nil value indicates the duration was determined through some other logic, e.g. the spell is on hold.
 SpellCooldownInfo = {}
 
 ---@class SpellPowerCostInfo
@@ -4881,6 +5054,8 @@ TooltipDataLineType.ToyFlavorText = 37
 TooltipDataLineType.ToyDescription = 38
 TooltipDataLineType.ToySource = 39
 TooltipDataLineType.GemSocketEnchantment = 40
+TooltipDataLineType.ItemLevel = 41
+TooltipDataLineType.ItemUpgradeLevel = 42
 
 ---@class TooltipDataType
 TooltipDataType = {}
@@ -5512,6 +5687,22 @@ UITextureSliceData = {}
 MapIconUIWidgetSetType = {}
 MapIconUIWidgetSetType.Tooltip = 0
 MapIconUIWidgetSetType.BehindIcon = 1
+
+---@class SpellDisplayBorderColor
+SpellDisplayBorderColor = {}
+SpellDisplayBorderColor.None = 0
+SpellDisplayBorderColor.Black = 1
+SpellDisplayBorderColor.White = 2
+SpellDisplayBorderColor.Red = 3
+SpellDisplayBorderColor.Yellow = 4
+SpellDisplayBorderColor.Orange = 5
+SpellDisplayBorderColor.Purple = 6
+SpellDisplayBorderColor.Green = 7
+SpellDisplayBorderColor.Blue = 8
+
+---@class UIWidgetFlag
+UIWidgetFlag = {}
+UIWidgetFlag.UniversalWidget = 1
 
 ---@class UIWidgetHorizontalDirection
 UIWidgetHorizontalDirection = {}

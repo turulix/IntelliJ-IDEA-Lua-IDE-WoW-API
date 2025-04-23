@@ -195,18 +195,6 @@ MapPinAnimationType = {}
 MapPinAnimationType.None = 0
 MapPinAnimationType.Pulse = 1
 
----@class SpellDisplayBorderColor
-SpellDisplayBorderColor = {}
-SpellDisplayBorderColor.None = 0
-SpellDisplayBorderColor.Black = 1
-SpellDisplayBorderColor.White = 2
-SpellDisplayBorderColor.Red = 3
-SpellDisplayBorderColor.Yellow = 4
-SpellDisplayBorderColor.Orange = 5
-SpellDisplayBorderColor.Purple = 6
-SpellDisplayBorderColor.Green = 7
-SpellDisplayBorderColor.Blue = 8
-
 ---@class SpellDisplayIconDisplayType
 SpellDisplayIconDisplayType = {}
 SpellDisplayIconDisplayType.Buff = 0
@@ -269,10 +257,6 @@ UIWidgetBlendModeType = {}
 UIWidgetBlendModeType.Opaque = 0
 UIWidgetBlendModeType.Additive = 1
 
----@class UIWidgetFlag
-UIWidgetFlag = {}
-UIWidgetFlag.UniversalWidget = 1
-
 ---@class UIWidgetFontType
 UIWidgetFontType = {}
 UIWidgetFontType.Normal = 0
@@ -294,6 +278,13 @@ UIWidgetRewardShownState = {}
 UIWidgetRewardShownState.Hidden = 0
 UIWidgetRewardShownState.ShownEarned = 1
 UIWidgetRewardShownState.ShownUnearned = 2
+
+---@class UIWidgetTextFormatType
+UIWidgetTextFormatType = {}
+UIWidgetTextFormatType.None = 0
+UIWidgetTextFormatType.TimeOneLevel = 1
+UIWidgetTextFormatType.TimeTwoLevel = 2
+UIWidgetTextFormatType.LeadingZeroesWithSixDigits = 3
 
 ---@class UIWidgetTextSizeType
 UIWidgetTextSizeType = {}
@@ -332,6 +323,7 @@ UIWidgetTooltipLocation.Bottom = 8
 UIWidgetUpdateAnimType = {}
 UIWidgetUpdateAnimType.None = 0
 UIWidgetUpdateAnimType.Flash = 1
+UIWidgetUpdateAnimType.FlashAndAnimateNumber = 2
 
 ---@class WidgetAnimationType
 WidgetAnimationType = {}
@@ -1006,6 +998,8 @@ TextureAndTextRowVisualizationInfo = {}
 ---@field tooltip string 
 ---@field tooltipLoc UIWidgetTooltipLocation 
 ---@field textSizeType UIWidgetTextureAndTextSizeType 
+---@field textFormatType UIWidgetTextFormatType 
+---@field updateAnimType UIWidgetUpdateAnimType 
 ---@field widgetSizeSetting number 
 ---@field textureKit textureKit 
 ---@field frameTextureKit textureKit 

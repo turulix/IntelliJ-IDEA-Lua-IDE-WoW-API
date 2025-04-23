@@ -5,6 +5,9 @@ C_ChatInfo = {}
 ---@return boolean canSpeakLanguage
 function C_ChatInfo.CanPlayerSpeakLanguage(languageId) end
 
+---@param confirmNumber number 
+function C_ChatInfo.DropCautionaryChatMessage(confirmNumber) end
+
 ---@param channelIdentifier cstring 
 ---@return ChatChannelInfo|nil info
 function C_ChatInfo.GetChannelInfoFromIdentifier(channelIdentifier) end
@@ -144,6 +147,9 @@ function C_ChatInfo.SendAddonMessage(prefix, message, chatType, target) end
 ---@param target cstring @ Only applies for targeted channels [OPTIONAL]
 ---@return SendAddonMessageResult|nil result
 function C_ChatInfo.SendAddonMessageLogged(prefix, message, chatType, target) end
+
+---@param confirmNumber number 
+function C_ChatInfo.SendCautionaryChatMessage(confirmNumber) end
 
 ---@param firstChannelIndex luaIndex 
 ---@param secondChannelIndex luaIndex 

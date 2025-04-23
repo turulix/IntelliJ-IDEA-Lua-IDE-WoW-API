@@ -37,6 +37,10 @@ function C_AddOns.GetAddOnEnableState(name, character) end
 function C_AddOns.GetAddOnInfo(name) end
 
 ---@param name uiAddon 
+---@return number interfaceVersion
+function C_AddOns.GetAddOnInterfaceVersion(name) end
+
+---@param name uiAddon 
 ---@param variable cstring 
 ---@return cstring value
 function C_AddOns.GetAddOnMetadata(name, variable) end

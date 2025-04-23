@@ -9,6 +9,10 @@ function C_SplashScreen.CanViewSplashScreen() end
 ---@param fromGameMenu boolean 
 function C_SplashScreen.RequestLatestSplashScreen(fromGameMenu) end
 
+function C_SplashScreen.SendSplashScreenActionLaunchedTelem() end
+
+function C_SplashScreen.SendSplashScreenCloseTelem() end
+
 ---@class SplashScreenType
 SplashScreenType = {}
 SplashScreenType.WhatsNew = 0

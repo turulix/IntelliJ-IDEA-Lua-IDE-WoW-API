@@ -120,9 +120,6 @@ function C_SpellBook.GetSpellBookItemType(spellBookItemSlotIndex, spellBookItemS
 ---@return SpellBookSkillLineInfo skillLineInfo
 function C_SpellBook.GetSpellBookSkillLineInfo(skillLineIndex) end
 
----@return number spellIDs
-function C_SpellBook.GetTrackedNameplateCooldownSpells() end
-
 --- Returns nothing if player has no pet spells
 ---@return number, string numPetSpells, petNameToken
 function C_SpellBook.HasPetSpells() end

@@ -137,6 +137,14 @@ function SetParticleOverrideScale(scale) end
 ---@param pitch number 
 function SetPitch(pitch) end
 
+---@param characterIndex number @ [OPTIONAL]
+---@param sheatheWeapons boolean 
+---@param autoDress boolean 
+---@param hideWeapons boolean 
+---@param usePlayerNativeForm boolean 
+---@return boolean success
+function SetPlayerModelFromGlues(characterIndex, sheatheWeapons, autoDress, hideWeapons, usePlayerNativeForm) end
+
 ---@param positionX number 
 ---@param positionY number 
 ---@param positionZ number 
@@ -168,4 +176,10 @@ function Show() end
 
 
 function StopAnimationKit() end
+
+---@param itemLinkOrItemModifiedAppearanceID cstring 
+---@param handSlotName cstring @ [OPTIONAL]
+---@param spellEnchantmentID number 
+---@return ItemTryOnReason|nil reason
+function TryOn(itemLinkOrItemModifiedAppearanceID, handSlotName, spellEnchantmentID) end
 

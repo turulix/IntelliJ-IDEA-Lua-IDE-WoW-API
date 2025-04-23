@@ -207,9 +207,6 @@ function SetFont(fontFile, height, flags) end
 ---@param font SimpleFont 
 function SetFontObject(font) end
 
----@param ignoreParentAlpha boolean 
-function SetFontStringIgnoreParentAlpha(ignoreParentAlpha) end
-
 ---@param colorR number 
 ---@param colorG number 
 ---@param colorB number 

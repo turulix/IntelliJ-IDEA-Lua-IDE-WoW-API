@@ -8,6 +8,9 @@ function C_Texture.ClearTitleIconTexture(texture) end
 ---@return number elementID
 function C_Texture.GetAtlasElementID(atlas) end
 
+---@return textureAtlas atlases
+function C_Texture.GetAtlasElements() end
+
 ---@param atlas textureAtlas 
 ---@return number atlasID
 function C_Texture.GetAtlasID(atlas) end
@@ -46,6 +49,7 @@ TitleIconVersion.Medium = 1
 TitleIconVersion.Large = 2
 
 ---@class AtlasInfo
+---@field elementName cstring 
 ---@field width number 
 ---@field height number 
 ---@field rawSize vector2 

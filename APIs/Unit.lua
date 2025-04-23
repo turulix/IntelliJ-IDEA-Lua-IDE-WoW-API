@@ -237,11 +237,11 @@ function UnitClassification(unit) end
 function UnitControllingVehicle(unit) end
 
 ---@param unit UnitToken 
----@return cstring result
+---@return cstring, number name, id
 function UnitCreatureFamily(unit) end
 
 ---@param unit UnitToken 
----@return cstring result
+---@return cstring, number name, id
 function UnitCreatureType(unit) end
 
 ---@param unit UnitToken 
@@ -345,6 +345,11 @@ function UnitInAnyGroup(unit, partyIndex) end
 ---@param partyIndex luaIndex @ [OPTIONAL]
 ---@return luaIndex|nil result
 function UnitInBattleground(unit, partyIndex) end
+
+--- Checks whether this unit cannot see your party chat because it is in an instance group
+---@param unit UnitToken 
+---@return boolean inOtherParty
+function UnitInOtherParty(unit) end
 
 ---@param unit UnitToken 
 ---@param partyIndex luaIndex @ [OPTIONAL]
@@ -451,6 +456,15 @@ function UnitIsGameObject(unit) end
 ---@return boolean result
 function UnitIsGhost(unit) end
 
+---@param unit UnitToken 
+---@return boolean isAssistant
+function UnitIsGroupAssistant(unit) end
+
+---@param unit UnitToken 
+---@param partyCategory luaIndex @ [OPTIONAL]
+---@return boolean isLeader
+function UnitIsGroupLeader(unit, partyCategory) end
+
 ---@param unit cstring 
 ---@return boolean result
 function UnitIsInMyGuild(unit) end
@@ -534,6 +548,10 @@ function UnitIsVisible(unit) end
 ---@return boolean result
 function UnitIsWildBattlePet(unit) end
 
+---@param unit UnitToken 
+---@return boolean isLeader
+function UnitLeadsAnyGroup(unit) end
+
 ---@param name cstring 
 ---@return number result
 function UnitLevel(name) end
@@ -557,6 +575,10 @@ function UnitNumPowerBarTimers(unit) end
 ---@param unit UnitToken 
 ---@return boolean result
 function UnitOnTaxi(unit) end
+
+---@param unit UnitToken 
+---@return WOWGUID ownerGUID
+function UnitOwnerGUID(unit) end
 
 ---@param unit UnitToken 
 ---@return string result
@@ -810,6 +832,16 @@ UnitCastingInfoResult = {}
 ---@field isEmpowered boolean 
 ---@field numEmpowerStages number 
 UnitChannelInfoResult = {}
+
+---@class UnitCreatureFamilyResult
+---@field name cstring 
+---@field id number 
+UnitCreatureFamilyResult = {}
+
+---@class UnitCreatureTypeResult
+---@field name cstring 
+---@field id number 
+UnitCreatureTypeResult = {}
 
 ---@class UnitPowerBarInfo
 ---@field ID number 

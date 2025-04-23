@@ -30,7 +30,6 @@ function C_WarbandScene.SetFavorite(warbandSceneID, favorite) end
 ---@field description cstring 
 ---@field source cstring 
 ---@field quality number 
----@field qualityColor colorRGB 
 ---@field textureKit textureKit 
 ---@field isFavorite boolean 
 ---@field hasFanfare boolean 

@@ -1,8 +1,9 @@
 ---@class C_ActionBar @ActionBar
 C_ActionBar = {}
 
+--- Used in conjunction with ActionRangeCheckUpdate to inform the UI when an action goes in or out of range with its current target.
 ---@param actionID luaIndex 
----@param enable boolean 
+---@param enable boolean @ True if changes in range for the action should dispatch ActionRangeCheckUpdate. False if the action no longer needs the event.
 function C_ActionBar.EnableActionRangeCheck(actionID, enable) end
 
 ---@param flyoutID number 
